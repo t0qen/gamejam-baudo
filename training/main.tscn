@@ -18,17 +18,17 @@ offset_right = 283.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0860853, 0.00247986, 0.115774, 1)
+color = Color(0, 0.660451, 0.730741, 1)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 23.0
 offset_top = 14.0
 offset_right = 263.0
 offset_bottom = 84.0
-text = "Game Jam 
-Petite modif"
+text = "Game Jam"
 label_settings = SubResource("LabelSettings_u13ya")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(127, 75)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnmaor2q3gsg6"]
 
-[ext_resource type="Script" uid="uid://ci5sy7md47315" path="res://training/main.gd" id="1_7ggy6"]
+[ext_resource type="Script" path="res://training/main.gd" id="1_7ggy6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u13ya"]
 font_size = 23
@@ -22,9 +22,9 @@ color = Color(0.0860853, 0.00247986, 0.115774, 1)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 23.0
-offset_top = 7.0
-offset_right = 243.0
-offset_bottom = 77.0
+offset_top = 14.0
+offset_right = 263.0
+offset_bottom = 84.0
 text = "Game Jam 
 Ajoute ce que tu veux"
 label_settings = SubResource("LabelSettings_u13ya")

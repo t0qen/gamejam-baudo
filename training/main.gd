@@ -1,7 +1,9 @@
 extends Node2D
 
 func _ready() -> void:
-	pass
+	#j'ajoute le code qui va bien
+	print("started !!")
+
 
 func _process(delta: float) -> void:
 	pass

@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnmaor2q3gsg6"]
-
-[ext_resource type="Script" uid="uid://ci5sy7md47315" path="res://training/main.gd" id="1_7ggy6"]
+[gd_scene load_steps=2 format=3 uid="uid://bnmaor2q3gsg6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u13ya"]
 font_size = 23
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_7ggy6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8

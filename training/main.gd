@@ -8,3 +8,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 #un commmmmm
+#ça c'est du com

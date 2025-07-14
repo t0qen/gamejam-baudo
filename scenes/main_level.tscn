@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djna2erauxmv3"]
+
+[ext_resource type="PackedScene" uid="uid://d1hs3tnq2s2co" path="res://scenes/player.tscn" id="1_v3uhd"]
+[ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/ennemi.tscn" id="2_ufxs0"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_v3uhd")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -68)
+position_smoothing_enabled = true
+
+[node name="Ennemi" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(844, 317)

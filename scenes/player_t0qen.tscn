@@ -1,0 +1,105 @@
+[gd_scene load_steps=18 format=3 uid="uid://cl71r21okvrwm"]
+
+[ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
+[ext_resource type="Texture2D" uid="uid://ccyimd5mj842t" path="res://assets/sprites/zbaudo/idle/frame_00_delay-0.03s.png" id="1_y076m"]
+[ext_resource type="Texture2D" uid="uid://hf3py5xgk1ud" path="res://assets/sprites/zbaudo/idle/frame_01_delay-0.03s.png" id="2_i5eyg"]
+[ext_resource type="Texture2D" uid="uid://duidlk5o01w12" path="res://assets/sprites/zbaudo/idle/frame_02_delay-0.03s.png" id="3_oor8d"]
+[ext_resource type="Texture2D" uid="uid://s7yqof0vhed5" path="res://assets/sprites/zbaudo/idle/frame_03_delay-0.03s.png" id="4_gmldv"]
+[ext_resource type="Texture2D" uid="uid://dag3tjbp4g0cg" path="res://assets/sprites/zbaudo/idle/frame_04_delay-0.03s.png" id="5_afc15"]
+[ext_resource type="Texture2D" uid="uid://b12sphcp6lcx3" path="res://assets/sprites/zbaudo/idle/frame_05_delay-0.03s.png" id="6_pmbis"]
+[ext_resource type="Texture2D" uid="uid://bl8fv2svio8i3" path="res://assets/sprites/zbaudo/idle/frame_06_delay-0.03s.png" id="7_briq0"]
+[ext_resource type="Texture2D" uid="uid://176jiytn1elq" path="res://assets/sprites/zbaudo/idle/frame_07_delay-0.03s.png" id="8_sakxc"]
+[ext_resource type="Texture2D" uid="uid://cnr7rd6r742yl" path="res://assets/sprites/zbaudo/idle/frame_08_delay-0.03s.png" id="9_yxxkc"]
+[ext_resource type="Texture2D" uid="uid://cvy76e4454s4u" path="res://assets/sprites/zbaudo/idle/frame_09_delay-0.03s.png" id="10_7dt7u"]
+[ext_resource type="Texture2D" uid="uid://drtcu1c05ubae" path="res://assets/sprites/zbaudo/idle/frame_10_delay-0.03s.png" id="11_ml6vr"]
+[ext_resource type="Texture2D" uid="uid://dfrr4r3qawcri" path="res://assets/sprites/zbaudo/idle/frame_11_delay-0.03s.png" id="12_ofp0g"]
+[ext_resource type="Texture2D" uid="uid://docf7g623bbhh" path="res://assets/sprites/zbaudo/idle/frame_12_delay-0.03s.png" id="13_sc1ns"]
+[ext_resource type="Texture2D" uid="uid://c7jhlhomp76pf" path="res://assets/sprites/zbaudo/idle/frame_14_delay-0.03s.png" id="14_dh2ps"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14vq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y076m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i5eyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oor8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gmldv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_afc15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pmbis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_briq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sakxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yxxkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7dt7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ml6vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ofp0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sc1ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dh2ps")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3idn"]
+radius = 15.0
+height = 86.0
+
+[node name="player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_u21xk")
+speed = 600
+friction = 0.2
+acceleration = 0.4
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_14vq2")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.482244
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_e3idn")
+debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
+
+[node name="timers" type="Node" parent="."]
+
+[node name="dash_duration" type="Timer" parent="timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="dash_delay" type="Timer" parent="timers"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]

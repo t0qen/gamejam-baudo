@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://c12f2067hvmtk"]
 
 [ext_resource type="Texture2D" uid="uid://ccyimd5mj842t" path="res://assets/sprites/zbaudo/idle/frame_00_delay-0.03s.png" id="1_b0o37"]
-[ext_resource type="Script" uid="uid://dr7g7d4bktyks" path="res://scripts/enemy.gd" id="1_veqxe"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_veqxe"]
 [ext_resource type="Texture2D" uid="uid://hf3py5xgk1ud" path="res://assets/sprites/zbaudo/idle/frame_01_delay-0.03s.png" id="2_veqxe"]
 [ext_resource type="Texture2D" uid="uid://duidlk5o01w12" path="res://assets/sprites/zbaudo/idle/frame_02_delay-0.03s.png" id="3_xu3ye"]
 [ext_resource type="Texture2D" uid="uid://s7yqof0vhed5" path="res://assets/sprites/zbaudo/idle/frame_03_delay-0.03s.png" id="4_imkb0"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1hs3tnq2s2co"]
+[gd_scene load_steps=21 format=3 uid="uid://d1hs3tnq2s2co"]
 
 [ext_resource type="Texture2D" uid="uid://ccyimd5mj842t" path="res://assets/sprites/zbaudo/idle/frame_00_delay-0.03s.png" id="1_a8ls1"]
 [ext_resource type="Script" uid="uid://b0kipymrtnvnv" path="res://scripts/player.gd" id="1_qfm1y"]
@@ -77,7 +77,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8ls1"]
 radius = 61.0082
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfm1y"]
+radius = 107.019
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_qfm1y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -85,8 +89,25 @@ position = Vector2(0, -73)
 sprite_frames = SubResource("SpriteFrames_gl8cc")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.657733
+frame_progress = 0.7132
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -61)
 shape = SubResource("CircleShape2D_a8ls1")
+
+[node name="PlayerHitbox" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+position = Vector2(0, -61)
+shape = SubResource("CircleShape2D_qfm1y")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+
+[node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]

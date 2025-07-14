@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cl71r21okvrwm"]
+[gd_scene load_steps=35 format=3 uid="uid://cl71r21okvrwm"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
 [ext_resource type="Texture2D" uid="uid://ccyimd5mj842t" path="res://assets/sprites/zbaudo/idle/frame_00_delay-0.03s.png" id="1_y076m"]
@@ -15,6 +15,29 @@
 [ext_resource type="Texture2D" uid="uid://dfrr4r3qawcri" path="res://assets/sprites/zbaudo/idle/frame_11_delay-0.03s.png" id="12_ofp0g"]
 [ext_resource type="Texture2D" uid="uid://docf7g623bbhh" path="res://assets/sprites/zbaudo/idle/frame_12_delay-0.03s.png" id="13_sc1ns"]
 [ext_resource type="Texture2D" uid="uid://c7jhlhomp76pf" path="res://assets/sprites/zbaudo/idle/frame_14_delay-0.03s.png" id="14_dh2ps"]
+[ext_resource type="Texture2D" uid="uid://cnkgtivpbwruw" path="res://assets/sprites/zbaudo/run/frame_00_delay-0.03s.png" id="16_8vae4"]
+[ext_resource type="Texture2D" uid="uid://cho04187xdo2t" path="res://assets/sprites/zbaudo/run/frame_01_delay-0.03s.png" id="17_14vq2"]
+[ext_resource type="Texture2D" uid="uid://dqvbbpkfwwkj6" path="res://assets/sprites/zbaudo/run/frame_02_delay-0.03s.png" id="18_e3idn"]
+[ext_resource type="Texture2D" uid="uid://cqw72go6ah3ye" path="res://assets/sprites/zbaudo/run/frame_03_delay-0.03s.png" id="19_357su"]
+[ext_resource type="Texture2D" uid="uid://cye8aru4c0qej" path="res://assets/sprites/zbaudo/run/frame_04_delay-0.03s.png" id="20_dqh25"]
+[ext_resource type="Texture2D" uid="uid://va0j7uixahn7" path="res://assets/sprites/zbaudo/run/frame_05_delay-0.03s.png" id="21_8e4ti"]
+[ext_resource type="Texture2D" uid="uid://cwksg08138mdr" path="res://assets/sprites/zbaudo/run/frame_06_delay-0.03s.png" id="22_j10at"]
+[ext_resource type="Texture2D" uid="uid://bphoca30pg6d" path="res://assets/sprites/zbaudo/run/frame_07_delay-0.03s.png" id="23_dwwhb"]
+[ext_resource type="Texture2D" uid="uid://bqwup2pil8woj" path="res://assets/sprites/zbaudo/run/frame_08_delay-0.03s.png" id="24_hl6bt"]
+[ext_resource type="Texture2D" uid="uid://cc5qgpi6ufrji" path="res://assets/sprites/zbaudo/run/frame_09_delay-0.03s.png" id="25_skvvj"]
+[ext_resource type="Texture2D" uid="uid://d1c71metxyhsd" path="res://assets/sprites/zbaudo/run/frame_10_delay-0.03s.png" id="26_6dns4"]
+[ext_resource type="Texture2D" uid="uid://dkfxeh4k8p6vf" path="res://assets/sprites/zbaudo/run/frame_11_delay-0.03s.png" id="27_v2hri"]
+[ext_resource type="Texture2D" uid="uid://dgg2r2hy82ti2" path="res://assets/sprites/zbaudo/run/frame_12_delay-0.03s.png" id="28_rj5d2"]
+[ext_resource type="Texture2D" uid="uid://mi5blal725f8" path="res://assets/sprites/zbaudo/run/frame_13_delay-0.03s.png" id="29_yw0he"]
+[ext_resource type="Texture2D" uid="uid://c50vp4huekx14" path="res://assets/sprites/zbaudo/run/frame_14_delay-0.03s.png" id="30_b3p7f"]
+[ext_resource type="Texture2D" uid="uid://f7trvnonf07a" path="res://assets/sprites/zbaudo/run/frame_15_delay-0.03s.png" id="31_0kjhd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3idn"]
+radius = 27.0
+height = 120.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
+radius = 107.019
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_14vq2"]
 animations = [{
@@ -63,14 +86,64 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 30.0
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_8vae4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_14vq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_e3idn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_357su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dqh25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8e4ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_j10at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_dwwhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_hl6bt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_skvvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6dns4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_v2hri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rj5d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_yw0he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_b3p7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_0kjhd")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3idn"]
-radius = 15.0
-height = 86.0
-
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_u21xk")
 speed = 600
@@ -78,16 +151,9 @@ friction = 0.2
 acceleration = 0.4
 
 [node name="camera" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
-position_smoothing_enabled = true
-
-[node name="sprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_14vq2")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.482244
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
 shape = SubResource("CapsuleShape2D_e3idn")
 debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 
@@ -101,5 +167,25 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="deal_attack_timer" type="Timer" parent="timers"]
+wait_time = 0.5
+
+[node name="attack_cooldown" type="Timer" parent="timers"]
+
+[node name="PlayerHitbox" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+shape = SubResource("CircleShape2D_u21xk")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_14vq2")
+animation = &"run"
+autoplay = "idle"
+
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]
+[connection signal="timeout" from="timers/deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="timers/attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]

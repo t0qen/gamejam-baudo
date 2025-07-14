@@ -70,8 +70,10 @@ func attack():
 		global.player_current_attack = true
 		attack_ip = true
 		$deal_attack_timer.start()
+		print("deal_attack_timer.start")
 
 func _on_deal_attack_timer_timeout() -> void:
 	$deal_attack_timer.stop()
+	print("deal_attack_timer.stop")
 	global.player_current_attack = false
 	attack_ip = false

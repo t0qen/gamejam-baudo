@@ -89,6 +89,7 @@ height = 120.0
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_mask = 2
+motion_mode = 1
 script = ExtResource("1_veqxe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

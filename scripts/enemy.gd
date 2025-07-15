@@ -32,19 +32,17 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		
 	move_and_slide()
+		
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
+		player_chase = true
 		if can_rotate:
 			can_rotate = false
 			DetectionRotation += 1
 			$PlayerDetection.rotation = DetectionRotation / 2
 			$RotationDelay.start(0.5)
-
-func _on_player_detection_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		player_chase = true
-
+			
 func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_chase = false
@@ -54,6 +52,7 @@ func enemy():
 
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
+		print("ENTERED")
 		player_chase = false
 		player_inattack_zone = true
 

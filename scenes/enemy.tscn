@@ -78,16 +78,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shcg2"]
-radius = 27.0
-height = 120.0
+radius = 11.0
+height = 32.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_veqxe")
-speed = 50.0
 
 [node name="PlayerDetection" type="Area2D" parent="."]
-collision_mask = 7
+collision_layer = 4
 
 [node name="PlayerDetectionCollisions" type="CollisionPolygon2D" parent="PlayerDetection"]
 position = Vector2(-1, 61)
@@ -99,7 +100,8 @@ polygon = PackedVector2Array(397, -192, 430, -104, 443, -2, 430, 109, 401, 180, 
 
 [node name="EnemyHitbox" type="Area2D" parent="."]
 position = Vector2(0, 61)
-collision_mask = 7
+collision_layer = 4
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
 position = Vector2(0, -61)
@@ -119,6 +121,7 @@ autoplay = "idle"
 one_shot = true
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
+position = Vector2(0, -27)
 shape = SubResource("CapsuleShape2D_shcg2")
 debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 

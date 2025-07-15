@@ -78,6 +78,10 @@ step = 1.0
 value = 500.0
 show_percentage = false
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.928891, 0.149574, 0.525563, 1)
+
 [connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node2D/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="attack_delay" to="." method="_on_attack_delay_timeout"]

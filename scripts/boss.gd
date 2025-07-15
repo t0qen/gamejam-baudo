@@ -22,23 +22,19 @@ func _physics_process(delta: float) -> void:
 		attack_player()
 		$Icon2.look_at(player.global_position)
 		
-	print(" is near ?", global.player_can_attack_boss)
-	print("can attack ?", global.player_current_attack)
 	receive_attack()
 	update_health_bar()
-	print(current_health)
+	#print(current_health)
 	if current_health <= 0:
 		
 		self.queue_free()
-		
-		
+
 func update_health_bar():
 	health_bar.value = current_health
 	
 func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
-			print("PLAYER ATTACK")
 			can_take_damage = false
 			current_health = current_health - 25 
 			await get_tree().create_timer(0.5).timeout

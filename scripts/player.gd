@@ -29,6 +29,7 @@ func player_movement(input, delta):
 func _physics_process(delta):
 	
 	var input = Input.get_vector("move_left","move_right","move_up","move_down")
+	print(input)
 	player_movement(input, delta)
 	
 	if input.x != 0:
@@ -66,14 +67,11 @@ func _on_attack_cooldown_timeout() -> void:
 
 func attack():
 	if Input.is_action_just_pressed("attack"):
-		print("action press")
 		global.player_current_attack = true
 		attack_ip = true
 		$deal_attack_timer.start()
-		print("deal_attack_timer.start")
 
 func _on_deal_attack_timer_timeout() -> void:
 	$deal_attack_timer.stop()
-	print("deal_attack_timer.stop")
 	global.player_current_attack = false
 	attack_ip = false

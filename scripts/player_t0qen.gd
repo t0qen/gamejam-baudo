@@ -62,7 +62,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_boss_attack_area:
 		if can_receive_boss_attack:
 			if boss_node.is_attacking:
-				print("BOSS ATTACKING")
 				boss_attack()
 				can_receive_boss_attack = false
 				await get_tree().create_timer(2).timeout
@@ -110,6 +109,7 @@ func update_health_bar():
 	
 func move(): # func to move player 
 	var direction : Vector2 = get_inputs()
+	#print(direction)
 	if direction.length() > 0: # if player wants to move
 		if !attack_ip:
 			sprite.play("run")
@@ -129,7 +129,6 @@ func dash(): # determine if player can dash and perform dash
 		if can_dash:
 			if !is_dashing:
 				if !attack_ip:
-					print("DASHING !!")
 					is_dashing = true
 					dash_duration_timer.start() # dash duration
 					can_dash = false
@@ -151,12 +150,12 @@ func _on_dash_delay_timeout() -> void: # delay when player can't dash
 	can_dash = true
 
 func _on_dash_duration_timeout() -> void: # dash duration
-	print("DASH FINISHED")
 	is_dashing = false
 	dash_delay_timer.start()
 	
 func _on_player_hitbox_body_entered(body: Node2D) -> void: # Détecte quand l'ennemi est à porté
 	if body.has_method("enemy"):
+		print("enemy in")
 		enemy_inattack_range = true
 	
 
@@ -166,6 +165,7 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void: # Détecte quand l'enn
 		
 func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts nécessaires
 	if enemy_inattack_range and enemy_attack_cooldown == true:
+		print("enemy attack !")
 		current_health = current_health - 20
 		
 		can_regen = false
@@ -177,40 +177,42 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 			
 		enemy_attack_cooldown = false
 		$timers/attack_cooldown.start(0.5)
-		print(current_health)
+
+		sprite.modulate = Color.RED
+		await get_tree().create_timer(0.1).timeout
+		sprite.modulate = Color.WHITE
 
 func boss_attack():
 	current_health = current_health - 60
-	print("ATTACK RECEIVED")
 	can_regen = false
 	if regen_start_timer.time_left > 0: # timer is active
 		regen_start_timer.stop()
 		regen_start_timer.start()
 	else:
 		regen_start_timer.start()
-	
+		
+	sprite.modulate = Color.RED
+	await get_tree().create_timer(0.2).timeout
+	sprite.modulate = Color.WHITE
+			
 func _on_attack_cooldown_timeout() -> void: # Cooldown de l'attaque
 	enemy_attack_cooldown = true
 
 func attack(): # Permet d'attaquer
 	if Input.is_action_just_pressed("attack"):
 		if can_attack:
-			print("action press")
 			global.player_current_attack = true
 			attack_ip = true
 			$timers/deal_attack_timer.start(0.5)
 			can_attack = false
-			print("deal_attack_timer.start")
 
 func _on_deal_attack_timer_timeout() -> void: # Fin de l'attaque
 	$timers/deal_attack_timer.stop()
-	print("deal_attack_timer.stop")
 	global.player_current_attack = false
 	attack_ip = false
 	can_attack = true
 
 func _on_regen_start_timeout() -> void:
-	print("CAN_REGEN")
 	can_regen = true
 
 
@@ -218,7 +220,6 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("boss"):
 		is_on_boss_attack_area = true
 	if area.is_in_group("attack_hitbox"):
-		print("player entered")
 		global.player_can_attack_boss = true
 
 func _on_player_hitbox_area_exited(area: Area2D) -> void:

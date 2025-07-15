@@ -37,7 +37,7 @@ radius = 27.0
 height = 120.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
-radius = 107.019
+radius = 70.1142
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_14vq2"]
 animations = [{
@@ -186,6 +186,7 @@ one_shot = true
 
 [node name="PlayerHitbox" type="Area2D" parent="." groups=["player"]]
 collision_layer = 2
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 shape = SubResource("CircleShape2D_u21xk")
@@ -206,6 +207,10 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_14vq2")
 max_value = 160.0
 step = 1.0
 show_percentage = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.928891, 0.149574, 0.525563, 1)
 
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]

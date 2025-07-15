@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c12f2067hvmtk"]
+[gd_scene load_steps=21 format=3 uid="uid://c12f2067hvmtk"]
 
 [ext_resource type="Texture2D" uid="uid://ccyimd5mj842t" path="res://assets/sprites/zbaudo/idle/frame_00_delay-0.03s.png" id="1_b0o37"]
 [ext_resource type="Script" uid="uid://dr7g7d4bktyks" path="res://scripts/enemy.gd" id="1_veqxe"]
@@ -17,9 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://dxojyag1yxoce" path="res://assets/sprites/zbaudo/idle/frame_13_delay-0.03s.png" id="14_ri8gu"]
 [ext_resource type="Texture2D" uid="uid://c7jhlhomp76pf" path="res://assets/sprites/zbaudo/idle/frame_14_delay-0.03s.png" id="15_yirqo"]
 [ext_resource type="Texture2D" uid="uid://bfursn3py8t36" path="res://assets/sprites/zbaudo/idle/frame_15_delay-0.03s.png" id="16_cws3d"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_shcg2"]
-radius = 444.221
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ile5s"]
 radius = 79.0569
@@ -81,26 +78,28 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shcg2"]
-radius = 13.0
-height = 26.0
+radius = 27.0
+height = 120.0
 
 [node name="Enemy" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_veqxe")
+speed = 50.0
 
 [node name="PlayerDetection" type="Area2D" parent="."]
-position = Vector2(0, 61)
-collision_layer = 4
+collision_mask = 7
 
-[node name="PlayerDetectionCollisions" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(0, -61)
-shape = SubResource("CircleShape2D_shcg2")
+[node name="PlayerDetectionCollisions" type="CollisionPolygon2D" parent="PlayerDetection"]
+position = Vector2(-1, 61)
+polygon = PackedVector2Array(402, 119, 431, 48, 444, -63, 431, -165, 399, -253, 1, -61)
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerDetection"]
+color = Color(0.787542, 4.16331e-06, 5.77569e-07, 1)
+polygon = PackedVector2Array(397, -192, 430, -104, 443, -2, 430, 109, 401, 180, 0, 0)
 
 [node name="EnemyHitbox" type="Area2D" parent="."]
 position = Vector2(0, 61)
-collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
 position = Vector2(0, -61)
@@ -116,8 +115,10 @@ sprite_frames = SubResource("SpriteFrames_fpbnj")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -36)
+[node name="RotationDelay" type="Timer" parent="."]
+one_shot = true
+
+[node name="Collisions" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_shcg2")
 debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 
@@ -126,3 +127,4 @@ debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 [connection signal="body_entered" from="EnemyHitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="EnemyHitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
+[connection signal="timeout" from="RotationDelay" to="." method="_on_rotation_delay_timeout"]

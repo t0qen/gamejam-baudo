@@ -10,4 +10,3 @@ position = Vector2(844, 317)
 
 [node name="Player" parent="." instance=ExtResource("2_6we3w")]
 unique_name_in_owner = true
-collision_layer = 1

@@ -94,7 +94,6 @@ frame_progress = 0.583165
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -61)
 shape = SubResource("CircleShape2D_a8ls1")
-debug_color = Color(0.334184, 0.592404, 0.53931, 0.42)
 
 [node name="PlayerHitbox" type="Area2D" parent="."]
 collision_layer = 2
@@ -102,7 +101,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 position = Vector2(0, -61)
 shape = SubResource("CircleShape2D_qfm1y")
-debug_color = Color(0.9299, 0.235204, 0.317839, 0.42)
 
 [node name="attack_cooldown" type="Timer" parent="."]
 

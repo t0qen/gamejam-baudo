@@ -14,7 +14,6 @@ func _physics_process(delta: float) -> void:
 	deal_with_damage()
 	
 	if player_chase:
-		print("PLAYER CHASE")
 		position += (player.position - position) / speed
 		
 		if(player.position.x - position.x) < 0:

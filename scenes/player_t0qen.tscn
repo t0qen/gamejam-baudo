@@ -172,10 +172,10 @@ wait_time = 0.5
 
 [node name="attack_cooldown" type="Timer" parent="timers"]
 
-[node name="player_hitbox" type="Area2D" parent="."]
+[node name="PlayerHitbox" type="Area2D" parent="."]
 collision_layer = 2
 
-[node name="shape" type="CollisionShape2D" parent="player_hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 shape = SubResource("CircleShape2D_u21xk")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -187,5 +187,5 @@ autoplay = "idle"
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]
 [connection signal="timeout" from="timers/deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="timers/attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
-[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]

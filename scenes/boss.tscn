@@ -1,14 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhrswkm2pyd0k"]
+[gd_scene load_steps=8 format=3 uid="uid://dhrswkm2pyd0k"]
 
 [ext_resource type="Texture2D" uid="uid://bnub53glj5dr7" path="res://icon.svg" id="1_dlmty"]
 [ext_resource type="Script" uid="uid://rrejglro0ea1" path="res://scripts/boss.gd" id="1_neq0i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neq0i"]
-size = Vector2(5.01e+07, 1.195e+07)
+size = Vector2(4.6175e+07, 4.425e+06)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncid"]
-radius = 113.0
-height = 430.0
+radius = 75.0
+height = 356.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_neq0i"]
+radius = 111.0
+height = 464.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_neq0i"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jncid"]
+bg_color = Color(0.917179, 0.38738, 0.610174, 1)
 
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_neq0i")
@@ -19,7 +29,6 @@ scale = Vector2(-1.68533, 3.4367)
 texture = ExtResource("1_dlmty")
 
 [node name="Node2D" type="Node2D" parent="."]
-visible = false
 position = Vector2(46, -265)
 scale = Vector2(1e-05, 1e-05)
 
@@ -31,7 +40,7 @@ texture = ExtResource("1_dlmty")
 [node name="Area2D" type="Area2D" parent="Node2D" groups=["boss"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-position = Vector2(3.125e+07, -1.075e+06)
+position = Vector2(2.93125e+07, -1.2e+06)
 shape = SubResource("RectangleShape2D_neq0i")
 
 [node name="Icon2" type="Sprite2D" parent="."]
@@ -50,7 +59,28 @@ one_shot = true
 process_callback = 0
 one_shot = true
 
+[node name="receive_attack_hitbox" type="Area2D" parent="." groups=["attack_hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="receive_attack_hitbox"]
+position = Vector2(44, -172)
+shape = SubResource("CapsuleShape2D_neq0i")
+
+[node name="health_bar" type="ProgressBar" parent="."]
+offset_left = -97.0
+offset_top = -456.0
+offset_right = -86.0
+offset_bottom = -429.0
+scale = Vector2(27.203, -1)
+theme_override_styles/background = SubResource("StyleBoxFlat_neq0i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jncid")
+max_value = 500.0
+step = 1.0
+value = 500.0
+show_percentage = false
+
 [connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node2D/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="attack_delay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="attack_duration" to="." method="_on_attack_duration_timeout"]
+[connection signal="area_entered" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_entered"]
+[connection signal="area_exited" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_exited"]

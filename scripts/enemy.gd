@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var speed : float = 300
+@export var speed : float = 10
 var player_chase : bool = false
 var player = null
 
@@ -48,7 +48,7 @@ func _on_enemy_hitbox_body_exited(body):
 func deal_with_damage():
 	if player_inattack_zone == true and global.player_current_attack == true:
 		if can_take_damage == true:
-			health = health - 20
+			health = health - 50
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("slime health = ", health)

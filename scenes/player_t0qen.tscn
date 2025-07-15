@@ -155,7 +155,7 @@ script = ExtResource("1_u21xk")
 speed = 600
 friction = 0.2
 acceleration = 0.4
-dash_force = 2000
+dash_force = 2500
 
 [node name="camera" type="Camera2D" parent="."]
 
@@ -181,10 +181,10 @@ wait_time = 0.5
 
 [node name="regen_start" type="Timer" parent="timers"]
 process_callback = 0
-wait_time = 30.0
+wait_time = 15.0
 one_shot = true
 
-[node name="PlayerHitbox" type="Area2D" parent="."]
+[node name="PlayerHitbox" type="Area2D" parent="." groups=["player"]]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
@@ -213,5 +213,6 @@ show_percentage = false
 [connection signal="timeout" from="timers/attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="timers/regen_start" to="." method="_on_regen_start_timeout"]
 [connection signal="area_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_area_entered"]
+[connection signal="area_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_area_exited"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]

@@ -14,16 +14,19 @@ extends CharacterBody2D
 # DASH
 var can_dash : bool = true
 var is_dashing : bool = false
-@export var dash_force : int = 1000
+@export var dash_force : int = 2000
 
 # ATTAQUE ET VIE
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 @export var HEALTH : int = 160
 var current_health : int = HEALTH
-var player_alive = true
-var attack_ip = false
-var can_attack = true
+var player_alive : bool = true
+var attack_ip : bool = false
+var can_attack : bool = true
+var can_receive_boss_attack : bool = true
+var is_on_boss_attack_area : bool = false
+
 	# -- REGEN
 @export var regen_step : int = 40
 var can_regen : bool = true
@@ -32,7 +35,8 @@ var can_regen : bool = true
 var prev_inputs : int = 0 # useful for determine flip sprite
 
 # NODES
-@onready var sprite: AnimatedSprite2D = $sprite
+@onready var sprite : AnimatedSprite2D = $sprite
+@export var boss_node : CharacterBody2D  
 	# -- UI
 @onready var health_bar: ProgressBar = $health_bar
 
@@ -54,6 +58,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	enemy_attack()
 	attack()
+	
+	if is_on_boss_attack_area:
+		if can_receive_boss_attack:
+			if boss_node.is_attacking:
+				print("BOSS ATTACKING")
+				boss_attack()
+				can_receive_boss_attack = false
+				await get_tree().create_timer(2).timeout
+				can_receive_boss_attack = true
+		
 	
 	if current_health <= 0: # Tue le joueur si il a 0 vie
 		player_alive = false # ajouter un ecran de fin
@@ -166,7 +180,7 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 		print(current_health)
 
 func boss_attack():
-	current_health = current_health - 40
+	current_health = current_health - 60
 	print("ATTACK RECEIVED")
 	can_regen = false
 	if regen_start_timer.time_left > 0: # timer is active
@@ -202,4 +216,13 @@ func _on_regen_start_timeout() -> void:
 
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("boss"):
-		boss_attack()
+		is_on_boss_attack_area = true
+	if area.is_in_group("attack_hitbox"):
+		print("player entered")
+		global.player_can_attack_boss = true
+
+func _on_player_hitbox_area_exited(area: Area2D) -> void:
+	if area.is_in_group("boss"):
+		is_on_boss_attack_area = false
+	if area.is_in_group("attack_hitbox"):
+		global.player_can_attack_boss = false

@@ -13,6 +13,25 @@ position = Vector2(844, 317)
 position = Vector2(-397, 561)
 player = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("2_6we3w")]
+[node name="Player" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("2_6we3w")]
 unique_name_in_owner = true
 position = Vector2(-370, 791)
+boss_node = NodePath("../Boss")
+
+[node name="Enemy" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(565, -763)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(790, -120)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(1292, -37)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(1208, -596)
+
+[node name="Enemy5" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(281, -471)
+
+[node name="Enemy6" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(1559, 5)

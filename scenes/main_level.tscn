@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://djna2erauxmv3"]
+[gd_scene load_steps=4 format=3 uid="uid://djna2erauxmv3"]
 
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_ufxs0"]
+[ext_resource type="PackedScene" uid="uid://dhrswkm2pyd0k" path="res://scenes/boss.tscn" id="3_6we3w"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="Ennemi" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(844, 317)
 
+[node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6we3w")]
+position = Vector2(-397, 561)
+player = NodePath("../Player")
+
 [node name="Player" parent="." instance=ExtResource("2_6we3w")]
 unique_name_in_owner = true
+position = Vector2(-370, 791)

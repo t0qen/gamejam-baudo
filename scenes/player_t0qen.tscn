@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cl71r21okvrwm"]
+[gd_scene load_steps=37 format=3 uid="uid://cl71r21okvrwm"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
 [ext_resource type="Texture2D" uid="uid://ccyimd5mj842t" path="res://assets/sprites/zbaudo/idle/frame_00_delay-0.03s.png" id="1_y076m"]
@@ -142,13 +142,20 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="player" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vae4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14vq2"]
+bg_color = Color(0.23534, 0.690058, 0.553935, 1)
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_u21xk")
 speed = 600
 friction = 0.2
 acceleration = 0.4
+dash_force = 2000
 
 [node name="camera" type="Camera2D" parent="."]
 
@@ -160,7 +167,7 @@ debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 [node name="timers" type="Node" parent="."]
 
 [node name="dash_duration" type="Timer" parent="timers"]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [node name="dash_delay" type="Timer" parent="timers"]
@@ -171,6 +178,11 @@ one_shot = true
 wait_time = 0.5
 
 [node name="attack_cooldown" type="Timer" parent="timers"]
+
+[node name="regen_start" type="Timer" parent="timers"]
+process_callback = 0
+wait_time = 30.0
+one_shot = true
 
 [node name="PlayerHitbox" type="Area2D" parent="."]
 collision_layer = 2
@@ -183,9 +195,23 @@ sprite_frames = SubResource("SpriteFrames_14vq2")
 animation = &"run"
 autoplay = "idle"
 
+[node name="health_bar" type="ProgressBar" parent="."]
+offset_left = 452.0
+offset_top = 313.0
+offset_right = 456.0
+offset_bottom = 340.0
+scale = Vector2(27.203, -1)
+theme_override_styles/background = SubResource("StyleBoxFlat_8vae4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_14vq2")
+max_value = 160.0
+step = 1.0
+show_percentage = false
+
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]
 [connection signal="timeout" from="timers/deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="timers/attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="timers/regen_start" to="." method="_on_regen_start_timeout"]
+[connection signal="area_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]

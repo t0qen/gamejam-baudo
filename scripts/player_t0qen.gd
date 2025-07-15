@@ -4,6 +4,7 @@ extends CharacterBody2D
 # TIMERS
 @onready var dash_duration_timer: Timer = $timers/dash_duration
 @onready var dash_delay_timer: Timer = $timers/dash_delay
+@onready var regen_start_timer: Timer = $timers/regen_start
 
 # MOVEMENTS
 @export var speed = 400
@@ -18,38 +19,57 @@ var is_dashing : bool = false
 # ATTAQUE ET VIE
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 160
+@export var HEALTH : int = 160
+var current_health : int = HEALTH
 var player_alive = true
 var attack_ip = false
 var can_attack = true
+	# -- REGEN
+@export var regen_step : int = 40
+var can_regen : bool = true
 
 # INPUTS
 var prev_inputs : int = 0 # useful for determine flip sprite
 
 # NODES
 @onready var sprite: AnimatedSprite2D = $sprite
+	# -- UI
+@onready var health_bar: ProgressBar = $health_bar
 
 # /* FUNCTIONS */
 
 # MAIN
 func _ready() -> void:
-	pass
+	# Setup health ui
+	health_bar.max_value = HEALTH
+	health_bar.value = HEALTH
 	
 func _process(delta: float) -> void:
-	pass
+	update_health_bar()
 	
 func _physics_process(delta: float) -> void:
 	move()
 	dash()
+	regen()
 	move_and_slide()
 	enemy_attack()
 	attack()
 	
-	if health <= 0: # Tue le joueur si il a 0 vie
+	if current_health <= 0: # Tue le joueur si il a 0 vie
 		player_alive = false # ajouter un ecran de fin
-		self.queue_free()
-	
+		get_tree().change_scene_to_file("res://scenes/dead_screen.tscn")
+			
 # SUB 
+func regen():
+	if can_regen:
+		if current_health < HEALTH:
+			print("REGEN")
+			current_health = HEALTH
+			can_regen = false
+			regen_start_timer.start()
+	else:
+		return
+	
 func get_inputs(): # func to get current inputs
 	var input = Vector2()
 	# get input per keys, better than Input.get_vectors()
@@ -70,6 +90,9 @@ func flip_sprite(value): # flip sprite with player direction
 		sprite.flip_h = false
 	else:
 		sprite.flip_h = true
+	
+func update_health_bar():
+	health_bar.value = current_health
 	
 func move(): # func to move player 
 	var direction : Vector2 = get_inputs()
@@ -121,7 +144,7 @@ func _on_dash_duration_timeout() -> void: # dash duration
 func _on_player_hitbox_body_entered(body: Node2D) -> void: # Détecte quand l'ennemi est à porté
 	if body.has_method("enemy"):
 		enemy_inattack_range = true
-
+	
 
 func _on_player_hitbox_body_exited(body: Node2D) -> void: # Détecte quand l'ennemi n'est plus à porté
 	if body.has_method("enemy"):
@@ -129,11 +152,29 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void: # Détecte quand l'enn
 		
 func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts nécessaires
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+		current_health = current_health - 20
+		
+		can_regen = false
+		if regen_start_timer.time_left > 0: # timer is active
+			regen_start_timer.stop()
+			regen_start_timer.start()
+		else:
+			regen_start_timer.start()
+			
 		enemy_attack_cooldown = false
 		$timers/attack_cooldown.start(0.5)
-		print(health)
+		print(current_health)
 
+func boss_attack():
+	current_health = current_health - 40
+	print("ATTACK RECEIVED")
+	can_regen = false
+	if regen_start_timer.time_left > 0: # timer is active
+		regen_start_timer.stop()
+		regen_start_timer.start()
+	else:
+		regen_start_timer.start()
+	
 func _on_attack_cooldown_timeout() -> void: # Cooldown de l'attaque
 	enemy_attack_cooldown = true
 
@@ -153,3 +194,12 @@ func _on_deal_attack_timer_timeout() -> void: # Fin de l'attaque
 	global.player_current_attack = false
 	attack_ip = false
 	can_attack = true
+
+func _on_regen_start_timeout() -> void:
+	print("CAN_REGEN")
+	can_regen = true
+
+
+func _on_player_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("boss"):
+		boss_attack()

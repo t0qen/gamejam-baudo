@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ct8q4cef6kwp1"]
+
+[node name="dead_screen" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "YOU ARE DEAD BRO, SORRY
+RESTART GAME"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(173, 76)

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 global="*res://scripts/global.gd"
 
+[global_group]
+
+player=""
+boss=""
+
 [input]
 
 move_right={

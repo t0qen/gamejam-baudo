@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var speed : float = 100
+var speed : float = 300
 var player_chase : bool = false
 var player = null
 
@@ -53,6 +53,8 @@ func deal_with_damage():
 			can_take_damage = false
 			print("slime health = ", health)
 			if health <= 0:
+				# DEAD
+				
 				self.queue_free()
 
 

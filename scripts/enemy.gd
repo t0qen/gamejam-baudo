@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var speed : int = 400
 var player_chase : bool = false
+var player_chase_move : bool = true
 
 var health : int = 100
 var player_inattack_zone = false
@@ -17,8 +18,9 @@ func _physics_process(delta: float) -> void:
 	deal_with_damage()
 	
 	if player_chase:
-		var target_direction = (player.global_position - global_position).normalized()
-		velocity = target_direction * speed
+		if player_chase_move:
+			var target_direction = (player.global_position - global_position).normalized()
+			velocity = target_direction * speed
 		
 		position += (player.position - position) / speed
 		$PlayerDetection.look_at(player.global_position)
@@ -53,13 +55,13 @@ func enemy():
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
 		print("ENTERED")
-		player_chase = false
+		player_chase_move = false
 		player_inattack_zone = true
 
 
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
-		player_chase = true
+		player_chase_move = true
 		player_inattack_zone = false
 
 func deal_with_damage():

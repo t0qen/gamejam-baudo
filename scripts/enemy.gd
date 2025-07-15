@@ -9,26 +9,37 @@ var player = null
 var health : int = 100
 var player_inattack_zone = false
 var can_take_damage = true
+
+var DetectionRotation : int = 0
+var can_rotate : bool = true
 	
 func _physics_process(delta: float) -> void:
 	deal_with_damage()
 	
 	if player_chase:
 		position += (player.position - position) / speed
-		
+		$PlayerDetection.look_at(player.global_position)
 		if(player.position.x - position.x) < 0:
 			animated_sprite_2d.flip_h = true
 		else:
 			animated_sprite_2d.flip_h = false
+	else:
+		if can_rotate:
+			can_rotate = false
+			DetectionRotation += 1
+			$PlayerDetection.rotation = DetectionRotation / 2
+			$RotationDelay.start(0.5)
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
-	player = body
-	player_chase = true
+	if body.has_method("player"):
+		player = body
+		player_chase = true
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
-	player = null
-	player_chase = false
-	
+	if body.has_method("player"):
+		player = null
+		player_chase = false
+		
 func enemy():
 	pass
 
@@ -58,7 +69,9 @@ func deal_with_damage():
 			await get_tree().create_timer(0.1).timeout
 			$AnimatedSprite2D.modulate = Color.WHITE
 
-
-
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+
+
+func _on_rotation_delay_timeout() -> void:
+	can_rotate = true

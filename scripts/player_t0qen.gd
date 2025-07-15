@@ -63,11 +63,6 @@ func get_inputs(): # func to get current inputs
 		input.y -= 1
 	if input.x != 0:
 		flip_sprite(input.x)
-		if !attack_ip:
-			sprite.play("run")
-	else:
-		if !attack_ip:
-			sprite.play("idle")
 	return input
 	
 func flip_sprite(value): # flip sprite with player direction
@@ -79,11 +74,17 @@ func flip_sprite(value): # flip sprite with player direction
 func move(): # func to move player 
 	var direction : Vector2 = get_inputs()
 	if direction.length() > 0: # if player wants to move
+		if !attack_ip:
+			sprite.play("run")
+			
 		if is_dashing:
 				velocity = direction.normalized() * dash_force # smooth acceleration without dash
 		else:
+			
 			velocity = velocity.lerp(direction.normalized() * speed, acceleration) # smooth acceleration without dash
 	else:
+		if !attack_ip:
+			sprite.play("idle")
 		velocity = velocity.lerp(Vector2.ZERO, friction) # smooth stop
 
 func dash(): # determine if player can dash and perform dash

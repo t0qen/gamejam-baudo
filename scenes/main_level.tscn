@@ -6,30 +6,33 @@
 
 [node name="MainLevel" type="Node2D"]
 
-[node name="Ennemi" parent="." instance=ExtResource("2_ufxs0")]
+[node name="Ennemi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
 position = Vector2(844, 317)
+player = NodePath("../Player")
+
+[node name="Ennemi2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+position = Vector2(1203, -760)
+player = NodePath("../Player")
+
+[node name="Ennemi3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+position = Vector2(1617, -35)
+player = NodePath("../Player")
+
+[node name="Ennemi4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+position = Vector2(485, -732)
+player = NodePath("../Player")
+
+[node name="Ennemi5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+position = Vector2(2045, -774)
+player = NodePath("../Player")
+
+[node name="Ennemi6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+position = Vector2(2315, 517)
+player = NodePath("../Player")
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6we3w")]
 position = Vector2(-397, 561)
 player = NodePath("../Player")
-
-[node name="Enemy" parent="." instance=ExtResource("2_ufxs0")]
-position = Vector2(565, -763)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_ufxs0")]
-position = Vector2(790, -120)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_ufxs0")]
-position = Vector2(1292, -37)
-
-[node name="Enemy4" parent="." instance=ExtResource("2_ufxs0")]
-position = Vector2(1208, -596)
-
-[node name="Enemy5" parent="." instance=ExtResource("2_ufxs0")]
-position = Vector2(281, -471)
-
-[node name="Enemy6" parent="." instance=ExtResource("2_ufxs0")]
-position = Vector2(1559, 5)
 
 [node name="Player" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("2_6we3w")]
 unique_name_in_owner = true

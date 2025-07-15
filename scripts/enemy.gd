@@ -2,32 +2,39 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var speed : float = 10
+@export var speed : int = 400
 var player_chase : bool = false
-var player = null
 
 var health : int = 100
 var player_inattack_zone = false
 var can_take_damage = true
+
+@export var player : CharacterBody2D
 	
 func _physics_process(delta: float) -> void:
 	deal_with_damage()
 	
 	if player_chase:
-		position += (player.position - position) / speed
+		var target_direction = (player.global_position - global_position).normalized()
+		velocity = target_direction * speed
 		
 		if(player.position.x - position.x) < 0:
 			animated_sprite_2d.flip_h = true
 		else:
 			animated_sprite_2d.flip_h = false
+			
+	else:
+		velocity = Vector2.ZERO
+		
+	move_and_slide()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
-	player = body
-	player_chase = true
+	if body.has_method("player"):
+		player_chase = true
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
-	player = null
-	player_chase = false
+	if body.has_method("player"):
+		player_chase = false
 	
 func enemy():
 	pass
@@ -35,11 +42,13 @@ func enemy():
 
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
+		player_chase = false
 		player_inattack_zone = true
 
 
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
+		player_chase = true
 		player_inattack_zone = false
 
 func deal_with_damage():

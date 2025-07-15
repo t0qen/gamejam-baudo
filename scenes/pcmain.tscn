@@ -1,0 +1,440 @@
+[gd_scene load_steps=51 format=3 uid="uid://idwy47re3b8"]
+
+[ext_resource type="Script" uid="uid://bt0q3yjpkx4pc" path="res://scripts/pcmain.gd" id="1_8oxs4"]
+[ext_resource type="Texture2D" uid="uid://dovr66ea8sfsk" path="res://assets/sprites/PC/windows-xp-hd.jpg" id="1_byy3v"]
+[ext_resource type="Texture2D" uid="uid://b6s5h8yvacd2d" path="res://assets/sprites/PC/Windows_Progress_Fill.png" id="2_dfrbh"]
+[ext_resource type="AudioStream" uid="uid://b7gvwbtq82270" path="res://assets/sounds/Dax/Nous ne somme pas là pour s'abonner new.wav" id="4_8oxs4"]
+[ext_resource type="Texture2D" uid="uid://4thd8e3hkvqy" path="res://assets/sprites/PC/navigateur icon.png" id="4_n8ygn"]
+[ext_resource type="AudioStream" uid="uid://chmilk288u4vu" path="res://assets/sounds/Dax/Allons attraper Mar GamerBoy.wav" id="5_cs0js"]
+[ext_resource type="Texture2D" uid="uid://c0vhjrb7v6ljp" path="res://assets/sprites/PC/Windows_Icons.png" id="5_cverd"]
+[ext_resource type="Texture2D" uid="uid://bbsu6o2is8pt2" path="res://assets/sprites/PC/clé usb.png" id="5_ftjwn"]
+[ext_resource type="Texture2D" uid="uid://bcsfqw8am45qv" path="res://assets/sprites/PC/loading bar.png" id="6_umm02"]
+[ext_resource type="FontFile" uid="uid://ee2n5s5hxtv1" path="res://assets/fonts/NotoSans-VariableFont_wdth,wght.ttf" id="7_umm02"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8oxs4"]
+texture = ExtResource("1_byy3v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gnbue"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+modulate_color = Color(0.641934, 0.641934, 0.641934, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfjsv"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uqep"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+modulate_color = Color(0.310617, 0.310617, 0.310617, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c4uq7"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mn6c"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmgaw"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxdis"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+modulate_color = Color(0.633757, 0.633757, 0.633757, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjwga"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tgloo"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+modulate_color = Color(0.366595, 0.366595, 0.366595, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojai4"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b663x"]
+texture = ExtResource("4_n8ygn")
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjtlu"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+modulate_color = Color(0.389287, 0.389287, 0.389287, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ot5vr"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16wdb"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+modulate_color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vmd5e"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2t73x"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e7lfu"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp1lv"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+modulate_color = Color(0.800491, 0.800491, 0.800491, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jwotj"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cla8b"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7a62n"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mm1rf"]
+texture = ExtResource("5_ftjwn")
+region_rect = Rect2(0, 80, 1024, 944)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4hap"]
+texture = ExtResource("2_dfrbh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs0js"]
+bg_color = Color(0.873298, 0.873298, 0.873298, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.560955, 0.560955, 0.560955, 1)
+shadow_size = 1
+shadow_offset = Vector2(17.285, 14.675)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8ygn"]
+bg_color = Color(0, 0, 0.501961, 1)
+border_width_left = 10
+border_width_top = 5
+border_color = Color(0.762404, 0.762404, 0.762404, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftjwn"]
+texture = ExtResource("5_cverd")
+region_rect = Rect2(49, 2, 14, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2ihl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnbue"]
+atlas = ExtResource("6_umm02")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfjsv"]
+atlas = ExtResource("6_umm02")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uqep"]
+atlas = ExtResource("6_umm02")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4uq7"]
+atlas = ExtResource("6_umm02")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mn6c"]
+atlas = ExtResource("6_umm02")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmgaw"]
+atlas = ExtResource("6_umm02")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxdis"]
+atlas = ExtResource("6_umm02")
+region = Rect2(0, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjwga"]
+atlas = ExtResource("6_umm02")
+region = Rect2(1024, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgloo"]
+atlas = ExtResource("6_umm02")
+region = Rect2(2048, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojai4"]
+atlas = ExtResource("6_umm02")
+region = Rect2(0, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b663x"]
+atlas = ExtResource("6_umm02")
+region = Rect2(1024, 3072, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjtlu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnbue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfjsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uqep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4uq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mn6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmgaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxdis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjwga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgloo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojai4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b663x")
+}],
+"loop": false,
+"name": &"loading",
+"speed": 5.0
+}]
+
+[node name="PCmain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8oxs4")
+
+[node name="Fond" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8oxs4")
+
+[node name="Naviguateur" type="Button" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 25.0
+offset_right = 165.0
+offset_bottom = 151.0
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_umm02")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gnbue")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_hfjsv")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0uqep")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_c4uq7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_2mn6c")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_xmgaw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mxdis")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_fjwga")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tgloo")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_ojai4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_b663x")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Naviguateur"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.5
+offset_top = -8.0
+offset_right = 59.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_umm02")
+theme_override_font_sizes/font_size = 20
+text = "Naviguateur"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cle USB" type="Button" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 201.0
+offset_right = 165.0
+offset_bottom = 327.0
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_umm02")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gjtlu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_ot5vr")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_16wdb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_vmd5e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_2t73x")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_e7lfu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wp1lv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_jwotj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cla8b")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_7a62n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mm1rf")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Cle USB"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -8.0
+offset_right = 54.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_umm02")
+theme_override_font_sizes/font_size = 20
+text = "Clé USB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bas" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_n4hap")
+
+[node name="NousNeSommePasLàPourS\'abonner" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8oxs4")
+bus = &"Dax"
+
+[node name="AllonsAttraperMarGamerBoy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cs0js")
+bus = &"Dax"
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="PopUp" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -213.0
+offset_right = 391.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cs0js")
+
+[node name="Panel" type="Panel" parent="PopUp"]
+layout_mode = 0
+offset_right = 783.0
+offset_bottom = 44.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n8ygn")
+
+[node name="Panel" type="Panel" parent="PopUp/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ftjwn")
+
+[node name="Loading" type="Panel" parent="PopUp"]
+layout_mode = 0
+offset_right = 783.0
+offset_bottom = 44.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q2ihl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PopUp"]
+position = Vector2(397, 275)
+scale = Vector2(0.538086, 0.538086)
+sprite_frames = SubResource("SpriteFrames_gjtlu")
+animation = &"loading"
+frame = 10
+frame_progress = 1.0
+
+[node name="Label" type="Label" parent="PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -97.0
+offset_right = 257.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_umm02")
+theme_override_font_sizes/font_size = 61
+text = "Hacking..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Naviguateur" to="." method="_on_naviguateur_pressed"]
+[connection signal="pressed" from="Cle USB" to="." method="_on_cle_usb_pressed"]
+[connection signal="finished" from="NousNeSommePasLàPourS\'abonner" to="." method="_on_nous_ne_somme_pas_là_pour_sabonner_finished"]
+[connection signal="finished" from="AllonsAttraperMarGamerBoy" to="." method="_on_allons_attraper_mar_gamer_boy_finished"]
+[connection signal="animation_finished" from="PopUp/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

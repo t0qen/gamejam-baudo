@@ -103,6 +103,7 @@ shape = SubResource("CircleShape2D_ulg6r")
 [node name="PlayerDetection" type="Area2D" parent="."]
 position = Vector2(0, 61)
 collision_mask = 2
+priority = 10
 
 [node name="PlayerDetectionCollisions" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(0, -61)

@@ -4,6 +4,16 @@ extends CharacterBody2D
 @export var will_instanciate_cam : bool = true
 var cam = preload("res://scenes/camera.tscn")
 
+# ANIMATIONS
+@onready var run_animation: AnimatedSprite2D = $animations/run
+@onready var idle_animation: AnimatedSprite2D = $animations/idle
+@onready var dash_animation: AnimatedSprite2D = $animations/dash
+@onready var attack_3_animation: AnimatedSprite2D = $animations/attack3
+@onready var attack_2_animation: AnimatedSprite2D = $animations/attack2
+@onready var attack_1_animation: AnimatedSprite2D = $animations/attack1
+var current_animation : String 
+var prev_animation : String
+
 # TIMERS
 @onready var dash_duration_timer: Timer = $timers/dash_duration
 @onready var dash_delay_timer: Timer = $timers/dash_delay
@@ -47,6 +57,7 @@ var prev_inputs : int = 0 # useful for determine flip sprite
 
 # MAIN
 func _ready() -> void:
+	play_animation("idle")
 	if will_instanciate_cam:
 		var current_cam = cam.instantiate()
 		add_child(current_cam)
@@ -81,6 +92,64 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scenes/dead_screen.tscn")
 			
 # SUB 
+func random_attack_anim():
+	var all_attack_anim = ["attack1", "attack2", "attack3"]
+	return all_attack_anim.pick_random()
+
+func flip_animation(input):
+	var excepted_flip : bool
+	if input > 0:
+		excepted_flip = false
+	else:
+		excepted_flip = true
+	
+	match current_animation:
+		"run": 
+			run_animation.flip_h = excepted_flip
+		"dash":
+			dash_animation.flip_h = excepted_flip
+		"attack1":
+			attack_1_animation.flip_h = excepted_flip
+		"attack2":
+			attack_2_animation.flip_h = excepted_flip
+		"attack3":
+			attack_3_animation.flip_h = excepted_flip
+		"idle":
+			idle_animation.flip_h = excepted_flip
+
+func play_animation(animation):
+	if prev_animation == animation:
+		print('RETURN')
+		return
+	# cache et stop tous les enfants de animations
+	for child in $animations.get_children():
+		child.stop()
+		child.hide()
+	
+	
+	current_animation = animation
+	prev_animation = current_animation
+	match animation:
+		"run": 
+			run_animation.show()
+			run_animation.play("default")
+		"dash":
+			dash_animation.show()
+			dash_animation.play("default")
+		"attack1":
+			attack_1_animation.show()
+			attack_1_animation.play("default")
+		"attack2":
+			attack_2_animation.show()
+			attack_2_animation.play("default")
+		"attack3":
+			attack_3_animation.show()
+			attack_3_animation.play("default")
+		"idle":
+			idle_animation.show()
+			idle_animation.play("default")
+	print(current_animation)
+
 func regen():
 	if can_regen:
 		if current_health < HEALTH:
@@ -108,15 +177,9 @@ func get_inputs(): # func to get current inputs
 		#input.y -= 1
 		input.y = -1
 	if input.x != 0:
-		flip_sprite(input.x)
-	print(input)
+		flip_animation(input.x)
 	return input
 	
-func flip_sprite(value): # flip sprite with player direction
-	if value > 0:
-		sprite.flip_h = false
-	else:
-		sprite.flip_h = true
 	
 func update_health_bar():
 	health_bar.value = current_health
@@ -125,17 +188,17 @@ func move(): # func to move player
 	var direction : Vector2 = get_inputs()
 	#print(direction)
 	if direction.length() > 0: # if player wants to move
-		if !attack_ip:
-			sprite.play("run")
-			
 		if is_dashing:
-				velocity = direction.normalized() * dash_force # smooth acceleration without dash
+			if !attack_ip:
+				play_animation("dash")
+			velocity = direction.normalized() * dash_force # dash
 		else:
-			
+			if !attack_ip:
+				play_animation("run")
 			velocity = velocity.lerp(direction.normalized() * speed, acceleration) # smooth acceleration without dash
 	else:
 		if !attack_ip:
-			sprite.play("idle")
+			play_animation("idle")
 		velocity = velocity.lerp(Vector2.ZERO, friction) # smooth stop
 
 func dash(): # determine if player can dash and perform dash
@@ -192,9 +255,9 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 		enemy_attack_cooldown = false
 		$timers/attack_cooldown.start(0.5)
 
-		sprite.modulate = Color.RED
+		$animations.modulate = Color.RED
 		await get_tree().create_timer(0.1).timeout
-		sprite.modulate = Color.WHITE
+		$animations.modulate = Color.WHITE
 
 func boss_attack():
 	current_health = current_health - 60
@@ -219,6 +282,7 @@ func attack(): # Permet d'attaquer
 			attack_ip = true
 			$timers/deal_attack_timer.start(0.5)
 			can_attack = false
+			play_animation(random_attack_anim())
 
 func _on_deal_attack_timer_timeout() -> void: # Fin de l'attaque
 	$timers/deal_attack_timer.stop()

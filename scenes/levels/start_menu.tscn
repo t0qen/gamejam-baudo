@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_bobbp"]
 [ext_resource type="Script" uid="uid://bck0gqja62o64" path="res://scripts/levels/start_menu.gd" id="1_cfn5g"]
 [ext_resource type="FontFile" uid="uid://bff5f1wvnem3p" path="res://assets/fonts/MonaspaceKrypton-Medium.otf" id="2_01ge7"]
-[ext_resource type="Texture2D" uid="uid://cc5qgpi6ufrji" path="res://assets/sprites/zbaudo/run/frame_09_delay-0.03s.png" id="3_01ge7"]
+[ext_resource type="Texture2D" uid="uid://b8j7ifdqrr8hn" path="res://assets/sprites/zbaudo/run/frame_09_delay-0.03s.png" id="3_01ge7"]
 [ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="5_xhmce"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gg7vo"]

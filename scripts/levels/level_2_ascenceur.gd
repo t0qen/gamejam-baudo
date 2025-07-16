@@ -20,7 +20,7 @@ func _on_step_1_area_entered(area: Area2D) -> void:
 	$Arrow1.show()
 	$Arrow2.hide()
 	is_step_1_complete = true
-	
+	$AsceuseurKey.hide()
 
 
 func _on_step_2_body_entered(body: Node2D) -> void:

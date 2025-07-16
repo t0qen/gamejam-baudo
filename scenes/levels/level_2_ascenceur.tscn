@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dlsef5aa8p028"]
+[gd_scene load_steps=19 format=4 uid="uid://dlsef5aa8p028"]
 
 [ext_resource type="Script" uid="uid://dkmj4v0ta8x0j" path="res://scripts/levels/level_2_ascenceur.gd" id="1_rvqcx"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_b4g1u"]
@@ -147,6 +147,10 @@ size = Vector2(383.25, 382)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkduq"]
 size = Vector2(37, 63.5)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ohuyx"]
+normal = Vector2(0.99994, -0.0109883)
+distance = 81.0391
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohuyx"]
 size = Vector2(76, 746)
 
@@ -218,6 +222,14 @@ collision_mask = 5
 position = Vector2(1575, -5.5)
 shape = SubResource("RectangleShape2D_vkduq")
 
+[node name="tqt_frr" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tqt_frr"]
+position = Vector2(-2899, 17)
+shape = SubResource("WorldBoundaryShape2D_ohuyx")
+
 [node name="block_enemies" type="StaticBody2D" parent="."]
 collision_layer = 32
 collision_mask = 4
@@ -243,6 +255,7 @@ texture = ExtResource("6_iv1n8")
 position = Vector2(969, 15)
 
 [node name="hide_etage" type="MeshInstance2D" parent="."]
+visible = false
 modulate = Color(0.129412, 0.121569, 0.137255, 1)
 position = Vector2(-1054.13, 35.3749)
 scale = Vector2(3588.25, 1693.25)

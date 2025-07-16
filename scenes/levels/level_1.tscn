@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://xondpfojs2pb"]
+[gd_scene load_steps=6 format=3 uid="uid://xondpfojs2pb"]
 
 [ext_resource type="Script" uid="uid://gl58igbti3aw" path="res://scripts/levels/level_1.gd" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="3_x42e6"]
+[ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="4_6761a"]
+[ext_resource type="AudioStream" uid="uid://lyu802cpbgrm" path="res://assets/sounds/Dax/Salut ! Moi c'est Dax !.wav" id="4_x42e6"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_ksju7")
@@ -13,7 +15,7 @@ offset_bottom = 23.0
 text = "NIVEAU 1"
 
 [node name="switch" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
 one_shot = true
 
 [node name="enemies" type="Node2D" parent="."]
@@ -30,4 +32,12 @@ player = NodePath("../../player")
 [node name="player" parent="." instance=ExtResource("3_x42e6")]
 position = Vector2(-272, 240)
 
+[node name="TelephoneDax" parent="player" instance=ExtResource("4_6761a")]
+position = Vector2(-568, -313)
+
+[node name="Salut!MoiC\'estDax!" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x42e6")
+bus = &"Dax"
+
 [connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]
+[connection signal="finished" from="Salut!MoiC\'estDax!" to="." method="_on_salut_moi_cest_dax_finished"]

@@ -96,13 +96,17 @@ func get_inputs(): # func to get current inputs
 	
 	# get input per keys, better than Input.get_vectors()
 	if Input.is_action_pressed('move_right'):
-		input.x += 1
+		#input.x += 1
+		input.x = 1
 	if Input.is_action_pressed('move_left'):
-		input.x -= 1
+		#input.x -= 1
+		input.x = -1
 	if Input.is_action_pressed('move_down'):
-		input.y += 1
+		#input.y += 1
+		input.y = 1
 	if Input.is_action_pressed('move_up'):
-		input.y -= 1
+		#input.y -= 1
+		input.y = -1
 	if input.x != 0:
 		flip_sprite(input.x)
 	print(input)

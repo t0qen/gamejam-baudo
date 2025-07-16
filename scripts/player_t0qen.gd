@@ -93,7 +93,7 @@ func regen():
 	
 func get_inputs(): # func to get current inputs
 	var input = Vector2()
-	print(input)
+	
 	# get input per keys, better than Input.get_vectors()
 	if Input.is_action_pressed('move_right'):
 		input.x += 1
@@ -105,6 +105,7 @@ func get_inputs(): # func to get current inputs
 		input.y -= 1
 	if input.x != 0:
 		flip_sprite(input.x)
+	print(input)
 	return input
 	
 func flip_sprite(value): # flip sprite with player direction

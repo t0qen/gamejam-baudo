@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://xondpfojs2pb"]
+[gd_scene load_steps=7 format=3 uid="uid://xondpfojs2pb"]
 
 [ext_resource type="Script" uid="uid://gl58igbti3aw" path="res://scripts/levels/level_1.gd" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="3_x42e6"]
 [ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="4_6761a"]
 [ext_resource type="AudioStream" uid="uid://lyu802cpbgrm" path="res://assets/sounds/Dax/Salut ! Moi c'est Dax !.wav" id="4_x42e6"]
+[ext_resource type="PackedScene" uid="uid://dw5bq2cwer3w4" path="res://scenes/laser.tscn" id="6_sk5k4"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_ksju7")
@@ -15,7 +16,7 @@ offset_bottom = 23.0
 text = "NIVEAU 1"
 
 [node name="switch" type="Timer" parent="."]
-wait_time = 40.0
+wait_time = 80.0
 one_shot = true
 
 [node name="enemies" type="Node2D" parent="."]
@@ -32,6 +33,9 @@ player = NodePath("../../player")
 [node name="Enemy3" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
 position = Vector2(-1176, 536)
 player = NodePath("../../player")
+
+[node name="Laser" parent="." instance=ExtResource("6_sk5k4")]
+position = Vector2(-32, 272)
 
 [node name="player" parent="." instance=ExtResource("3_x42e6")]
 position = Vector2(-272, 240)

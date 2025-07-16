@@ -142,8 +142,8 @@ _data = {
 
 [node name="Laser" type="Area2D"]
 scale = Vector2(3.08, 3.08)
-collision_layer = 2
-collision_mask = 3
+collision_layer = 8
+collision_mask = 5
 
 [node name="TeteLaserCol" type="CollisionPolygon2D" parent="."]
 position = Vector2(-3.05176e-05, 0)
@@ -164,6 +164,8 @@ position = Vector2(6.10352e-05, 0)
 texture = ExtResource("1_xmihv")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 5
 
 [node name="LaserCol" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(108, 0)

@@ -71,7 +71,8 @@ func _process(delta: float) -> void:
 	update_health_bar()
 	
 func _physics_process(delta: float) -> void:
-	move()
+	if !attack_ip:
+		move()
 	dash()
 	regen()
 	move_and_slide()
@@ -103,23 +104,25 @@ func flip_animation(input):
 	else:
 		excepted_flip = true
 	
-	match current_animation:
-		"run": 
-			run_animation.flip_h = excepted_flip
-		"dash":
-			dash_animation.flip_h = excepted_flip
-		"attack1":
-			attack_1_animation.flip_h = excepted_flip
-		"attack2":
-			attack_2_animation.flip_h = excepted_flip
-		"attack3":
-			attack_3_animation.flip_h = excepted_flip
-		"idle":
-			idle_animation.flip_h = excepted_flip
+	for child in $animations.get_children():
+		child.flip_h = excepted_flip
+		
+	#match current_animation:
+		#"run": 
+			#run_animation.flip_h = excepted_flip
+		#"dash":
+			#dash_animation.flip_h = excepted_flip
+		#"attack1":
+			#attack_1_animation.flip_h = excepted_flip
+		#"attack2":
+			#attack_2_animation.flip_h = excepted_flip
+		#"attack3":
+			#attack_3_animation.flip_h = excepted_flip
+		#"idle":
+			#idle_animation.flip_h = excepted_flip
 
 func play_animation(animation):
 	if prev_animation == animation:
-		print('RETURN')
 		return
 	# cache et stop tous les enfants de animations
 	for child in $animations.get_children():
@@ -205,12 +208,9 @@ func dash(): # determine if player can dash and perform dash
 	if Input.is_action_just_pressed("dash"):
 		if can_dash:
 			if !is_dashing:
-				if !attack_ip:
-					is_dashing = true
-					dash_duration_timer.start() # dash duration
-					can_dash = false
-				else:
-					return
+				is_dashing = true
+				dash_duration_timer.start() # dash duration
+				can_dash = false
 			else:
 				return
 		else:
@@ -278,10 +278,11 @@ func _on_attack_cooldown_timeout() -> void: # Cooldown de l'attaque
 func attack(): # Permet d'attaquer
 	if Input.is_action_just_pressed("attack"):
 		if can_attack:
+			if !is_dashing:
+				velocity = Vector2.ZERO
 			global.player_current_attack = true
 			attack_ip = true
 			$timers/deal_attack_timer.start(0.5)
-			can_attack = false
 			play_animation(random_attack_anim())
 
 func _on_deal_attack_timer_timeout() -> void: # Fin de l'attaque

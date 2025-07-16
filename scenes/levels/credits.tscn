@@ -8,7 +8,10 @@ script = ExtResource("1_kxfi0")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "-- DEV, GAME DESIGNER, LEVEL DESIGNER --
+text = "-- GAME ENGINE
+Godot
+
+-- DEV, GAME DESIGNER, LEVEL DESIGNER --
 Al's
 t0qen (AYMERIC)
 

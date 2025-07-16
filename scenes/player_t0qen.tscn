@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://cl71r21okvrwm"]
+[gd_scene load_steps=143 format=3 uid="uid://cl71r21okvrwm"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
 [ext_resource type="Texture2D" uid="uid://hf3py5xgk1ud" path="res://assets/sprites/zbaudo/idle/frame_01_delay-0.03s.png" id="2_i5eyg"]
@@ -135,71 +135,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
 radius = 70.1142
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3idn"]
-radius = 18.0
-height = 52.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vae4"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14vq2"]
 bg_color = Color(0.23534, 0.690058, 0.553935, 1)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p763t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_8vae4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_14vq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_e3idn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_357su")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_dqh25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_8e4ti")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_j10at")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_dwwhb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_hl6bt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_skvvj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_6dns4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_v2hri")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_rj5d2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_yw0he")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_b3p7f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_0kjhd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 25.0
-}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i5haw"]
 animations = [{
@@ -583,8 +523,71 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_p763t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_8vae4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_14vq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_e3idn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_357su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dqh25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8e4ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_j10at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_dwwhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_hl6bt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_skvvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6dns4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_v2hri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rj5d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_yw0he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_b3p7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_0kjhd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3idn"]
+radius = 18.0
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p5aco"]
+radius = 6.0
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 6
+collision_mask = 14
 motion_mode = 1
 script = ExtResource("1_u21xk")
 speed = 600
@@ -613,16 +616,11 @@ wait_time = 15.0
 one_shot = true
 
 [node name="PlayerHitbox" type="Area2D" parent="." groups=["player"]]
-collision_mask = 6
+collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 position = Vector2(0, -80)
 shape = SubResource("CircleShape2D_u21xk")
-
-[node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -80)
-shape = SubResource("CapsuleShape2D_e3idn")
-debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 
 [node name="health_bar" type="ProgressBar" parent="."]
 offset_left = 452.0
@@ -642,25 +640,16 @@ color = Color(0.928891, 0.149574, 0.525563, 1)
 
 [node name="animations" type="Node2D" parent="."]
 
-[node name="run" type="AnimatedSprite2D" parent="animations"]
-visible = false
-position = Vector2(0, -85)
-sprite_frames = SubResource("SpriteFrames_p763t")
-autoplay = "default"
-frame_progress = 0.415779
-
 [node name="idle" type="AnimatedSprite2D" parent="animations"]
 visible = false
-position = Vector2(0, -82)
-scale = Vector2(1.12, 1.12)
+position = Vector2(0, -73)
 sprite_frames = SubResource("SpriteFrames_i5haw")
 autoplay = "default"
 frame_progress = 0.559968
 
 [node name="dash" type="AnimatedSprite2D" parent="animations"]
 visible = false
-position = Vector2(9, -138)
-scale = Vector2(1.15, 1.15)
+position = Vector2(12, -120)
 sprite_frames = SubResource("SpriteFrames_fne80")
 autoplay = "default"
 frame = 20
@@ -668,8 +657,7 @@ frame_progress = 1.0
 
 [node name="attack3" type="AnimatedSprite2D" parent="animations"]
 visible = false
-position = Vector2(22, -116)
-scale = Vector2(1.15, 1.15)
+position = Vector2(19, -100.5)
 sprite_frames = SubResource("SpriteFrames_ksxkg")
 autoplay = "default"
 frame = 38
@@ -677,20 +665,37 @@ frame_progress = 1.0
 
 [node name="attack2" type="AnimatedSprite2D" parent="animations"]
 visible = false
-position = Vector2(7, -109)
-scale = Vector2(1.15, 1.15)
+position = Vector2(6, -94)
 sprite_frames = SubResource("SpriteFrames_r1e0r")
 autoplay = "default"
 frame = 24
 frame_progress = 1.0
 
 [node name="attack1" type="AnimatedSprite2D" parent="animations"]
-position = Vector2(15, -109)
-scale = Vector2(1.15, 1.15)
+visible = false
+position = Vector2(14, -94.5)
 sprite_frames = SubResource("SpriteFrames_i55ig")
 autoplay = "default"
 frame = 14
 frame_progress = 1.0
+
+[node name="run" type="AnimatedSprite2D" parent="animations"]
+visible = false
+position = Vector2(0, -80)
+scale = Vector2(0.95, 0.95)
+sprite_frames = SubResource("SpriteFrames_p763t")
+autoplay = "default"
+frame_progress = 0.965949
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -70)
+shape = SubResource("CapsuleShape2D_e3idn")
+debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
+
+[node name="hitbox2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p5aco")
 
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]

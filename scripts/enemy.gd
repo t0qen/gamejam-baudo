@@ -13,6 +13,7 @@ var can_take_damage = true
 @export var player : CharacterBody2D
 var DetectionRotation : int = 0
 var can_rotate : bool = true
+var can_scope : bool = true 
 	
 func _physics_process(delta: float) -> void:
 	deal_with_damage()
@@ -32,6 +33,13 @@ func _physics_process(delta: float) -> void:
 			
 	else:
 		velocity = Vector2.ZERO
+		if can_scope:
+			can_scope = false
+			DetectionRotation += 1
+			$PlayerDetection.rotation = DetectionRotation / 2
+			await get_tree().create_timer(0.2).timeout
+			can_scope = true
+
 		
 	move_and_slide()
 		

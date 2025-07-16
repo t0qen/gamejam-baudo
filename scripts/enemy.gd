@@ -18,9 +18,9 @@ func _physics_process(delta: float) -> void:
 	deal_with_damage()
 	
 	if player_chase:
-		if player_chase_move:
-			var target_direction = (player.global_position - global_position).normalized()
-			velocity = target_direction * speed
+		print("CHASE")
+		var target_direction = (player.global_position - global_position).normalized()
+		velocity = target_direction * speed
 		
 		position += (player.position - position) / speed
 		$PlayerDetection.look_at(player.global_position)
@@ -37,9 +37,12 @@ func _physics_process(delta: float) -> void:
 		
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
+	
 	if body.has_method("player"):
-		player_chase = true
+		print("ENTRED ", body)
 		if can_rotate:
+			player_chase = true
+			print("CAN")
 			can_rotate = false
 			DetectionRotation += 1
 			$PlayerDetection.rotation = DetectionRotation / 2

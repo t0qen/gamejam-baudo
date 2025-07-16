@@ -93,6 +93,7 @@ func regen():
 	
 func get_inputs(): # func to get current inputs
 	var input = Vector2()
+	print(input)
 	# get input per keys, better than Input.get_vectors()
 	if Input.is_action_pressed('move_right'):
 		input.x += 1

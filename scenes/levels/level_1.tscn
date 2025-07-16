@@ -15,7 +15,7 @@ offset_bottom = 23.0
 text = "NIVEAU 1"
 
 [node name="switch" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 40.0
 one_shot = true
 
 [node name="enemies" type="Node2D" parent="."]
@@ -29,8 +29,13 @@ player = NodePath("../../player")
 position = Vector2(-928, 0)
 player = NodePath("../../player")
 
+[node name="Enemy3" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+position = Vector2(-1176, 536)
+player = NodePath("../../player")
+
 [node name="player" parent="." instance=ExtResource("3_x42e6")]
 position = Vector2(-272, 240)
+collision_layer = 1
 
 [node name="TelephoneDax" parent="player" instance=ExtResource("4_6761a")]
 position = Vector2(-568, -313)

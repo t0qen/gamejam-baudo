@@ -1,51 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://djna2erauxmv3"]
+[gd_scene load_steps=5 format=3 uid="uid://djna2erauxmv3"]
 
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_ufxs0"]
 [ext_resource type="PackedScene" uid="uid://dhrswkm2pyd0k" path="res://scenes/boss.tscn" id="3_6we3w"]
 [ext_resource type="PackedScene" uid="uid://dw5bq2cwer3w4" path="res://scenes/laser.tscn" id="4_qmak7"]
-[ext_resource type="PackedScene" uid="uid://d36vr4sdkrq5" path="res://scenes/camera.tscn" id="5_8ra5a"]
-[ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="6_bq26l"]
 
 [node name="MainLevel" type="Node2D"]
 
-[node name="Ennemi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+[node name="Ennemi" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(844, 317)
-player = NodePath("../Player")
 
-[node name="Ennemi2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+[node name="Ennemi2" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(1203, -760)
-player = NodePath("../Player")
 
-[node name="Ennemi3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+[node name="Ennemi3" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(1617, -35)
-player = NodePath("../Player")
 
-[node name="Ennemi4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+[node name="Ennemi4" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(485, -732)
-player = NodePath("../Player")
 
-[node name="Ennemi5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+[node name="Ennemi5" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(2045, -774)
-player = NodePath("../Player")
 
-[node name="Ennemi6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+[node name="Ennemi6" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(2315, 517)
-player = NodePath("../Player")
 
-[node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6we3w")]
+[node name="Boss" parent="." instance=ExtResource("3_6we3w")]
 position = Vector2(-397, 561)
-player = NodePath("../Player")
 
 [node name="Laser" parent="." instance=ExtResource("4_qmak7")]
 position = Vector2(-671, 1235)
 
-[node name="Player" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("2_6we3w")]
-unique_name_in_owner = true
-position = Vector2(-405, 812)
-boss_node = NodePath("../Boss")
+[node name="Enemy" parent="." instance=ExtResource("2_ufxs0")]
+position = Vector2(-1550, 313)
 
-[node name="camera" parent="Player" instance=ExtResource("5_8ra5a")]
-
-[node name="TelephoneDax" parent="Player/camera" instance=ExtResource("6_bq26l")]
-position = Vector2(-568, -313)
+[node name="player" parent="." instance=ExtResource("2_6we3w")]
+position = Vector2(-1784, 1181)

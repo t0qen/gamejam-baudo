@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccv7b5rwcb0x5"]
+
+[ext_resource type="Script" uid="uid://ciuf4dcgs8ba6" path="res://scripts/levels/cinematic_1.gd" id="1_j6636"]
+
+[node name="cinematic1" type="Node2D"]
+script = ExtResource("1_j6636")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "CINEMATIQUE 1, PASSE AU NIVEAU SUIVANT DANS 2s"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(192, 56)
+
+[node name="switch" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]

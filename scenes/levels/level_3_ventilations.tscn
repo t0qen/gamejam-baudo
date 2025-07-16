@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8qjq1mg3ndf3"]
+
+[ext_resource type="Script" uid="uid://qsflcba41w7a" path="res://scripts/levels/level_3_ventilations.gd" id="1_ktcwb"]
+
+[node name="level3_ventilations" type="Node2D"]
+script = ExtResource("1_ktcwb")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "LEVEL 3 VENTILATIONS"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(88, 104)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://xondpfojs2pb"]
+
+[ext_resource type="Script" uid="uid://gl58igbti3aw" path="res://scripts/levels/level_1.gd" id="1_ksju7"]
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_ksju7")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "NIVEAU 1"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(64, 72)
+
+[node name="switch" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]

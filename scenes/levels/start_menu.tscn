@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://dls31nm63dvlr"]
+
+[ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_bobbp"]
+[ext_resource type="Script" uid="uid://bck0gqja62o64" path="res://scripts/levels/start_menu.gd" id="1_cfn5g"]
+[ext_resource type="FontFile" uid="uid://bff5f1wvnem3p" path="res://assets/fonts/MonaspaceKrypton-Medium.otf" id="2_01ge7"]
+[ext_resource type="Texture2D" uid="uid://cc5qgpi6ufrji" path="res://assets/sprites/zbaudo/run/frame_09_delay-0.03s.png" id="3_01ge7"]
+[ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="5_xhmce"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gg7vo"]
+font = ExtResource("1_bobbp")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_7hutc"]
+font = ExtResource("5_xhmce")
+
+[node name="start_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cfn5g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 26.0
+offset_right = 602.0
+offset_bottom = 86.0
+text = "MISSION: GAMER BOY"
+label_settings = SubResource("LabelSettings_gg7vo")
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 264.0
+offset_right = 208.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("1_bobbp")
+theme_override_font_sizes/font_size = 36
+text = "START"
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 336.0
+offset_right = 182.0
+offset_bottom = 384.0
+theme_override_fonts/font = ExtResource("2_01ge7")
+theme_override_font_sizes/font_size = 34
+text = "QUIT"
+
+[node name="Frame09Delay-0_03s" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(736, 280)
+scale = Vector2(5, 5)
+texture = ExtResource("3_01ge7")
+
+[node name="quit_label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 400.0
+offset_right = 265.0
+offset_bottom = 449.0
+text = "TU VEUX VRAIMENT QUITTER ??
+FAIS ALT+F4 AU PIRE"
+label_settings = SubResource("LabelSettings_7hutc")
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

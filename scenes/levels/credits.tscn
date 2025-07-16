@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw74otuouhnsl"]
+
+[ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_kxfi0"]
+
+[node name="credits" type="Node2D"]
+script = ExtResource("1_kxfi0")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "-- DEV, GAME DESIGNER, LEVEL DESIGNER --
+Al's
+t0qen (AYMERIC)
+
+-- GRAPHISTE --
+OBCD 
+
+-- MUSIQUE --
+DarkPhoenix
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(192, 56)
+
+[node name="switch" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]

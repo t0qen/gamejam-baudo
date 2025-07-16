@@ -35,7 +35,6 @@ player = NodePath("../../player")
 
 [node name="player" parent="." instance=ExtResource("3_x42e6")]
 position = Vector2(-272, 240)
-collision_layer = 1
 
 [node name="TelephoneDax" parent="player" instance=ExtResource("4_6761a")]
 position = Vector2(-568, -313)

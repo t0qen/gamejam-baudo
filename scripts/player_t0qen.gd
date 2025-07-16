@@ -48,7 +48,6 @@ var can_regen : bool = true
 var prev_inputs : int = 0 # useful for determine flip sprite
 
 # NODES
-@onready var sprite : AnimatedSprite2D = $sprite
 @export var boss_node : CharacterBody2D  
 	# -- UI
 @onready var health_bar: ProgressBar = $health_bar
@@ -268,9 +267,10 @@ func boss_attack():
 	else:
 		regen_start_timer.start()
 		
-	sprite.modulate = Color.RED
-	await get_tree().create_timer(0.2).timeout
-	sprite.modulate = Color.WHITE
+	$animations.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	$animations.modulate = Color.WHITE
+
 			
 func _on_attack_cooldown_timeout() -> void: # Cooldown de l'attaque
 	enemy_attack_cooldown = true

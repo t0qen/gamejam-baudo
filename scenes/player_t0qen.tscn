@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://cl71r21okvrwm"]
+[gd_scene load_steps=144 format=3 uid="uid://cl71r21okvrwm"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
 [ext_resource type="Texture2D" uid="uid://hf3py5xgk1ud" path="res://assets/sprites/zbaudo/idle/frame_01_delay-0.03s.png" id="2_i5eyg"]
@@ -126,6 +126,7 @@
 [ext_resource type="Texture2D" uid="uid://dqbmij5asq8r3" path="res://assets/sprites/zbaudo/attack1/frame_10_delay-0.03s.png" id="129_3x53d"]
 [ext_resource type="Texture2D" uid="uid://d25jwmdq1d5oe" path="res://assets/sprites/zbaudo/attack1/frame_11_delay-0.03s.png" id="130_tgeie"]
 [ext_resource type="Texture2D" uid="uid://bde4clky1klgw" path="res://assets/sprites/zbaudo/attack1/frame_12_delay-0.03s.png" id="131_7k5w8"]
+[ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="132_4qfwo"]
 [ext_resource type="Texture2D" uid="uid://cr10537y7ibco" path="res://assets/sprites/zbaudo/attack1/frame_13_delay-0.03s.png" id="132_vpnbk"]
 [ext_resource type="Texture2D" uid="uid://bbh63lp4hnhjq" path="res://assets/sprites/zbaudo/attack1/frame_14_delay-0.03s.png" id="133_umolv"]
 [ext_resource type="Texture2D" uid="uid://cfn5e0mh25fq4" path="res://assets/sprites/zbaudo/attack1/frame_15_delay-0.03s.png" id="134_fo6vg"]
@@ -616,6 +617,7 @@ wait_time = 15.0
 one_shot = true
 
 [node name="PlayerHitbox" type="Area2D" parent="." groups=["player"]]
+position = Vector2(0, 70)
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
@@ -633,12 +635,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_14vq2")
 max_value = 160.0
 step = 1.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.928891, 0.149574, 0.525563, 1)
 
 [node name="animations" type="Node2D" parent="."]
+position = Vector2(0, 70)
 
 [node name="idle" type="AnimatedSprite2D" parent="animations"]
 visible = false
@@ -688,14 +692,33 @@ autoplay = "default"
 frame_progress = 0.965949
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -70)
 shape = SubResource("CapsuleShape2D_e3idn")
 debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 
 [node name="hitbox2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, 64)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_p5aco")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = 82.0
+offset_right = 57.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("132_4qfwo")
+theme_override_font_sizes/font_size = 20
+text = "Appuies sur E"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]

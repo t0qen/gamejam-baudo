@@ -48,7 +48,6 @@ var can_regen : bool = true
 var prev_inputs : int = 0 # useful for determine flip sprite
 
 # NODES
-@onready var sprite : AnimatedSprite2D = $sprite
 @export var boss_node : CharacterBody2D  
 	# -- UI
 @onready var health_bar: ProgressBar = $health_bar
@@ -91,7 +90,11 @@ func _physics_process(delta: float) -> void:
 	if current_health <= 0: # Tue le joueur si il a 0 vie
 		player_alive = false # ajouter un ecran de fin
 		get_tree().change_scene_to_file("res://scenes/dead_screen.tscn")
-			
+	
+	if global.player_press_e:
+		$Label.show()
+	else:
+		$Label.hide()
 # SUB 
 func random_attack_anim():
 	var all_attack_anim = ["attack1", "attack2", "attack3"]
@@ -268,9 +271,10 @@ func boss_attack():
 	else:
 		regen_start_timer.start()
 		
-	sprite.modulate = Color.RED
+	$animations.modulate = Color.RED
 	await get_tree().create_timer(0.2).timeout
-	sprite.modulate = Color.WHITE
+	$animations.modulate = Color.WHITE
+
 			
 func _on_attack_cooldown_timeout() -> void: # Cooldown de l'attaque
 	enemy_attack_cooldown = true

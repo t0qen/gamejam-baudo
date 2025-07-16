@@ -1,5 +1,21 @@
 extends Node2D
 
+
+
 func _ready() -> void:
 	pass
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("action") and global.player_press_e:
+		get_tree().change_scene_to_file("res://scenes/levels/level_4_salle_info.tscn")
+
+
+func _on_vent_3_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		global.player_press_e = true
 	
+
+
+func _on_vent_3_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		global.player_press_e = false

@@ -2,12 +2,29 @@
 
 [ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_kxfi0"]
 
-[node name="credits" type="Node2D"]
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_kxfi0")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 1169.0
+offset_bottom = 662.0
+color = Color(0.10748, 0.10748, 0.10748, 1)
+
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 400.0
+offset_top = 112.0
+offset_right = 732.0
+offset_bottom = 447.0
 text = "-- GAME ENGINE
 Godot
 
@@ -22,11 +39,8 @@ OBCD
 DarkPhoenix
 "
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(192, 56)
-
 [node name="switch" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
 one_shot = true
 
 [connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]

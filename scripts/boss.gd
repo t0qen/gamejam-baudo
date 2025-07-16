@@ -47,7 +47,7 @@ func attack_player():
 		await get_tree().create_timer(0.3).timeout
 		
 		$Node2D.show()
-		
+		CameraManager.shake(0.7, 1.5, Vector2(50, 50), 0.5)
 		is_attacking = true
 		attack_duration.start()
 		

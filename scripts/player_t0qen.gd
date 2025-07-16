@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 # /* VARIABLES */
+@export var will_instanciate_cam : bool = true
+var cam = preload("res://scenes/camera.tscn")
+
 # TIMERS
 @onready var dash_duration_timer: Timer = $timers/dash_duration
 @onready var dash_delay_timer: Timer = $timers/dash_delay
@@ -44,6 +47,11 @@ var prev_inputs : int = 0 # useful for determine flip sprite
 
 # MAIN
 func _ready() -> void:
+	if will_instanciate_cam:
+		var current_cam = cam.instantiate()
+		add_child(current_cam)
+		current_cam.global_position = global_position
+		
 	# Setup health ui
 	health_bar.max_value = HEALTH
 	health_bar.value = HEALTH

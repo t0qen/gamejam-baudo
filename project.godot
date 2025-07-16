@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 global="*res://scripts/global.gd"
+CameraManager="*res://scripts/camera_manager.gd"
 
 [global_group]
 

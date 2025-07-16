@@ -417,7 +417,6 @@ tile_set = SubResource("TileSet_m0scm")
 
 [node name="player" parent="." instance=ExtResource("2_2kwoh")]
 scale = Vector2(0.600257, 0.600257)
-will_instanciate_cam = false
 
 [node name="TelephoneDax" parent="player" instance=ExtResource("3_ogte4")]
 position = Vector2(-576, -324)

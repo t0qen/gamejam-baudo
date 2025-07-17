@@ -1,15 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw74otuouhnsl"]
+[gd_scene load_steps=9 format=3 uid="uid://cw74otuouhnsl"]
 
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_fhg1p"]
-[ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="2_uvwux"]
+[ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_uvwux"]
+[ext_resource type="FontFile" uid="uid://ee2n5s5hxtv1" path="res://assets/fonts/NotoSans-VariableFont_wdth,wght.ttf" id="3_m0gy5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m0gy5"]
 font = ExtResource("1_fhg1p")
-font_size = 46
+font_size = 91
 
 [sub_resource type="LabelSettings" id="LabelSettings_mpx5v"]
-font = ExtResource("2_uvwux")
+line_spacing = 6.795
+font = ExtResource("3_m0gy5")
 font_size = 31
+
+[sub_resource type="Animation" id="Animation_mpx5v"]
+resource_name = "crédits"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -566.34)]
+}
+
+[sub_resource type="Animation" id="Animation_4c5nq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5bms"]
+_data = {
+&"RESET": SubResource("Animation_4c5nq"),
+&"crédits": SubResource("Animation_mpx5v")
+}
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -18,6 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uvwux")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -28,37 +68,61 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0605303, 0.0605303, 0.0605303, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -105.0
-offset_right = 105.0
-offset_bottom = 58.0
+offset_left = 338.0
+offset_top = 12.0
+offset_right = 775.0
+offset_bottom = 126.0
 grow_horizontal = 2
-text = "= CREDITS ="
+text = "CREDITS"
 label_settings = SubResource("LabelSettings_m0gy5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -210.5
-offset_right = 480.0
-offset_bottom = 210.5
+offset_left = 80.0
+offset_top = 120.0
+offset_right = 1040.0
+offset_bottom = 864.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Ce jeux a été créé par : 
-- Al's, t0qen : les développeurs polyvalents
-- OBCD : pour les personnages et leurs animations 
-ainsi que les tilesets
-- DarkPhoenix : la musique
-Ensembles forment la team ALT+F4.
+text = "_Concept et Histoire_
+Al's
+t0quen
+OBCD
+_Développement_
+Al's
+t0quen
+_Graphiste_
+OBCD
+_Graphiste de rattrapage_
+Al's
+_Musiques_
+DarkPhoenix3254
 
-Tout a été fait main et avec coeur."
+Merci d'avoir joué !"
 label_settings = SubResource("LabelSettings_mpx5v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x5bms")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -2,22 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://ddmeehy6d1hiy" path="res://assets/sprites/Dax/Dax-1.png.png" id="1_62yvx"]
 [ext_resource type="Script" uid="uid://gxn8om1lqbv" path="res://scripts/telephone_dax.gd" id="1_wss33"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gow1"]
-bg_color = Color(0.462291, 0.462291, 0.46229, 1)
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.288518, 0.288518, 0.288518, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 1
-shadow_offset = Vector2(5, 5)
+[ext_resource type="Texture2D" uid="uid://c2qvpl6ynsr05" path="res://assets/sprites/Dax/DaxTel.png" id="2_mpvvj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wss33"]
 texture = ExtResource("1_62yvx")
 region_rect = Rect2(0, 128, 992, 768)
+modulate_color = Color(0.670689, 0.67069, 0.670689, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62yvx"]
 bg_color = Color(0.10748, 0.10748, 0.10748, 1)
@@ -86,73 +76,40 @@ grow_vertical = 2
 scale = Vector2(0.844633, 0.844633)
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel2" type="Panel" parent="Control/Panel3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.3896
-offset_top = -140.0
-offset_right = -31.3896
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.95671, 0.673633)
-theme_override_styles/panel = SubResource("StyleBoxFlat_0gow1")
-metadata/_edit_use_anchors_ = true
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel3"]
+position = Vector2(4.73578, -14.2074)
+scale = Vector2(0.210428, 0.210428)
+texture = ExtResource("2_mpvvj")
 
-[node name="Panel" type="Panel" parent="Control/Panel3"]
+[node name="Panel3" type="Panel" parent="Control/Panel3"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -94.2184
-offset_right = 34.0
-offset_bottom = 61.7816
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0gow1")
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel2" type="Panel" parent="Control/Panel3/Panel"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 19.2184
-offset_right = 82.0
-offset_bottom = 73.2184
+anchors_preset = -1
+anchor_left = 0.0554351
+anchor_top = 0.0430607
+anchor_right = 0.0554351
+anchor_bottom = 0.0430607
+offset_left = -33.0
+offset_top = -55.0
+offset_right = 38.0
+offset_bottom = -1.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_wss33")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="Control/Panel3/Panel"]
+[node name="Panel5" type="Panel" parent="Control/Panel3"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.3896
-offset_top = -58.5632
-offset_right = 33.6104
-offset_bottom = -4.56319
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel3" type="Panel" parent="Control/Panel3/Panel"]
-layout_mode = 0
-offset_left = 11.6104
-offset_top = 81.4368
-offset_right = 81.6104
-offset_bottom = 88.4368
+anchors_preset = -1
+anchor_left = 0.0554351
+anchor_top = 0.0430607
+anchor_right = 0.0554352
+anchor_bottom = 0.0430607
+offset_left = -32.3896
+offset_top = 7.2184
+offset_right = 37.6104
+offset_bottom = 14.2184
 theme_override_styles/panel = SubResource("StyleBoxFlat_62yvx")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel3" type="Panel" parent="Control/Panel3/Panel/Panel3"]
+[node name="Panel3" type="Panel" parent="Control/Panel3/Panel5"]
 layout_mode = 0
 offset_top = 11.0
 offset_right = 70.0
@@ -160,7 +117,7 @@ offset_bottom = 18.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_62yvx")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel3" type="Panel" parent="Control/Panel3/Panel/Panel3/Panel3"]
+[node name="Panel3" type="Panel" parent="Control/Panel3/Panel5/Panel3"]
 layout_mode = 0
 offset_top = 11.0
 offset_right = 70.0
@@ -168,7 +125,7 @@ offset_bottom = 18.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_62yvx")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel3" type="Panel" parent="Control/Panel3/Panel/Panel3/Panel3/Panel3"]
+[node name="Panel3" type="Panel" parent="Control/Panel3/Panel5/Panel3/Panel3"]
 layout_mode = 0
 offset_top = 11.0
 offset_right = 70.0
@@ -176,8 +133,9 @@ offset_bottom = 18.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_62yvx")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel3" type="Panel" parent="Control/Panel3/Panel/Panel3/Panel3/Panel3/Panel3"]
-layout_mode = 0
+[node name="Panel3" type="Panel" parent="Control/Panel3/Panel5/Panel3/Panel3/Panel3"]
+layout_mode = 1
+anchors_preset = -1
 offset_top = 11.0
 offset_right = 70.0
 offset_bottom = 18.0

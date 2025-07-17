@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct8q4cef6kwp1"]
+[gd_scene load_steps=10 format=3 uid="uid://ct8q4cef6kwp1"]
 
 [ext_resource type="Script" uid="uid://dnabl30rrk204" path="res://scripts/dead_screen.gd" id="1_b3wyb"]
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="2_id3ew"]
 [ext_resource type="AudioStream" uid="uid://oqexe4c5o0f5" path="res://assets/sounds/Dax/vrm nul dax3.wav" id="3_urrme"]
+[ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="4_g6ylt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urrme"]
 bg_color = Color(0.22, 0.22, 0.22, 1)
@@ -65,6 +66,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="BackGround" type="Panel" parent="ReferenceRect"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
@@ -129,4 +131,9 @@ vertical_alignment = 1
 stream = ExtResource("3_urrme")
 bus = &"Dax"
 
+[node name="TelephoneDax" parent="." instance=ExtResource("4_g6ylt")]
+position = Vector2(-6, -4)
+scale = Vector2(1.41632, 1.41632)
+
 [connection signal="pressed" from="ReferenceRect/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="VrmNulDax3" to="." method="_on_vrm_nul_dax_3_finished"]

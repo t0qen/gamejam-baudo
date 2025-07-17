@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://cl71r21okvrwm"]
+[gd_scene load_steps=166 format=3 uid="uid://cl71r21okvrwm"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
 [ext_resource type="Texture2D" uid="uid://hf3py5xgk1ud" path="res://assets/sprites/zbaudo/idle/frame_01_delay-0.03s.png" id="2_i5eyg"]
@@ -127,11 +127,32 @@
 [ext_resource type="Texture2D" uid="uid://d25jwmdq1d5oe" path="res://assets/sprites/zbaudo/attack1/frame_11_delay-0.03s.png" id="130_tgeie"]
 [ext_resource type="Texture2D" uid="uid://bde4clky1klgw" path="res://assets/sprites/zbaudo/attack1/frame_12_delay-0.03s.png" id="131_7k5w8"]
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="132_4qfwo"]
+[ext_resource type="Texture2D" uid="uid://b3kshu7bjx715" path="res://assets/sprites/zbaudo/mort/frame_00_delay-0.03s.png" id="132_hveaf"]
 [ext_resource type="Texture2D" uid="uid://cr10537y7ibco" path="res://assets/sprites/zbaudo/attack1/frame_13_delay-0.03s.png" id="132_vpnbk"]
+[ext_resource type="Texture2D" uid="uid://duw3q0pnjfiil" path="res://assets/sprites/zbaudo/mort/frame_01_delay-0.03s.png" id="133_by6on"]
 [ext_resource type="Texture2D" uid="uid://bbh63lp4hnhjq" path="res://assets/sprites/zbaudo/attack1/frame_14_delay-0.03s.png" id="133_umolv"]
 [ext_resource type="Texture2D" uid="uid://cfn5e0mh25fq4" path="res://assets/sprites/zbaudo/attack1/frame_15_delay-0.03s.png" id="134_fo6vg"]
+[ext_resource type="Texture2D" uid="uid://cxe44ufik402c" path="res://assets/sprites/zbaudo/mort/frame_02_delay-0.03s.png" id="134_yos36"]
+[ext_resource type="Texture2D" uid="uid://bmjui1mi6swsv" path="res://assets/sprites/zbaudo/mort/frame_03_delay-0.03s.png" id="135_0gp3k"]
 [ext_resource type="Texture2D" uid="uid://tvhyfs3csk6d" path="res://assets/sprites/zbaudo/attack1/frame_16_delay-0.03s.png" id="135_jx86n"]
+[ext_resource type="Texture2D" uid="uid://ji6hccgwec1x" path="res://assets/sprites/zbaudo/mort/frame_04_delay-0.03s.png" id="136_gpr0w"]
 [ext_resource type="Texture2D" uid="uid://cj0be7qkgh8ab" path="res://assets/sprites/zbaudo/attack1/frame_17_delay-0.03s.png" id="136_kutxm"]
+[ext_resource type="Texture2D" uid="uid://dtlwosbiyngyq" path="res://assets/sprites/zbaudo/mort/frame_05_delay-0.03s.png" id="137_xobgc"]
+[ext_resource type="Texture2D" uid="uid://duert7u1lpp5i" path="res://assets/sprites/zbaudo/mort/frame_06_delay-0.03s.png" id="138_pbs7j"]
+[ext_resource type="Texture2D" uid="uid://mgqi4cdk2r62" path="res://assets/sprites/zbaudo/mort/frame_07_delay-0.03s.png" id="139_6oc16"]
+[ext_resource type="Texture2D" uid="uid://bkbwxa8ekmqf2" path="res://assets/sprites/zbaudo/mort/frame_08_delay-0.03s.png" id="140_u7jn7"]
+[ext_resource type="Texture2D" uid="uid://coao4o30ewiu0" path="res://assets/sprites/zbaudo/mort/frame_09_delay-0.03s.png" id="141_671an"]
+[ext_resource type="Texture2D" uid="uid://6d7eg7jsn047" path="res://assets/sprites/zbaudo/mort/frame_10_delay-0.03s.png" id="142_j6fk5"]
+[ext_resource type="Texture2D" uid="uid://dmfg38kn2un68" path="res://assets/sprites/zbaudo/mort/frame_11_delay-0.03s.png" id="143_vxqx0"]
+[ext_resource type="Texture2D" uid="uid://crr775vg06nk3" path="res://assets/sprites/zbaudo/mort/frame_12_delay-0.03s.png" id="144_gjrbm"]
+[ext_resource type="Texture2D" uid="uid://dpglivmsaagq3" path="res://assets/sprites/zbaudo/mort/frame_13_delay-0.03s.png" id="145_k22ht"]
+[ext_resource type="Texture2D" uid="uid://bmqhr7hviplt2" path="res://assets/sprites/zbaudo/mort/frame_14_delay-0.03s.png" id="146_8kq4n"]
+[ext_resource type="Texture2D" uid="uid://dbmcequk6gevu" path="res://assets/sprites/zbaudo/mort/frame_15_delay-0.03s.png" id="147_ojmxe"]
+[ext_resource type="Texture2D" uid="uid://orexbeiuimks" path="res://assets/sprites/zbaudo/mort/frame_16_delay-0.03s.png" id="148_3oh35"]
+[ext_resource type="Texture2D" uid="uid://cclkpucp0ufff" path="res://assets/sprites/zbaudo/mort/frame_17_delay-0.03s.png" id="149_w7cet"]
+[ext_resource type="Texture2D" uid="uid://l0olwcojevul" path="res://assets/sprites/zbaudo/mort/frame_18_delay-0.03s.png" id="150_jfeln"]
+[ext_resource type="Texture2D" uid="uid://8f28apx0uyp0" path="res://assets/sprites/zbaudo/mort/frame_19_delay-0.03s.png" id="151_qavfq"]
+[ext_resource type="Texture2D" uid="uid://dror3y7wjweum" path="res://assets/sprites/zbaudo/mort/frame_20_delay-0.03s.png" id="152_uj3yp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
 radius = 70.1142
@@ -577,7 +598,78 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 25.0
+"speed": 30.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xa3fw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("132_hveaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_by6on")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_yos36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_0gp3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_gpr0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_xobgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_pbs7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_6oc16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_u7jn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_671an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_j6fk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_vxqx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_gjrbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_k22ht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_8kq4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_ojmxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_3oh35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_w7cet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_jfeln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_qavfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_uj3yp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3idn"]
@@ -616,6 +708,10 @@ process_callback = 0
 wait_time = 15.0
 one_shot = true
 
+[node name="wait_death" type="Timer" parent="timers"]
+wait_time = 3.0
+one_shot = true
+
 [node name="PlayerHitbox" type="Area2D" parent="." groups=["player"]]
 position = Vector2(0, 70)
 collision_mask = 14
@@ -644,30 +740,37 @@ color = Color(0.928891, 0.149574, 0.525563, 1)
 [node name="animations" type="Node2D" parent="."]
 position = Vector2(0, 70)
 
-[node name="idle" type="AnimatedSprite2D" parent="animations"]
-visible = false
+[node name="pivot_idle" type="Node2D" parent="animations"]
+
+[node name="idle" type="AnimatedSprite2D" parent="animations/pivot_idle"]
 position = Vector2(0, -73)
 sprite_frames = SubResource("SpriteFrames_i5haw")
 autoplay = "default"
-frame_progress = 0.559968
+frame_progress = 0.943429
 
-[node name="dash" type="AnimatedSprite2D" parent="animations"]
+[node name="pivot_dash" type="Node2D" parent="animations"]
+
+[node name="dash" type="AnimatedSprite2D" parent="animations/pivot_dash"]
 visible = false
-position = Vector2(12, -120)
+position = Vector2(13, -120)
 sprite_frames = SubResource("SpriteFrames_fne80")
 autoplay = "default"
 frame = 20
 frame_progress = 1.0
 
-[node name="attack3" type="AnimatedSprite2D" parent="animations"]
+[node name="pivot_attack3" type="Node2D" parent="animations"]
+
+[node name="attack3" type="AnimatedSprite2D" parent="animations/pivot_attack3"]
 visible = false
-position = Vector2(19, -100.5)
+position = Vector2(21, -100)
 sprite_frames = SubResource("SpriteFrames_ksxkg")
 autoplay = "default"
 frame = 38
 frame_progress = 1.0
 
-[node name="attack2" type="AnimatedSprite2D" parent="animations"]
+[node name="pivot_attack2" type="Node2D" parent="animations"]
+
+[node name="attack2" type="AnimatedSprite2D" parent="animations/pivot_attack2"]
 visible = false
 position = Vector2(6, -94)
 sprite_frames = SubResource("SpriteFrames_r1e0r")
@@ -675,7 +778,9 @@ autoplay = "default"
 frame = 24
 frame_progress = 1.0
 
-[node name="attack1" type="AnimatedSprite2D" parent="animations"]
+[node name="pivot_attack1" type="Node2D" parent="animations"]
+
+[node name="attack1" type="AnimatedSprite2D" parent="animations/pivot_attack1"]
 visible = false
 position = Vector2(14, -94.5)
 sprite_frames = SubResource("SpriteFrames_i55ig")
@@ -683,13 +788,25 @@ autoplay = "default"
 frame = 14
 frame_progress = 1.0
 
-[node name="run" type="AnimatedSprite2D" parent="animations"]
-visible = false
-position = Vector2(0, -80)
+[node name="pivot_run" type="Node2D" parent="animations"]
+
+[node name="run" type="AnimatedSprite2D" parent="animations/pivot_run"]
+position = Vector2(0, -79)
 scale = Vector2(0.95, 0.95)
 sprite_frames = SubResource("SpriteFrames_p763t")
 autoplay = "default"
-frame_progress = 0.965949
+frame = 5
+frame_progress = 0.343917
+
+[node name="pivot_dead" type="Node2D" parent="animations"]
+
+[node name="dead" type="AnimatedSprite2D" parent="animations/pivot_dead"]
+visible = false
+position = Vector2(-29, -97)
+scale = Vector2(0.95, 0.95)
+sprite_frames = SubResource("SpriteFrames_xa3fw")
+frame = 20
+frame_progress = 1.0
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_e3idn")
@@ -725,6 +842,7 @@ vertical_alignment = 1
 [connection signal="timeout" from="timers/deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="timers/attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="timers/regen_start" to="." method="_on_regen_start_timeout"]
+[connection signal="timeout" from="timers/wait_death" to="." method="_on_wait_death_timeout"]
 [connection signal="area_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_area_exited"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]

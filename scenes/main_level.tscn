@@ -7,8 +7,9 @@
 
 [node name="MainLevel" type="Node2D"]
 
-[node name="Ennemi" parent="." instance=ExtResource("2_ufxs0")]
-position = Vector2(844, 317)
+[node name="Ennemi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ufxs0")]
+position = Vector2(-2356, 1194)
+player = NodePath("../player")
 
 [node name="Ennemi2" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(1203, -760)

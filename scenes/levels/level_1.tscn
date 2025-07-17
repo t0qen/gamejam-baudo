@@ -199,6 +199,18 @@ metadata/_edit_use_anchors_ = true
 wait_time = 80.0
 one_shot = true
 
+[node name="Arrow1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(748, -2941)
+scale = Vector2(2, 2)
+texture = ExtResource("8_s8va5")
+
+[node name="Arrow2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3630, -2778)
+scale = Vector2(2, 2)
+texture = ExtResource("8_s8va5")
+
 [node name="lasers" type="Node2D" parent="."]
 position = Vector2(4305, -2426)
 
@@ -291,18 +303,6 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
 position = Vector2(5824, -2815.5)
 shape = SubResource("RectangleShape2D_oc4kc")
-
-[node name="Arrow1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(748, -2941)
-scale = Vector2(2, 2)
-texture = ExtResource("8_s8va5")
-
-[node name="Arrow2" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(3630, -2778)
-scale = Vector2(2, 2)
-texture = ExtResource("8_s8va5")
 
 [node name="block_enemies" type="StaticBody2D" parent="."]
 collision_layer = 32

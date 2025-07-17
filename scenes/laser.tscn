@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dw5bq2cwer3w4"]
 
 [ext_resource type="Script" uid="uid://clx728jxi0i0c" path="res://scenes/laser.gd" id="1_jjj73"]
-[ext_resource type="Texture2D" uid="uid://bnub53glj5dr7" path="res://icon.svg" id="1_xmihv"]
 [ext_resource type="Texture2D" uid="uid://ctiremociwvn6" path="res://assets/sprites/Laser/Laser-1.png.png" id="2_a7dhc"]
+[ext_resource type="Texture2D" uid="uid://dkq5jtjxc1ndq" path="res://assets/sprites/Laser/laser.png" id="3_412cd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjj73"]
 texture = ExtResource("2_a7dhc")
@@ -34,50 +34,50 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FinLaserCol/FinLaser:position")
+tracks/1/path = NodePath("Area2D/LaserCol:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0399057, 0.0824718, 0.127698, 0.170264, 0.204849, 0.247415, 0.287321, 0.329887, 0.375114, 0.41768, 0.473548, 0.516114, 0.569321, 0.611888, 0.646472, 0.689039, 0.744907, 0.787473, 0.835359, 0.877926, 0.917831, 0.960397, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.00012207, 0), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, 0)]
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/LaserCol:disabled")
+tracks/2/path = NodePath("Area2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false, true]
+"values": [false, true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D:visible")
+tracks/3/path = NodePath("Area2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Area2D:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(1, 1.16667, 1.27355, 1.38447, 1.46856, 1.57948, 1.65104, 1.76196, 1.82458, 1.9355, 2.01243, 2.12336, 2.22712, 2.33804, 2.4436, 2.55452, 2.62787, 2.73879, 2.8, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1e-05), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.5), Vector2(1, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TeteLaserCol2/TeteLaser:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0399057, 0.0824718, 0.127698, 0.170264, 0.204849, 0.247415, 0.287321, 0.329887, 0.375114, 0.41768, 0.473548, 0.516114, 0.569321, 0.611888, 0.646472, 0.689039, 0.744907, 0.787473, 0.835359, 0.877926, 0.917831, 0.960397, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.00012207, 0), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jjj73"]
@@ -97,19 +97,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FinLaserCol/FinLaser:position")
+tracks/1/path = NodePath("Area2D/LaserCol:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6.10352e-05, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/LaserCol:disabled")
+tracks/2/path = NodePath("Area2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -121,26 +121,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D:visible")
+tracks/3/path = NodePath("Area2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Area2D:scale")
+tracks/4/path = NodePath("TeteLaserCol2/TeteLaser:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(-6.93747, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_412cd"]
@@ -160,7 +160,7 @@ collision_layer = 8
 collision_mask = 5
 
 [node name="LaserCol" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(108, 0)
+position = Vector2(106.244, 0.157611)
 scale = Vector2(1.46875, 0.0697545)
 polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
 disabled = true
@@ -187,20 +187,23 @@ autoplay = "LaserActivation"
 [node name="TeteLaserCol" type="CollisionPolygon2D" parent="."]
 position = Vector2(-3.05176e-05, 0)
 scale = Vector2(0.234375, 0.234375)
-polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
+polygon = PackedVector2Array(-77.5756, -60.9524, -77.5756, 66.4935, 69.2642, 66.4935, 69.2642, -60.9524)
 
 [node name="TeteLaser" type="Sprite2D" parent="TeteLaserCol"]
 position = Vector2(0.00012207, 0)
-texture = ExtResource("1_xmihv")
+scale = Vector2(0.162338, 0.162338)
+texture = ExtResource("3_412cd")
 
-[node name="FinLaserCol" type="CollisionPolygon2D" parent="."]
-position = Vector2(217, 0)
-scale = Vector2(0.234375, 0.234375)
-polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
+[node name="TeteLaserCol2" type="CollisionPolygon2D" parent="."]
+position = Vector2(214.286, 0)
+scale = Vector2(0.234, 0.234)
+polygon = PackedVector2Array(-70.1964, -60.9524, -70.1964, 66.4935, 76.8787, 66.4935, 76.8787, -60.9524)
 
-[node name="FinLaser" type="Sprite2D" parent="FinLaserCol"]
-position = Vector2(6.10352e-05, 0)
-texture = ExtResource("1_xmihv")
+[node name="TeteLaser" type="Sprite2D" parent="TeteLaserCol2"]
+position = Vector2(-6.93747, 0)
+scale = Vector2(0.162338, 0.162338)
+texture = ExtResource("3_412cd")
+flip_h = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

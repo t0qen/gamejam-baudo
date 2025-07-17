@@ -44,8 +44,8 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 		while tremble == true:
 			CameraManager.shake(0.5,  1.5, Vector2(50, 100), 0.1)
 			await get_tree().create_timer(0.5).timeout
-		$block_gate/CollisionShape2D.disabled = false
-		$Block_Gate2/CollisionShape2D.disabled = true
+		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
+		$Block_Gate2/CollisionShape2D.call_deferred("set", "disabled", true)
 		$hide_suite.hide()
 		
 func _on_timer_timeout() -> void:

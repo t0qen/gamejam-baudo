@@ -68,6 +68,9 @@ func _ready() -> void:
 	health_bar.max_value = HEALTH
 	health_bar.value = HEALTH
 	
+	# Setup Dash ui
+	$Dash.frame = 0
+	
 func _process(delta: float) -> void:
 	update_health_bar()
 	
@@ -230,6 +233,8 @@ func dash(): # determine if player can dash and perform dash
 				is_dashing = true
 				dash_duration_timer.start() # dash duration
 				can_dash = false
+				$Dash.frame = 1
+				
 			else:
 				return
 		else:
@@ -244,7 +249,8 @@ func player(): # Permet au joueur de se faire détecter pas l'ennemi
 func _on_dash_delay_timeout() -> void: # delay when player can't dash
 	print("DASH DELAY FINISHED")
 	can_dash = true
-
+	$Dash.frame = 0
+	
 func _on_dash_duration_timeout() -> void: # dash duration
 	is_dashing = false
 	dash_delay_timer.start()

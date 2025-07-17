@@ -289,7 +289,7 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 		$animations.modulate = Color.WHITE
 
 func boss_attack():
-	current_health = current_health - 600
+	current_health = current_health - 60
 	can_regen = false
 	if regen_start_timer.time_left > 0: # timer is active
 		regen_start_timer.stop()

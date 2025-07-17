@@ -150,7 +150,7 @@ func deal_with_damage():
 	if player_inattack_zone == true and global.player_current_attack == true:
 		if can_take_damage == true:
 			
-			health = health - 35
+			health = health - 20
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			

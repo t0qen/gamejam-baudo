@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var attack_delay: Timer = $attack_delay
 @onready var attack_duration: Timer = $attack_duration
 @onready var health_bar: ProgressBar = $health_bar
-@export var HEALTH : int = 500
+@export var HEALTH : int = 1000
 
 # ANIMATION
 @onready var combat_1_anim: AnimatedSprite2D = $animation/combat1/combat1
@@ -13,6 +13,10 @@ extends CharacterBody2D
 var current_animation : String
 var prev_animation : String
 
+var excepted_combat
+var cb1_excepted_left_frame = 55
+var cb1_excepted_right_frame = 15
+var cb2_excepted_frame = 100
 
 var current_health : int = HEALTH
 var can_attack : bool = false
@@ -21,15 +25,21 @@ var is_player_near : bool = false
 var can_take_damage : bool = true
 var current_attack : int 
 
+enum PHASE {
+	CB1,
+	CB2,
+	IDLE
+}
+var current_phase : PHASE = PHASE.CB2
+
 func _ready() -> void:
-	attack_delay.start()
-	$Node2D.hide()
+	play_animation("idle")
+	$switch_phase.start()
 	
 func _physics_process(delta: float) -> void:
 	
-	if player:
-		attack_player(current_attack)
-		$Icon2.look_at(player.global_position)
+	update_phase()
+		
 		
 	receive_attack()
 	update_health_bar()
@@ -37,6 +47,73 @@ func _physics_process(delta: float) -> void:
 	if current_health <= 0:
 		self.queue_free()
 
+func update_phase():
+	match current_phase:
+		PHASE.IDLE:
+			play_animation("idle")
+			$Label.text = "INACTIF, METS LE PLUS DE DEGAT"
+		PHASE.CB1:
+			play_animation("combat1")
+			setup_att1()
+			$Label.text = "PHASE 1"
+		PHASE.CB2:
+			play_animation("combat2")
+			setup_att1_cb2()
+			$Label.text = "PHASE 2"
+	
+func setup_att1_cb2():
+	var current_frame = $animation/combat2/combat2.frame 
+	if current_frame == cb2_excepted_frame:
+		print("GOOD FRAME CB2")
+		attack1_cb2()
+	
+func attack1_cb2(): #
+	if !is_attacking:
+		is_attacking = true
+		var excepted_side # 1: gauche 2: droite
+		$left_attack.look_at(player.global_position)
+		$right_attack.look_at(player.global_position)
+		await get_tree().create_timer(0.5).timeout
+		$left_attack.show()
+		$right_attack.show()
+		$left_attack.get_child(0).play("default")
+		$right_attack.get_child(0).play("default")
+		await get_tree().create_timer(0.5).timeout
+		is_attacking = false
+		
+func setup_att1():
+	var current_frame = $animation/combat1/combat1.frame 
+	
+	if current_frame == cb1_excepted_left_frame:
+		print("GOOD FRAME MODE=1")
+		attack1(1)
+	if current_frame == cb1_excepted_right_frame:
+		print("GOOD FRAME MODE=2")
+		attack1(2)
+
+	
+func attack1(mode): # attaque vient que d'un coté à la fois
+	if !is_attacking:
+		is_attacking = true
+		var excepted_side # 1: gauche 2: droite
+		var current_attack_side
+		if mode == 1: # mode = quel coté on attaque 1: gauche 2: droite
+			$right_attack.hide()
+			current_attack_side = $left_attack
+			print("PLAYER GAUCHE")
+		elif mode == 2:
+			$left_attack.hide()
+			current_attack_side = $right_attack
+			print("PLAYER DROITE")
+		
+		current_attack_side.look_at(player.global_position)
+		await get_tree().create_timer(0.5).timeout
+		current_attack_side.show()
+		current_attack_side.get_child(0).play("default")
+		await get_tree().create_timer(0.5).timeout
+		is_attacking = false
+	
+	
 func play_animation(animation):
 	if prev_animation == animation:
 		return
@@ -68,7 +145,7 @@ func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
 			can_take_damage = false
-			current_health = current_health - 25 
+			current_health = current_health - 10
 			await get_tree().create_timer(0.5).timeout
 			can_take_damage = true
 		
@@ -76,10 +153,27 @@ func attack_player(attack):
 	if can_attack:
 		can_attack = false
 		if attack == 1: # attaque que de un coté
-			var excepted_side = (player.global_position.x - global_position.x)
+			var excepted_side # 1: gauche 2: droite
+			var current_attack_side
+			if player.global_position.x < global_position.x:
+				excepted_side = 1 
+				$right_attack.hide()
+				current_attack_side = $left_attack
+				print("PLAYER GAUCHE")
+			else:
+				excepted_side = 2
+				$left_attack.hide()
+				current_attack_side = $right_attack
+				print("PLAYER DROITE")
+				
+			current_attack_side.show()
+			current_attack_side.look_at(player.global_position)
+		
+		#if node_a.position.x < node_b.position.x:
+			#print("node_a est à gauche de node_b")
+		#else:
+			#print("node_a est à droite de node_b")
 			
-		
-		
 		#if attack == 1:
 			#$Node2D.look_at(player.global_position)
 			#await get_tree().create_timer(0.3).timeout
@@ -93,9 +187,6 @@ func attack_player(attack):
 		
 	else:
 		return
-
-func _on_attack_delay_timeout() -> void:
-	can_attack = true
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -129,3 +220,16 @@ func _on_receive_attack_hitbox_area_entered(area: Area2D) -> void:
 func _on_receive_attack_hitbox_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		is_player_near = false
+
+
+func _on_switch_phase_timeout() -> void:
+	print("CHANGE PHASE")
+	match current_phase :
+		PHASE.IDLE:
+			current_phase = PHASE.CB1
+		PHASE.CB1:
+			current_phase = PHASE.CB2
+		PHASE.CB2:
+			current_phase = PHASE.IDLE
+		
+		

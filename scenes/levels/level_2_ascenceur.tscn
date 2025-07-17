@@ -174,7 +174,7 @@ scale = Vector2(332.124, 2473.62)
 mesh = SubResource("BoxMesh_vkduq")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 10.0
 one_shot = true
 
 [node name="enemies" type="Node2D" parent="."]
@@ -255,7 +255,6 @@ texture = ExtResource("6_iv1n8")
 position = Vector2(969, 15)
 
 [node name="hide_etage" type="MeshInstance2D" parent="."]
-visible = false
 modulate = Color(0.129412, 0.121569, 0.137255, 1)
 position = Vector2(-1054.13, 35.3749)
 scale = Vector2(3588.25, 1693.25)

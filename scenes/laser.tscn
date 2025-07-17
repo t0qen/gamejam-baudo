@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw5bq2cwer3w4"]
+[gd_scene load_steps=8 format=3 uid="uid://dw5bq2cwer3w4"]
 
+[ext_resource type="Script" uid="uid://clx728jxi0i0c" path="res://scenes/laser.gd" id="1_jjj73"]
 [ext_resource type="Texture2D" uid="uid://bnub53glj5dr7" path="res://icon.svg" id="1_xmihv"]
 [ext_resource type="Texture2D" uid="uid://ctiremociwvn6" path="res://assets/sprites/Laser/Laser-1.png.png" id="2_a7dhc"]
 
@@ -144,6 +145,7 @@ _data = {
 scale = Vector2(3.08, 3.08)
 collision_layer = 8
 collision_mask = 5
+script = ExtResource("1_jjj73")
 
 [node name="TeteLaserCol" type="CollisionPolygon2D" parent="."]
 position = Vector2(-3.05176e-05, 0)
@@ -192,3 +194,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_412cd")
 }
 autoplay = "LaserActivation"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

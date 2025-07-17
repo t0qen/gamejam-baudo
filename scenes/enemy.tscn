@@ -100,7 +100,7 @@
 [ext_resource type="Texture2D" uid="uid://c0wleko1h2f5p" path="res://assets/sprites/enemis/mort/frame_28_delay-0.03s.png" id="98_p4l6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ile5s"]
-radius = 79.0569
+radius = 46.7428
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpbnj"]
 animations = [{
@@ -438,6 +438,7 @@ script = ExtResource("1_veqxe")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 position = Vector2(0, -48)
+scale = Vector2(0.686392, 0.795)
 collision_layer = 4
 
 [node name="PlayerDetectionCollisions" type="CollisionPolygon2D" parent="PlayerDetection"]
@@ -454,7 +455,7 @@ collision_layer = 4
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
-position = Vector2(0, -61)
+position = Vector2(0, -109)
 shape = SubResource("CircleShape2D_ile5s")
 
 [node name="animations" type="Node2D" parent="."]

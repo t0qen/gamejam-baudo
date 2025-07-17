@@ -29,7 +29,6 @@ func _ready() -> void:
 	play_animation("idle")
 	
 func _physics_process(delta: float) -> void:
-	print(player_chase_move)
 	if alive:
 		deal_with_damage()
 		
@@ -67,6 +66,7 @@ func _physics_process(delta: float) -> void:
 			player_chase_move = true
 			
 	if health <= 0 && alive:
+		velocity = Vector2.ZERO
 		$PlayerDetection.queue_free()
 		$EnemyHitbox.queue_free()
 		alive = false

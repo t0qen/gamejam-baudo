@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dw5bq2cwer3w4"]
+[gd_scene load_steps=10 format=3 uid="uid://dw5bq2cwer3w4"]
 
 [ext_resource type="Script" uid="uid://clx728jxi0i0c" path="res://scenes/laser.gd" id="1_jjj73"]
 [ext_resource type="Texture2D" uid="uid://bnub53glj5dr7" path="res://icon.svg" id="1_xmihv"]
@@ -6,6 +6,14 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjj73"]
 texture = ExtResource("2_a7dhc")
+
+[sub_resource type="Gradient" id="Gradient_jjj73"]
+offsets = PackedFloat32Array(0, 0.323529, 0.476471, 0.605882, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.40581, 0, 0, 1, 0.996078, 0, 0, 1, 0.503635, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_412cd"]
+gradient = SubResource("Gradient_jjj73")
+fill_from = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_a7dhc"]
 resource_name = "LaserActivation"
@@ -141,29 +149,11 @@ _data = {
 &"RESET": SubResource("Animation_jjj73")
 }
 
-[node name="Laser" type="Area2D"]
+[node name="Laser" type="StaticBody2D"]
 scale = Vector2(3.08, 3.08)
-collision_layer = 8
+collision_layer = 16
 collision_mask = 5
 script = ExtResource("1_jjj73")
-
-[node name="TeteLaserCol" type="CollisionPolygon2D" parent="."]
-position = Vector2(-3.05176e-05, 0)
-scale = Vector2(0.234375, 0.234375)
-polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
-
-[node name="TeteLaser" type="Sprite2D" parent="TeteLaserCol"]
-position = Vector2(0.00012207, 0)
-texture = ExtResource("1_xmihv")
-
-[node name="FinLaserCol" type="CollisionPolygon2D" parent="."]
-position = Vector2(217, 0)
-scale = Vector2(0.234375, 0.234375)
-polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
-
-[node name="FinLaser" type="Sprite2D" parent="FinLaserCol"]
-position = Vector2(6.10352e-05, 0)
-texture = ExtResource("1_xmihv")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
@@ -183,11 +173,10 @@ offset_bottom = 65.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_jjj73")
 
 [node name="PointLight2D" type="PointLight2D" parent="Area2D/LaserCol/Panel"]
-position = Vector2(63.3826, 65.4154)
-scale = Vector2(0.124184, 0.384589)
+position = Vector2(63.3006, 65)
+scale = Vector2(1.9895, 14.336)
 color = Color(1, 0, 0, 1)
-energy = 2.25
-texture = ExtResource("2_a7dhc")
+texture = SubResource("GradientTexture2D_412cd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -195,4 +184,23 @@ libraries = {
 }
 autoplay = "LaserActivation"
 
+[node name="TeteLaserCol" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3.05176e-05, 0)
+scale = Vector2(0.234375, 0.234375)
+polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
+
+[node name="TeteLaser" type="Sprite2D" parent="TeteLaserCol"]
+position = Vector2(0.00012207, 0)
+texture = ExtResource("1_xmihv")
+
+[node name="FinLaserCol" type="CollisionPolygon2D" parent="."]
+position = Vector2(217, 0)
+scale = Vector2(0.234375, 0.234375)
+polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
+
+[node name="FinLaser" type="Sprite2D" parent="FinLaserCol"]
+position = Vector2(6.10352e-05, 0)
+texture = ExtResource("1_xmihv")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

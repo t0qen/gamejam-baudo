@@ -73,6 +73,9 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	if player_alive :
+		if global.need_to_take_damage_laser:
+			laser_attack()
+			
 		if !attack_ip:
 			move()
 		dash()
@@ -252,10 +255,18 @@ func _on_player_hitbox_body_entered(body: Node2D) -> void: # Détecte quand l'en
 func _on_player_hitbox_body_exited(body: Node2D) -> void: # Détecte quand l'ennemi n'est plus à porté
 	pass
 		
+func laser_attack():
+	current_health = current_health - 50
+	global.need_to_take_damage_laser = false
+	$animations.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	$animations.modulate = Color.WHITE
+	
 func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts nécessaires
 	if enemy_inattack_range and enemy_attack_cooldown == true :
 		print("enemy attack !")
-		current_health = current_health - 20
+		current_health = current_health - 10
+		CameraManager.shake(0.4, 0.5, Vector2(50, 50), 0.1)
 		global.enemy_need_to_attack_anim = true
 		can_regen = false
 		if regen_start_timer.time_left > 0: # timer is active
@@ -272,7 +283,7 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 		$animations.modulate = Color.WHITE
 
 func boss_attack():
-	current_health = current_health - 60
+	current_health = current_health - 600
 	can_regen = false
 	if regen_start_timer.time_left > 0: # timer is active
 		regen_start_timer.stop()
@@ -293,6 +304,7 @@ func attack(): # Permet d'attaquer
 		if can_attack:
 			if !is_dashing:
 				velocity = Vector2.ZERO
+			CameraManager.shake(0.2, 0.2, Vector2(50, 50), 0.1)
 			global.player_current_attack = true
 			attack_ip = true
 			$timers/deal_attack_timer.start(0.5)

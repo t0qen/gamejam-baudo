@@ -137,13 +137,14 @@ rotation = 1.5708
 position = Vector2(-1453, -1048)
 rotation = 1.5708
 
+[node name="player" parent="." instance=ExtResource("3_x42e6")]
+position = Vector2(-17, 619)
+
+[node name="TelephoneDax" parent="player" instance=ExtResource("4_6761a")]
+position = Vector2(-568, -313)
+
 [node name="enemies" type="Node2D" parent="."]
 position = Vector2(328, -176)
-
-[node name="Enemy" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
-position = Vector2(503, -6)
-scale = Vector2(-1, 1)
-player = NodePath("../../player")
 
 [node name="Enemy2" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
 position = Vector2(-1282, -22)
@@ -185,11 +186,9 @@ player = NodePath("../../player")
 position = Vector2(248, -1333)
 player = NodePath("../../player")
 
-[node name="player" parent="." instance=ExtResource("3_x42e6")]
-position = Vector2(-17, 619)
-
-[node name="TelephoneDax" parent="player" instance=ExtResource("4_6761a")]
-position = Vector2(-568, -313)
+[node name="Enemy12" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+position = Vector2(293, 8)
+player = NodePath("../../player")
 
 [node name="Salut!MoiC\'estDax!" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_x42e6")
@@ -233,7 +232,7 @@ collision_layer = 16
 collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-1280, 378, -1280, 1208, 1158, 1208, 1148, 378, 1381, 388, 1361, 1368, -1410, 1379, -1441, 362)
+polygon = PackedVector2Array(-209, 367, -196, 778, 241, 765, 258, 377, 1381, 388, 1361, 1368, -1410, 1379, -1441, 362)
 
 [connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]
 [connection signal="finished" from="Salut!MoiC\'estDax!" to="." method="_on_salut_moi_cest_dax_finished"]

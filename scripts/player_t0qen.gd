@@ -75,6 +75,7 @@ func _process(delta: float) -> void:
 	update_health_bar()
 	
 func _physics_process(delta: float) -> void:
+	#Engine.time_scale = 0.1
 	if player_alive :
 		if global.need_to_take_damage_laser:
 			laser_attack()
@@ -86,10 +87,11 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		enemy_attack()
 		attack()
-	
+		print(is_on_boss_attack_area)
+		
 		if is_on_boss_attack_area:
 			if can_receive_boss_attack:
-				if boss_node.is_attacking:
+				if global.player_attacked_by_boss:
 					boss_attack()
 					can_receive_boss_attack = false
 					await get_tree().create_timer(2).timeout
@@ -173,7 +175,6 @@ func play_animation(animation):
 		"idle":
 			idle_anim.show()
 			idle_anim.play("default")
-	print(current_animation)
 
 func regen():
 	if can_regen:
@@ -289,6 +290,7 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 		$animations.modulate = Color.WHITE
 
 func boss_attack():
+	print("RECEIVE BOSS ATTACK")
 	current_health = current_health - 60
 	can_regen = false
 	if regen_start_timer.time_left > 0: # timer is active
@@ -327,6 +329,7 @@ func _on_regen_start_timeout() -> void:
 
 
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
+	print(area)
 	if area.is_in_group("enemy"):
 		enemy_inattack_range = true
 		

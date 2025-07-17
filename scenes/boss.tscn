@@ -1,4 +1,4 @@
-[gd_scene load_steps=345 format=3 uid="uid://dhrswkm2pyd0k"]
+[gd_scene load_steps=369 format=3 uid="uid://dhrswkm2pyd0k"]
 
 [ext_resource type="Script" uid="uid://rrejglro0ea1" path="res://scripts/boss.gd" id="1_neq0i"]
 [ext_resource type="Texture2D" uid="uid://cynx6gd4i6rry" path="res://assets/sprites/boss/attack1/frame_002_delay-0.03s.png" id="4_iikyw"]
@@ -270,24 +270,43 @@
 [ext_resource type="Texture2D" uid="uid://df1l7b8h47h0v" path="res://assets/sprites/boss/combat2/frame_063_delay-0.03s.png" id="334_65r1g"]
 [ext_resource type="Texture2D" uid="uid://2pyhkoq2juy7" path="res://assets/sprites/boss/combat2/frame_064_delay-0.03s.png" id="335_x5shl"]
 [ext_resource type="Texture2D" uid="uid://b1pmdvjbap2le" path="res://assets/sprites/boss/combat2/frame_065_delay-0.03s.png" id="336_on45c"]
+[ext_resource type="Texture2D" uid="uid://dma3bcswas184" path="res://assets/sprites/boss/attack2/frame_00_delay-0.03s.png" id="337_1u7gf"]
 [ext_resource type="Texture2D" uid="uid://ccvo3tj1cycqt" path="res://assets/sprites/boss/combat2/frame_066_delay-0.03s.png" id="337_quim5"]
+[ext_resource type="Texture2D" uid="uid://1wkovf0kqq88" path="res://assets/sprites/boss/attack2/frame_01_delay-0.03s.png" id="338_ft11o"]
 [ext_resource type="Texture2D" uid="uid://baxineka8nb66" path="res://assets/sprites/boss/combat2/frame_067_delay-0.03s.png" id="338_tcqof"]
 [ext_resource type="Texture2D" uid="uid://c1u81qytbj3wn" path="res://assets/sprites/boss/combat2/frame_068_delay-0.03s.png" id="339_glyip"]
+[ext_resource type="Texture2D" uid="uid://cm1xer640eb4x" path="res://assets/sprites/boss/attack2/frame_02_delay-0.03s.png" id="339_kuem8"]
 [ext_resource type="Texture2D" uid="uid://1e8pp8051bn6" path="res://assets/sprites/boss/combat2/frame_069_delay-0.03s.png" id="340_a885i"]
+[ext_resource type="Texture2D" uid="uid://c7n6j1c2qfg4m" path="res://assets/sprites/boss/attack2/frame_03_delay-0.03s.png" id="340_gukjf"]
+[ext_resource type="Texture2D" uid="uid://dunrl8inabvx1" path="res://assets/sprites/boss/attack2/frame_04_delay-0.03s.png" id="341_b13uf"]
 [ext_resource type="Texture2D" uid="uid://bo255y5o45th" path="res://assets/sprites/boss/combat2/frame_070_delay-0.03s.png" id="341_hty7u"]
 [ext_resource type="Texture2D" uid="uid://d3l5cgru7nsju" path="res://assets/sprites/boss/combat2/frame_071_delay-0.03s.png" id="342_b8f22"]
+[ext_resource type="Texture2D" uid="uid://bwogyafmjv1no" path="res://assets/sprites/boss/attack2/frame_05_delay-0.03s.png" id="342_h713h"]
 [ext_resource type="Texture2D" uid="uid://cf7o7yv5ei0wp" path="res://assets/sprites/boss/combat2/frame_072_delay-0.03s.png" id="343_3fa6b"]
+[ext_resource type="Texture2D" uid="uid://c7ni38erum1ie" path="res://assets/sprites/boss/attack2/frame_06_delay-0.03s.png" id="343_ctogb"]
+[ext_resource type="Texture2D" uid="uid://bab202x5tcus5" path="res://assets/sprites/boss/attack2/frame_07_delay-0.03s.png" id="344_4nh55"]
 [ext_resource type="Texture2D" uid="uid://ctm74jbfnp3qc" path="res://assets/sprites/boss/combat2/frame_073_delay-0.03s.png" id="344_6yjg4"]
+[ext_resource type="Texture2D" uid="uid://bf2ew0roxaavj" path="res://assets/sprites/boss/attack2/frame_08_delay-0.03s.png" id="345_rr6sj"]
 [ext_resource type="Texture2D" uid="uid://dtfrwfedfxx1k" path="res://assets/sprites/boss/combat2/frame_074_delay-0.03s.png" id="345_semu5"]
+[ext_resource type="Texture2D" uid="uid://67k6ft2iktke" path="res://assets/sprites/boss/attack2/frame_09_delay-0.03s.png" id="346_n8kf2"]
 [ext_resource type="Texture2D" uid="uid://cmblyaqp0svh6" path="res://assets/sprites/boss/combat2/frame_075_delay-0.03s.png" id="346_v2127"]
+[ext_resource type="Texture2D" uid="uid://cq1l24a55n7l0" path="res://assets/sprites/boss/attack2/frame_10_delay-0.03s.png" id="347_qepa0"]
 [ext_resource type="Texture2D" uid="uid://ccmj20lm6aa7f" path="res://assets/sprites/boss/combat2/frame_076_delay-0.03s.png" id="347_w2qo5"]
+[ext_resource type="Texture2D" uid="uid://3ktbp5oq23q8" path="res://assets/sprites/boss/attack2/frame_11_delay-0.03s.png" id="348_xt8we"]
 [ext_resource type="Texture2D" uid="uid://cj7jvrk46lgik" path="res://assets/sprites/boss/combat2/frame_077_delay-0.03s.png" id="348_yssi4"]
 [ext_resource type="Texture2D" uid="uid://p7hqdha4gm6t" path="res://assets/sprites/boss/combat2/frame_078_delay-0.03s.png" id="349_jfg3q"]
+[ext_resource type="Texture2D" uid="uid://cveibdetywhg8" path="res://assets/sprites/boss/attack2/frame_12_delay-0.03s.png" id="349_svdxg"]
 [ext_resource type="Texture2D" uid="uid://dyfe7bqj1ia8j" path="res://assets/sprites/boss/combat2/frame_079_delay-0.03s.png" id="350_8bw1y"]
+[ext_resource type="Texture2D" uid="uid://u70ayfjrynht" path="res://assets/sprites/boss/attack2/frame_13_delay-0.03s.png" id="350_fxoco"]
+[ext_resource type="Texture2D" uid="uid://csdy5qyc1fmis" path="res://assets/sprites/boss/attack2/frame_14_delay-0.03s.png" id="351_u6kwl"]
 [ext_resource type="Texture2D" uid="uid://dgxq7rm4gxd4i" path="res://assets/sprites/boss/combat2/frame_080_delay-0.03s.png" id="351_v6w8b"]
+[ext_resource type="Texture2D" uid="uid://cgddya0a5gjy8" path="res://assets/sprites/boss/attack2/frame_15_delay-0.03s.png" id="352_lrch8"]
 [ext_resource type="Texture2D" uid="uid://ndeqvad8agj1" path="res://assets/sprites/boss/combat2/frame_081_delay-0.03s.png" id="352_ubif6"]
 [ext_resource type="Texture2D" uid="uid://d04vrbnvjq13r" path="res://assets/sprites/boss/combat2/frame_082_delay-0.03s.png" id="353_fa4n5"]
+[ext_resource type="Texture2D" uid="uid://b8gnsf2sj1phv" path="res://assets/sprites/boss/attack2/frame_16_delay-0.03s.png" id="353_h1x2d"]
+[ext_resource type="Texture2D" uid="uid://ct8fy4pn7aj2c" path="res://assets/sprites/boss/attack2/frame_17_delay-0.03s.png" id="354_suqms"]
 [ext_resource type="Texture2D" uid="uid://cm4ps2vd4hi4r" path="res://assets/sprites/boss/combat2/frame_083_delay-0.03s.png" id="354_svnm7"]
+[ext_resource type="Texture2D" uid="uid://5ahhrbvaaio3" path="res://assets/sprites/boss/attack2/frame_19_delay-0.03s.png" id="355_gqy86"]
 [ext_resource type="Texture2D" uid="uid://ch52fmxgpw7y3" path="res://assets/sprites/boss/combat2/frame_084_delay-0.03s.png" id="355_v6fnh"]
 [ext_resource type="Texture2D" uid="uid://c8ag7h0ibxd78" path="res://assets/sprites/boss/combat2/frame_085_delay-0.03s.png" id="356_0u7pq"]
 [ext_resource type="Texture2D" uid="uid://dyr8qf1ln8ybi" path="res://assets/sprites/boss/combat2/frame_086_delay-0.03s.png" id="357_uqytx"]
@@ -733,6 +752,9 @@ animations = [{
 "name": &"default",
 "speed": 120.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4vsr"]
+size = Vector2(587.5, 53)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_07lff"]
 animations = [{
@@ -1388,6 +1410,83 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_nncu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("337_1u7gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("338_ft11o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("339_kuem8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("340_gukjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("341_b13uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("342_h713h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("343_ctogb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("344_4nh55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("345_rr6sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("346_n8kf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("347_qepa0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("348_xt8we")
+}, {
+"duration": 1.0,
+"texture": ExtResource("349_svdxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("350_fxoco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("351_u6kwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("352_lrch8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("353_h1x2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("354_suqms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("355_gqy86")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u7gf"]
+radius = 220.0
+height = 1068.0
+
+[sub_resource type="Animation" id="Animation_1u7gf"]
+resource_name = "tqt frr"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ft11o"]
+_data = {
+&"tqt frr": SubResource("Animation_1u7gf")
+}
+
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -1435,6 +1534,16 @@ autoplay = "default"
 frame = 124
 frame_progress = 1.0
 
+[node name="hitbox" type="Area2D" parent="left_attack" groups=["boss"]]
+collision_layer = 2
+collision_mask = 3
+priority = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_attack/hitbox"]
+position = Vector2(329, 6)
+shape = SubResource("RectangleShape2D_d4vsr")
+disabled = true
+
 [node name="right_attack" type="Node2D" parent="."]
 visible = false
 position = Vector2(183, 0)
@@ -1447,6 +1556,16 @@ sprite_frames = SubResource("SpriteFrames_4tdk8")
 autoplay = "default"
 frame = 124
 frame_progress = 1.0
+
+[node name="hitbox2" type="Area2D" parent="right_attack" groups=["boss"]]
+collision_layer = 2
+collision_mask = 3
+priority = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_attack/hitbox2"]
+position = Vector2(336, 2)
+shape = SubResource("RectangleShape2D_d4vsr")
+disabled = true
 
 [node name="animation" type="Node2D" parent="."]
 
@@ -1462,11 +1581,11 @@ frame_progress = 0.32581
 [node name="combat2" type="Node2D" parent="animation"]
 
 [node name="combat2" type="AnimatedSprite2D" parent="animation/combat2"]
+visible = false
 position = Vector2(6, -215)
 sprite_frames = SubResource("SpriteFrames_u7k2o")
 autoplay = "default"
-frame = 12
-frame_progress = 0.773875
+frame = 100
 
 [node name="idle" type="Node2D" parent="animation"]
 
@@ -1476,6 +1595,25 @@ position = Vector2(-3, -169)
 sprite_frames = SubResource("SpriteFrames_ad7xa")
 autoplay = "default"
 frame_progress = 0.40986
+
+[node name="cb2_attack" type="Node2D" parent="."]
+
+[node name="attack" type="AnimatedSprite2D" parent="cb2_attack"]
+position = Vector2(51, -71)
+sprite_frames = SubResource("SpriteFrames_nncu5")
+frame = 18
+frame_progress = 1.0
+
+[node name="cb2_attack_hitbox" type="Area2D" parent="." groups=["boss"]]
+collision_layer = 2
+collision_mask = 3
+priority = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cb2_attack_hitbox"]
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1u7gf")
+disabled = true
 
 [node name="switch_phase" type="Timer" parent="."]
 wait_time = 20.0
@@ -1487,6 +1625,13 @@ offset_right = 38.0
 offset_bottom = -472.0
 text = "PHASE 1"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ft11o")
+}
+
 [connection signal="area_entered" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_entered"]
 [connection signal="area_exited" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_exited"]
+[connection signal="area_entered" from="left_attack/hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="right_attack/hitbox2" to="." method="_on_hitbox_2_area_entered"]
 [connection signal="timeout" from="switch_phase" to="." method="_on_switch_phase_timeout"]

@@ -64,53 +64,65 @@ func update_phase():
 func setup_att1_cb2():
 	var current_frame = $animation/combat2/combat2.frame 
 	if current_frame == cb2_excepted_frame:
-		print("GOOD FRAME CB2")
 		attack1_cb2()
 	
 func attack1_cb2(): #
 	if !is_attacking:
 		is_attacking = true
-		var excepted_side # 1: gauche 2: droite
-		$left_attack.look_at(player.global_position)
-		$right_attack.look_at(player.global_position)
+		global.player_attacked_by_boss = true
+		$cb2_attack/attack.show()
+		$cb2_attack/attack.play("default")
+		$cb2_attack_hitbox/CollisionShape2D.disabled = false
+		#$right_attack.hide()
+		#$left_attack.hide()
+		#var excepted_side # 1: gauche 2: droite
+		#$left_attack.look_at(player.global_position)
+		#$right_attack.look_at(player.global_position)
+		#await get_tree().create_timer(0.5).timeout
+		#$left_attack.show()
+		#$right_attack.show()
+		#$left_attack.get_child(0).play("default")
+		#$right_attack.get_child(0).play("default")
 		await get_tree().create_timer(0.5).timeout
-		$left_attack.show()
-		$right_attack.show()
-		$left_attack.get_child(0).play("default")
-		$right_attack.get_child(0).play("default")
-		await get_tree().create_timer(0.5).timeout
+		$cb2_attack_hitbox/CollisionShape2D.disabled = true
+		$cb2_attack/attack.hide()
+		global.player_attacked_by_boss = false
 		is_attacking = false
 		
 func setup_att1():
 	var current_frame = $animation/combat1/combat1.frame 
 	
 	if current_frame == cb1_excepted_left_frame:
-		print("GOOD FRAME MODE=1")
 		attack1(1)
 	if current_frame == cb1_excepted_right_frame:
-		print("GOOD FRAME MODE=2")
 		attack1(2)
 
 	
 func attack1(mode): # attaque vient que d'un coté à la fois
 	if !is_attacking:
 		is_attacking = true
+		
 		var excepted_side # 1: gauche 2: droite
 		var current_attack_side
 		if mode == 1: # mode = quel coté on attaque 1: gauche 2: droite
 			$right_attack.hide()
 			current_attack_side = $left_attack
-			print("PLAYER GAUCHE")
+			$left_attack/hitbox/CollisionShape2D.disabled = false
+			
 		elif mode == 2:
 			$left_attack.hide()
 			current_attack_side = $right_attack
-			print("PLAYER DROITE")
-		
+			$right_attack/hitbox2/CollisionShape2D.disabled = false
+			
 		current_attack_side.look_at(player.global_position)
 		await get_tree().create_timer(0.5).timeout
+		global.player_attacked_by_boss = true
 		current_attack_side.show()
 		current_attack_side.get_child(0).play("default")
 		await get_tree().create_timer(0.5).timeout
+		$left_attack/hitbox/CollisionShape2D.disabled = true
+		$right_attack/hitbox2/CollisionShape2D.disabled = true
+		global.player_attacked_by_boss = false
 		is_attacking = false
 	
 	
@@ -145,7 +157,7 @@ func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
 			can_take_damage = false
-			current_health = current_health - 10
+			current_health = current_health - 20
 			await get_tree().create_timer(0.5).timeout
 			can_take_damage = true
 		
@@ -159,12 +171,10 @@ func attack_player(attack):
 				excepted_side = 1 
 				$right_attack.hide()
 				current_attack_side = $left_attack
-				print("PLAYER GAUCHE")
 			else:
 				excepted_side = 2
 				$left_attack.hide()
 				current_attack_side = $right_attack
-				print("PLAYER DROITE")
 				
 			current_attack_side.show()
 			current_attack_side.look_at(player.global_position)
@@ -228,8 +238,11 @@ func _on_switch_phase_timeout() -> void:
 		PHASE.IDLE:
 			current_phase = PHASE.CB1
 		PHASE.CB1:
+			$right_attack.hide()
+			$left_attack.hide()
 			current_phase = PHASE.CB2
 		PHASE.CB2:
+			$cb2_attack/attack.hide()
 			current_phase = PHASE.IDLE
 		
 		

@@ -14,6 +14,7 @@ player = NodePath("../player")
 
 [node name="player" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("3_dw0xy")]
 position = Vector2(21, 301)
+collision_mask = 94
 will_instanciate_cam = false
 boss_node = NodePath("../Boss")
 

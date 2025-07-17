@@ -30,7 +30,7 @@ enum PHASE {
 	CB2,
 	IDLE
 }
-var current_phase : PHASE = PHASE.CB2
+var current_phase : PHASE = PHASE.CB1
 
 func _ready() -> void:
 	play_animation("idle")

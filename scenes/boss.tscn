@@ -1457,7 +1457,7 @@ visible = false
 position = Vector2(-3, -178)
 sprite_frames = SubResource("SpriteFrames_07lff")
 autoplay = "default"
-frame_progress = 0.551335
+frame_progress = 0.32581
 
 [node name="combat2" type="Node2D" parent="animation"]
 

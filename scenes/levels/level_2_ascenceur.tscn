@@ -160,7 +160,7 @@ bg_color = Color(0, 0, 0, 1)
 size = Vector2(52, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7uns"]
-size = Vector2(93, 122.5)
+size = Vector2(93, 181)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu1cg"]
 size = Vector2(383.25, 382)
@@ -189,19 +189,19 @@ tile_set = SubResource("TileSet_3p3kk")
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-1467, -100)
+position = Vector2(-1502, 13)
 player = NodePath("../../player")
 
 [node name="Enemy2" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-2193, -27)
+position = Vector2(-2193, 26)
 player = NodePath("../../player")
 
 [node name="Enemy3" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-851, -109)
+position = Vector2(-851, 17)
 player = NodePath("../../player")
 
 [node name="Enemy4" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-226, -118)
+position = Vector2(-226, 58)
 player = NodePath("../../player")
 
 [node name="hide_etage" type="MeshInstance2D" parent="."]
@@ -289,9 +289,11 @@ wait_time = 10.0
 one_shot = true
 
 [node name="step1" type="Area2D" parent="."]
+position = Vector2(5.99976, -43.0001)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="step1"]
-position = Vector2(-2621.5, -13.25)
+position = Vector2(-2621.5, -8.49986)
+scale = Vector2(1.00754, 1)
 shape = SubResource("RectangleShape2D_t7uns")
 
 [node name="step2" type="Area2D" parent="."]
@@ -301,8 +303,8 @@ position = Vector2(956.375, -66)
 shape = SubResource("RectangleShape2D_yu1cg")
 
 [node name="AsceuseurKey" type="Sprite2D" parent="."]
-position = Vector2(-2621, -16)
-scale = Vector2(0.128906, 0.128906)
+position = Vector2(-2615, -59.0001)
+scale = Vector2(0.191813, 0.191813)
 texture = ExtResource("5_ohuyx")
 
 [node name="block_gate" type="StaticBody2D" parent="."]
@@ -359,5 +361,6 @@ shape = SubResource("RectangleShape2D_siycf")
 [connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]
 [connection signal="body_exited" from="Vent3" to="." method="_on_vent_3_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="step1" to="." method="_on_step_1_area_entered"]
+[connection signal="body_entered" from="step1" to="." method="_on_step_1_body_entered"]
+[connection signal="body_exited" from="step1" to="." method="_on_step_1_body_exited"]
 [connection signal="body_entered" from="step2" to="." method="_on_step_2_body_entered"]

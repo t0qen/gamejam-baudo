@@ -1,26 +1,132 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct8q4cef6kwp1"]
+[gd_scene load_steps=9 format=3 uid="uid://ct8q4cef6kwp1"]
 
 [ext_resource type="Script" uid="uid://dnabl30rrk204" path="res://scripts/dead_screen.gd" id="1_b3wyb"]
+[ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="2_id3ew"]
+[ext_resource type="AudioStream" uid="uid://oqexe4c5o0f5" path="res://assets/sounds/Dax/vrm nul dax3.wav" id="3_urrme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urrme"]
+bg_color = Color(0.22, 0.22, 0.22, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6ylt"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_585ho"]
+bg_color = Color(0.21, 0.21, 0.21, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8b16"]
+bg_color = Color(0.21, 0.21, 0.21, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pyt7"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
 
 [node name="dead_screen" type="Node2D"]
 script = ExtResource("1_b3wyb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(173, 76)
+position = Vector2(576, 324)
 
-[node name="Button" type="Button" parent="."]
-offset_left = -10.0
-offset_top = -61.0
-offset_right = 50.0
-offset_bottom = -19.0
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="BackGround" type="Panel" parent="ReferenceRect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Button" type="Button" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = 22.0
+offset_right = 199.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_id3ew")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/focus = SubResource("StyleBoxFlat_urrme")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g6ylt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_585ho")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v8b16")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5pyt7")
 text = "RESTART"
 
-[node name="Label" type="Label" parent="."]
-offset_left = -38.0
-offset_top = -139.0
-offset_right = 175.0
-offset_bottom = -90.0
-text = "YOU ARE DEAD BRO, SORRY
-RESTART GAME"
+[node name="Label" type="Label" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -165.0
+offset_right = 339.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_id3ew")
+theme_override_font_sizes/font_size = 111
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="VrmNulDax3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_urrme")
+bus = &"Dax"
+
+[connection signal="pressed" from="ReferenceRect/Button" to="." method="_on_button_pressed"]

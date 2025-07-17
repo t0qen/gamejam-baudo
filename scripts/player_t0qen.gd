@@ -5,12 +5,14 @@ extends CharacterBody2D
 var cam = preload("res://scenes/camera.tscn")
 
 # ANIMATIONS
-@onready var run_animation: AnimatedSprite2D = $animations/run
-@onready var idle_animation: AnimatedSprite2D = $animations/idle
-@onready var dash_animation: AnimatedSprite2D = $animations/dash
-@onready var attack_3_animation: AnimatedSprite2D = $animations/attack3
-@onready var attack_2_animation: AnimatedSprite2D = $animations/attack2
-@onready var attack_1_animation: AnimatedSprite2D = $animations/attack1
+@onready var idle_anim: AnimatedSprite2D = $animations/pivot_idle/idle
+@onready var dash_anim: AnimatedSprite2D = $animations/pivot_dash/dash
+@onready var attack_3_anim: AnimatedSprite2D = $animations/pivot_attack3/attack3
+@onready var attack_2_anim: AnimatedSprite2D = $animations/pivot_attack2/attack2
+@onready var attack_1_anim: AnimatedSprite2D = $animations/pivot_attack1/attack1
+@onready var run_anim: AnimatedSprite2D = $animations/pivot_run/run
+@onready var dead_anim: AnimatedSprite2D = $animations/pivot_dead/dead
+
 var current_animation : String 
 var prev_animation : String
 
@@ -70,45 +72,55 @@ func _process(delta: float) -> void:
 	update_health_bar()
 	
 func _physics_process(delta: float) -> void:
-	if !attack_ip:
-		move()
-	dash()
-	regen()
-	move_and_slide()
-	enemy_attack()
-	attack()
+	if player_alive :
+		if global.need_to_take_damage_laser:
+			laser_attack()
+			
+		if !attack_ip:
+			move()
+		dash()
+		regen()
+		move_and_slide()
+		enemy_attack()
+		attack()
 	
-	if is_on_boss_attack_area:
-		if can_receive_boss_attack:
-			if boss_node.is_attacking:
-				boss_attack()
-				can_receive_boss_attack = false
-				await get_tree().create_timer(2).timeout
-				can_receive_boss_attack = true
+		if is_on_boss_attack_area:
+			if can_receive_boss_attack:
+				if boss_node.is_attacking:
+					boss_attack()
+					can_receive_boss_attack = false
+					await get_tree().create_timer(2).timeout
+					can_receive_boss_attack = true
+		
+		if global.player_press_e:
+			$Label.show()
+		else:
+			$Label.hide()
+		
+	if current_health <= 0 && player_alive : # Tue le joueur si il a 0 vie
+		print("dead")
+		player_alive = false # ajouter un ecran de fin
+		play_animation("dead") 
+		$timers/wait_death.start()
+		print("started timer")
 		
 	
-	if current_health <= 0: # Tue le joueur si il a 0 vie
-		player_alive = false # ajouter un ecran de fin
-		get_tree().change_scene_to_file("res://scenes/dead_screen.tscn")
 	
-	if global.player_press_e:
-		$Label.show()
-	else:
-		$Label.hide()
 # SUB 
 func random_attack_anim():
 	var all_attack_anim = ["attack1", "attack2", "attack3"]
 	return all_attack_anim.pick_random()
 
 func flip_animation(input):
-	var excepted_flip : bool
-	if input > 0:
-		excepted_flip = false
-	else:
-		excepted_flip = true
+	var excepted_flip : int
+	
 	
 	for child in $animations.get_children():
-		child.flip_h = excepted_flip
+		if input < 0:
+			child.scale.x = -1
+		else:
+			child.scale.x = 1
+		
 		
 	#match current_animation:
 		#"run": 
@@ -129,31 +141,35 @@ func play_animation(animation):
 		return
 	# cache et stop tous les enfants de animations
 	for child in $animations.get_children():
-		child.stop()
-		child.hide()
+		for anim_child in child.get_children():
+			anim_child.stop()
+			anim_child.hide()
 	
 	
 	current_animation = animation
 	prev_animation = current_animation
 	match animation:
+		"dead":
+			dead_anim.show()
+			dead_anim.play("default")
 		"run": 
-			run_animation.show()
-			run_animation.play("default")
+			run_anim.show()
+			run_anim.play("default")
 		"dash":
-			dash_animation.show()
-			dash_animation.play("default")
+			dash_anim.show()
+			dash_anim.play("default")
 		"attack1":
-			attack_1_animation.show()
-			attack_1_animation.play("default")
+			attack_1_anim.show()
+			attack_1_anim.play("default")
 		"attack2":
-			attack_2_animation.show()
-			attack_2_animation.play("default")
+			attack_2_anim.show()
+			attack_2_anim.play("default")
 		"attack3":
-			attack_3_animation.show()
-			attack_3_animation.play("default")
+			attack_3_anim.show()
+			attack_3_anim.play("default")
 		"idle":
-			idle_animation.show()
-			idle_animation.play("default")
+			idle_anim.show()
+			idle_anim.play("default")
 	print(current_animation)
 
 func regen():
@@ -234,20 +250,24 @@ func _on_dash_duration_timeout() -> void: # dash duration
 	dash_delay_timer.start()
 	
 func _on_player_hitbox_body_entered(body: Node2D) -> void: # Détecte quand l'ennemi est à porté
-	if body.has_method("enemy"):
-		print("enemy in")
-		enemy_inattack_range = true
-	
+	pass
 
 func _on_player_hitbox_body_exited(body: Node2D) -> void: # Détecte quand l'ennemi n'est plus à porté
-	if body.has_method("enemy"):
-		enemy_inattack_range = false
+	pass
 		
+func laser_attack():
+	current_health = current_health - 50
+	global.need_to_take_damage_laser = false
+	$animations.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	$animations.modulate = Color.WHITE
+	
 func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts nécessaires
-	if enemy_inattack_range and enemy_attack_cooldown == true:
+	if enemy_inattack_range and enemy_attack_cooldown == true :
 		print("enemy attack !")
-		current_health = current_health - 20
-		
+		current_health = current_health - 10
+		CameraManager.shake(0.4, 0.5, Vector2(50, 50), 0.1)
+		global.enemy_need_to_attack_anim = true
 		can_regen = false
 		if regen_start_timer.time_left > 0: # timer is active
 			regen_start_timer.stop()
@@ -263,7 +283,7 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 		$animations.modulate = Color.WHITE
 
 func boss_attack():
-	current_health = current_health - 60
+	current_health = current_health - 600
 	can_regen = false
 	if regen_start_timer.time_left > 0: # timer is active
 		regen_start_timer.stop()
@@ -284,6 +304,7 @@ func attack(): # Permet d'attaquer
 		if can_attack:
 			if !is_dashing:
 				velocity = Vector2.ZERO
+			CameraManager.shake(0.2, 0.2, Vector2(50, 50), 0.1)
 			global.player_current_attack = true
 			attack_ip = true
 			$timers/deal_attack_timer.start(0.5)
@@ -300,13 +321,23 @@ func _on_regen_start_timeout() -> void:
 
 
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		enemy_inattack_range = true
+		
 	if area.is_in_group("boss"):
 		is_on_boss_attack_area = true
 	if area.is_in_group("attack_hitbox"):
 		global.player_can_attack_boss = true
 
 func _on_player_hitbox_area_exited(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		enemy_inattack_range = false
+		
 	if area.is_in_group("boss"):
 		is_on_boss_attack_area = false
 	if area.is_in_group("attack_hitbox"):
 		global.player_can_attack_boss = false
+
+
+func _on_wait_death_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/dead_screen.tscn")

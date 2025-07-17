@@ -24,6 +24,7 @@ CameraManager="*res://scripts/camera_manager.gd"
 
 player=""
 boss=""
+enemy=""
 
 [input]
 

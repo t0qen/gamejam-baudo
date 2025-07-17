@@ -38,7 +38,7 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 	print("step2")
 	print(body)
 	if is_step_1_complete:
-		$block_gate/CollisionShape2D.disabled = false
+		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$hide_etage.show()
 		$Timer.start()
 		while tremble == true:

@@ -696,7 +696,7 @@ height = 62.0
 radius = 6.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 30
+collision_mask = 94
 motion_mode = 1
 script = ExtResource("1_u21xk")
 speed = 600

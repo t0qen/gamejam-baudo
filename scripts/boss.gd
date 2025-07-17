@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
 @export var player : CharacterBody2D 
-@onready var attack_delay: Timer = $attack_delay
-@onready var attack_duration: Timer = $attack_duration
 @onready var health_bar: ProgressBar = $health_bar
 @export var HEALTH : int = 1000
 

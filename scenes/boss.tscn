@@ -1,4 +1,4 @@
-[gd_scene load_steps=369 format=3 uid="uid://dhrswkm2pyd0k"]
+[gd_scene load_steps=370 format=3 uid="uid://dhrswkm2pyd0k"]
 
 [ext_resource type="Script" uid="uid://rrejglro0ea1" path="res://scripts/boss.gd" id="1_neq0i"]
 [ext_resource type="Texture2D" uid="uid://cynx6gd4i6rry" path="res://assets/sprites/boss/attack1/frame_002_delay-0.03s.png" id="4_iikyw"]
@@ -1480,11 +1480,15 @@ radius = 220.0
 height = 1068.0
 
 [sub_resource type="Animation" id="Animation_1u7gf"]
-resource_name = "tqt frr"
+resource_name = "attack1_left"
+
+[sub_resource type="Animation" id="Animation_ft11o"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ft11o"]
 _data = {
-&"tqt frr": SubResource("Animation_1u7gf")
+&"RESET": SubResource("Animation_ft11o"),
+&"attack1_left": SubResource("Animation_1u7gf")
 }
 
 [node name="Boss" type="CharacterBody2D"]
@@ -1522,7 +1526,6 @@ visible = false
 color = Color(0.928891, 0.149574, 0.525563, 1)
 
 [node name="left_attack" type="Node2D" parent="."]
-visible = false
 position = Vector2(-204, 0)
 
 [node name="attack1" type="AnimatedSprite2D" parent="left_attack"]

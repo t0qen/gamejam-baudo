@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dwvb4cbrl0ts"]
+[gd_scene load_steps=15 format=4 uid="uid://dwvb4cbrl0ts"]
 
 [ext_resource type="Script" uid="uid://c1fk8mim4focm" path="res://scripts/levels/level_4_salle_info.gd" id="1_reroy"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_3oio2"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dnr54gcou8ga2" path="res://assets/sprites/levels/infotileset.png" id="4_yspyd"]
 [ext_resource type="Texture2D" uid="uid://ih5223ksmtlc" path="res://assets/sprites/levels/tilesets.png" id="5_xqo5a"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="6_yspyd"]
-[ext_resource type="AudioStream" uid="uid://det3sa23ormvd" path="res://assets/music/level3+.mp3" id="7_xqo5a"]
+[ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="7_xqo5a"]
+[ext_resource type="AudioStream" uid="uid://det3sa23ormvd" path="res://assets/music/level3+.mp3" id="8_8wbol"]
+[ext_resource type="AudioStream" uid="uid://c7yjjrpbxkk2" path="res://assets/sounds/Dax/Blagues aléatoires/blague dax 7.mp3" id="8_fuwli"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuwli"]
 texture = ExtResource("3_uspc7")
@@ -500,6 +502,9 @@ sources/0 = SubResource("TileSetAtlasSource_fuwli")
 sources/1 = SubResource("TileSetAtlasSource_8wbol")
 sources/3 = SubResource("TileSetAtlasSource_kh8ax")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf4u3"]
+size = Vector2(162, 82)
+
 [node name="level4_salle_info" type="Node2D"]
 script = ExtResource("1_reroy")
 
@@ -508,17 +513,38 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD/////AwASAAMAAAD//wAAAwASAAMAAAAAAAEAAwASAAMAAAAAAAAAAwASAAMAAAABAAAAAwASAAMAAAABAP//AwASAAMAAAAAAP//AwASAAMAAAD//wEAAwASAAMAAAD+/wEAAwASAAMAAAABAAEAAwASAAMAAAABAAIAAwASAAMAAAAAAAIAAwASAAMAAAD//wIAAwASAAMAAAD+/wAAAwASAAMAAAD+////AwASAAMAAAD9////AwASAAMAAAD9/wAAAwASAAMAAAD9/wEAAwASAAMAAAD+/wIAAwASAAMAAAD9/wIAAwASAAMAAAD9//7/AwASAAMAAAD9//3/AwASAAMAAAD+//3/AwASAAMAAAD///3/AwASAAMAAAAAAP3/AwASAAMAAAAAAP7/AwASAAMAAAABAP7/AwASAAMAAAACAP7/AwASAAMAAAACAP//AwASAAMAAAACAAAAAwASAAMAAAACAAEAAwASAAMAAAACAAIAAwASAAMAAAADAAIAAwASAAMAAAADAAEAAwASAAMAAAADAAAAAwASAAMAAAADAP//AwASAAMAAAADAP7/AwASAAMAAAACAP3/AwASAAMAAAABAP3/AwASAAMAAAADAP3/AwASAAMAAAD+//7/AwASAAMAAAD///7/AwASAAMAAAD9/wMAAwASAAMAAAD+/wMAAwASAAMAAAD//wMAAwASAAMAAAAAAAMAAwASAAMAAAABAAMAAwASAAMAAAACAAMAAwASAAMAAAADAAMAAwASAAMAAAADAPz/AwAEAAEAAAACAPz/AwAEAAEAAAABAPz/AwAEAAEAAAAAAPz/AwAEAAEAAAD///z/AwAEAAEAAAD+//z/AwAEAAEAAAD9//z/AwAEAAEAAAAEAPz/AwAFAAEAAAD8//z/AwABAAEAAAD8//3/AwARAAQAAAD8//7/AwARAAQAAAD8////AwARAAQAAAD8/wAAAwARAAQAAAD8/wEAAwARAAQAAAD8/wIAAwARAAQAAAD8/wMAAwARAAQAAAAEAP3/AwATAAQAAAAEAP7/AwATAAQAAAAEAP//AwATAAQAAAAEAAAAAwATAAQAAAAEAAEAAwATAAQAAAAEAAIAAwATAAQAAAAEAAMAAwATAAQAAAD8/wQAAwAHAAEAAAD9/wQAAwAIAAEAAAD+/wQAAwAJAAEAAAACAAQAAwAHAAEAAAADAAQAAwAIAAEAAAAEAAQAAwAJAAEAAAD//wQAAwAHAAEAAAAAAAQAAwAIAAEAAAABAAQAAwAJAAEAAAA=")
 tile_set = SubResource("TileSet_kf4u3")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_yspyd")]
-position = Vector2(54, -305)
-player = NodePath("../player")
-
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_yspyd")]
-position = Vector2(-6, 548)
+position = Vector2(650, 98)
 player = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource("2_3oio2")]
 
+[node name="TelephoneDax" parent="player" instance=ExtResource("7_xqo5a")]
+position = Vector2(-576, -324)
+
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_xqo5a")
+stream = ExtResource("8_8wbol")
 autoplay = true
 bus = &"Musique"
+
+[node name="BlagueDax7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fuwli")
+
+[node name="Vent3" type="Area2D" parent="."]
+position = Vector2(53, -169)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent3"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_kf4u3")
+
+[node name="Panel" type="Panel" parent="Vent3"]
+offset_left = -81.0
+offset_top = -49.0
+offset_right = -41.0
+offset_bottom = -9.0
+scale = Vector2(4.10121, 2.31293)
+
+[connection signal="finished" from="BlagueDax7" to="." method="_on_blague_dax_7_finished"]
+[connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]
+[connection signal="body_exited" from="Vent3" to="." method="_on_vent_3_body_exited"]

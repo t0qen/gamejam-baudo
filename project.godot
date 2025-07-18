@@ -26,6 +26,10 @@ global="*res://scripts/global.gd"
 CameraManager="*res://scripts/camera_manager.gd"
 Transition="*res://scenes/transition.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 player=""
@@ -87,5 +91,6 @@ action={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -371,7 +371,7 @@ height = 382.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jncid"]
-bg_color = Color(0.917179, 0.38738, 0.610174, 1)
+bg_color = Color(2.16588e-06, 0, 0.579079, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4tdk8"]
 animations = [{

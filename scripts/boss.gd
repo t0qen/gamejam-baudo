@@ -183,7 +183,7 @@ func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
 			can_take_damage = false
-			current_health = current_health - 20
+			current_health = current_health - 10
 			modulate = Color.RED
 			await get_tree().create_timer(0.5).timeout
 			modulate = Color.WHITE

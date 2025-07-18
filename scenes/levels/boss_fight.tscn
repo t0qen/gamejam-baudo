@@ -1,10 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://s63seyesglme"]
+[gd_scene load_steps=14 format=3 uid="uid://s63seyesglme"]
 
 [ext_resource type="Script" uid="uid://byfhwi3tyt2bs" path="res://scripts/levels/boss_fight.gd" id="1_u4lat"]
 [ext_resource type="PackedScene" uid="uid://dhrswkm2pyd0k" path="res://scenes/boss.tscn" id="2_dw0xy"]
 [ext_resource type="AudioStream" uid="uid://clcvbtgcjbvxx" path="res://assets/music/boss_fight.mp3" id="2_xhsqb"]
 [ext_resource type="PackedScene" uid="uid://cb2tmfsub5xev" path="res://scenes/player_boss.tscn" id="3_dw0xy"]
 [ext_resource type="PackedScene" uid="uid://d36vr4sdkrq5" path="res://scenes/camera.tscn" id="4_tswhc"]
+[ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="6_tswhc"]
+[ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="7_bavu1"]
+[ext_resource type="Texture2D" uid="uid://yqts2va350od" path="res://assets/dialogue/frame_00_delay-0.03s.png" id="8_32r5c"]
+[ext_resource type="Texture2D" uid="uid://dnnj6idd0mw10" path="res://assets/dialogue/martin.png" id="9_78gr8"]
+[ext_resource type="FontFile" uid="uid://ee2n5s5hxtv1" path="res://assets/fonts/NotoSans-VariableFont_wdth,wght.ttf" id="10_32r5c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cp2kk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kfod8"]
+font = ExtResource("6_tswhc")
+font_size = 23
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lu7xo"]
+font = ExtResource("7_bavu1")
+font_size = 33
+font_color = Color(0, 0, 0, 1)
 
 [node name="boss_fight" type="Node2D"]
 script = ExtResource("1_u4lat")
@@ -17,8 +34,127 @@ bus = &"Musique"
 position = Vector2(-39, 39)
 player = NodePath("../player")
 
+[node name="dialogue" type="Node2D" parent="."]
+visible = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="dialogue"]
+position = Vector2(0, 392)
+scale = Vector2(968.5, 180.25)
+mesh = SubResource("BoxMesh_cp2kk")
+
+[node name="dialogue 1" type="Node2D" parent="dialogue"]
+visible = false
+
+[node name="Label" type="Label" parent="dialogue/dialogue 1"]
+offset_left = -296.0
+offset_top = 392.0
+offset_right = 488.0
+offset_bottom = 472.0
+text = "Ah ! Je savais que je te trouverais, Gamer Boy !"
+label_settings = SubResource("LabelSettings_kfod8")
+
+[node name="Label2" type="Label" parent="dialogue/dialogue 1"]
+offset_left = -72.0
+offset_top = 312.0
+offset_right = 67.0
+offset_bottom = 354.0
+text = "ZBaudo "
+label_settings = SubResource("LabelSettings_lu7xo")
+
+[node name="Frame00Delay-0_03s" type="Sprite2D" parent="dialogue/dialogue 1"]
+position = Vector2(-384, 384)
+scale = Vector2(1.71519, 1.71519)
+texture = ExtResource("8_32r5c")
+
+[node name="dialogue 2" type="Node2D" parent="dialogue"]
+visible = false
+
+[node name="Label" type="Label" parent="dialogue/dialogue 2"]
+offset_left = -320.0
+offset_top = 352.0
+offset_right = 464.0
+offset_bottom = 469.0
+text = "Mais je ne suis pas Gam...
+Comment m'as tu trouvé ? Tu as vaincu mes gardes ?! 
+Je savais qu'ils étaient nuls, mais tu dois encore
+m'affronter moi ! HAHAHAHHAHA"
+label_settings = SubResource("LabelSettings_kfod8")
+
+[node name="Label2" type="Label" parent="dialogue/dialogue 2"]
+offset_left = -96.0
+offset_top = 312.0
+offset_right = 89.0
+offset_bottom = 354.0
+text = "Gamer Boy"
+label_settings = SubResource("LabelSettings_lu7xo")
+
+[node name="Martin" type="Sprite2D" parent="dialogue/dialogue 2"]
+position = Vector2(-394.25, 391.449)
+scale = Vector2(1.30899, 1.30899)
+texture = ExtResource("9_78gr8")
+
+[node name="dialogue 3" type="Node2D" parent="dialogue"]
+visible = false
+
+[node name="Label" type="Label" parent="dialogue/dialogue 3"]
+offset_left = -296.0
+offset_top = 392.0
+offset_right = 488.0
+offset_bottom = 472.0
+text = "Mais j'attendais que ça ! Que le combat commence !
+Baudo sera fier de moi !"
+label_settings = SubResource("LabelSettings_kfod8")
+
+[node name="Label2" type="Label" parent="dialogue/dialogue 3"]
+offset_left = -72.0
+offset_top = 312.0
+offset_right = 67.0
+offset_bottom = 354.0
+text = "ZBaudo "
+label_settings = SubResource("LabelSettings_lu7xo")
+
+[node name="Frame00Delay-0_03s" type="Sprite2D" parent="dialogue/dialogue 3"]
+position = Vector2(-384, 384)
+scale = Vector2(1.71519, 1.71519)
+texture = ExtResource("8_32r5c")
+
+[node name="dialogue 4" type="Node2D" parent="dialogue"]
+visible = false
+
+[node name="Label" type="Label" parent="dialogue/dialogue 4"]
+offset_left = -256.0
+offset_top = 368.0
+offset_right = 528.0
+offset_bottom = 455.0
+text = "Ahah ! Je suis le plus fort ! Tu es capturé
+maintenant, je vais t'ammener à Baudo, satané 
+Gamer Boy !"
+label_settings = SubResource("LabelSettings_kfod8")
+
+[node name="Label2" type="Label" parent="dialogue/dialogue 4"]
+offset_left = -72.0
+offset_top = 312.0
+offset_right = 67.0
+offset_bottom = 354.0
+text = "ZBaudo "
+label_settings = SubResource("LabelSettings_lu7xo")
+
+[node name="Frame00Delay-0_03s" type="Sprite2D" parent="dialogue/dialogue 4"]
+position = Vector2(-384, 384)
+scale = Vector2(1.71519, 1.71519)
+texture = ExtResource("8_32r5c")
+
+[node name="Button" type="Button" parent="dialogue"]
+offset_left = 520.0
+offset_top = 408.0
+offset_right = 653.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("10_32r5c")
+theme_override_font_sizes/font_size = 46
+text = "NEXT "
+
 [node name="player" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("3_dw0xy")]
-position = Vector2(21, 301)
+position = Vector2(-624, 304)
 collision_mask = 94
 will_instanciate_cam = false
 boss_node = NodePath("../Boss")
@@ -29,3 +165,4 @@ zoom = Vector2(0.6, 0.6)
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="boss_dead" from="Boss" to="." method="_on_boss_boss_dead"]
+[connection signal="pressed" from="dialogue/Button" to="." method="_on_button_pressed"]

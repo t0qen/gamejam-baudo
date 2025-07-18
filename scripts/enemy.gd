@@ -114,7 +114,6 @@ func play_animation(animation):
 		"idle":
 			idle_anim.show()
 			idle_anim.play("default")
-	print(current_animation)
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	

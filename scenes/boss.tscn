@@ -1,4 +1,4 @@
-[gd_scene load_steps=368 format=3 uid="uid://dhrswkm2pyd0k"]
+[gd_scene load_steps=370 format=3 uid="uid://dhrswkm2pyd0k"]
 
 [ext_resource type="Script" uid="uid://rrejglro0ea1" path="res://scripts/boss.gd" id="1_neq0i"]
 [ext_resource type="Texture2D" uid="uid://cynx6gd4i6rry" path="res://assets/sprites/boss/attack1/frame_002_delay-0.03s.png" id="4_iikyw"]
@@ -309,6 +309,7 @@
 [ext_resource type="Texture2D" uid="uid://5ahhrbvaaio3" path="res://assets/sprites/boss/attack2/frame_19_delay-0.03s.png" id="355_gqy86"]
 [ext_resource type="Texture2D" uid="uid://ch52fmxgpw7y3" path="res://assets/sprites/boss/combat2/frame_084_delay-0.03s.png" id="355_v6fnh"]
 [ext_resource type="Texture2D" uid="uid://c8ag7h0ibxd78" path="res://assets/sprites/boss/combat2/frame_085_delay-0.03s.png" id="356_0u7pq"]
+[ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="356_ft11o"]
 [ext_resource type="Texture2D" uid="uid://dyr8qf1ln8ybi" path="res://assets/sprites/boss/combat2/frame_086_delay-0.03s.png" id="357_uqytx"]
 [ext_resource type="Texture2D" uid="uid://hpgauhcyi0bc" path="res://assets/sprites/boss/combat2/frame_087_delay-0.03s.png" id="358_kykg8"]
 [ext_resource type="Texture2D" uid="uid://dt5hdy20a2qe5" path="res://assets/sprites/boss/combat2/frame_088_delay-0.03s.png" id="359_m11j7"]
@@ -1490,6 +1491,9 @@ animations = [{
 radius = 279.0
 height = 1068.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_kuem8"]
+font = ExtResource("356_ft11o")
+
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -1509,9 +1513,9 @@ shape = SubResource("CapsuleShape2D_neq0i")
 
 [node name="health_bar" type="ProgressBar" parent="."]
 offset_left = -147.0
-offset_top = -420.0
+offset_top = -400.0
 offset_right = -136.0
-offset_bottom = -393.0
+offset_bottom = -373.0
 scale = Vector2(27.203, -1)
 theme_override_styles/background = SubResource("StyleBoxFlat_neq0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jncid")
@@ -1589,6 +1593,7 @@ frame = 100
 [node name="idle" type="Node2D" parent="animation"]
 
 [node name="idle" type="AnimatedSprite2D" parent="animation/idle"]
+visible = false
 position = Vector2(-3, -169)
 sprite_frames = SubResource("SpriteFrames_ad7xa")
 autoplay = "default"
@@ -1597,6 +1602,7 @@ frame_progress = 0.40986
 [node name="dead" type="Node2D" parent="animation"]
 
 [node name="dead" type="AnimatedSprite2D" parent="animation/dead"]
+visible = false
 position = Vector2(-3, -169)
 sprite_frames = SubResource("SpriteFrames_1u7gf")
 
@@ -1624,15 +1630,21 @@ disabled = true
 wait_time = 20.0
 
 [node name="Label" type="Label" parent="."]
-offset_left = -26.0
-offset_top = -495.0
-offset_right = 38.0
-offset_bottom = -472.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -124.5
+offset_top = -456.0
+offset_right = 124.5
+offset_bottom = -436.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "PHASE 1"
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(1, 0, 0, 1)
+label_settings = SubResource("LabelSettings_kuem8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_entered"]
 [connection signal="area_exited" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_exited"]

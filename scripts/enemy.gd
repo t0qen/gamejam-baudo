@@ -66,6 +66,7 @@ func _physics_process(delta: float) -> void:
 			player_chase_move = true
 			
 	if health <= 0 && alive:
+		$Collisions.disabled = true
 		velocity = Vector2.ZERO
 		$PlayerDetection.queue_free()
 		$EnemyHitbox.queue_free()

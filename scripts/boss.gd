@@ -11,6 +11,9 @@ extends CharacterBody2D
 var current_animation : String
 var prev_animation : String
 
+
+var is_cycle_started : bool = false
+
 var excepted_combat
 var cb1_excepted_left_frame = 55
 var cb1_excepted_right_frame = 15
@@ -28,11 +31,12 @@ enum PHASE {
 	CB2,
 	IDLE
 }
-var current_phase : PHASE = PHASE.CB1
+var current_phase : PHASE
 
 func _ready() -> void:
-	play_animation("idle")
-	$switch_phase.start()
+	while !is_cycle_started:
+		await get_tree().create_timer(1).timeout
+		print("BOSS NOT STARTED")
 	
 func _physics_process(delta: float) -> void:
 	
@@ -44,6 +48,12 @@ func _physics_process(delta: float) -> void:
 	#print(current_health)
 	if current_health <= 0:
 		self.queue_free()
+
+
+func start_cycle():
+	current_phase = PHASE.CB1
+	play_animation("idle")
+	$switch_phase.start()
 
 func update_phase():
 	match current_phase:
@@ -155,7 +165,7 @@ func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
 			can_take_damage = false
-			current_health = current_health - 20
+			current_health = current_health - 5
 			await get_tree().create_timer(0.5).timeout
 			can_take_damage = true
 		

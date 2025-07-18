@@ -1566,7 +1566,7 @@ collision_mask = 3
 priority = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_attack/hitbox2"]
-position = Vector2(336, 2)
+position = Vector2(478, -1)
 shape = SubResource("RectangleShape2D_d4vsr")
 disabled = true
 

@@ -195,10 +195,6 @@ offset_bottom = 23.0
 text = "NIVEAU 1"
 metadata/_edit_use_anchors_ = true
 
-[node name="switch" type="Timer" parent="."]
-wait_time = 80.0
-one_shot = true
-
 [node name="Arrow1" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(748, -2941)
@@ -238,12 +234,6 @@ rotation = 1.5708
 [node name="Laser7" parent="lasers" instance=ExtResource("6_sk5k4")]
 position = Vector2(-1453, -1048)
 rotation = 1.5708
-
-[node name="player" parent="." instance=ExtResource("3_x42e6")]
-position = Vector2(-17, 619)
-
-[node name="TelephoneDax" parent="player" instance=ExtResource("4_6761a")]
-position = Vector2(-568, -313)
 
 [node name="enemies" type="Node2D" parent="."]
 position = Vector2(328, -176)
@@ -292,6 +282,12 @@ player = NodePath("../../player")
 position = Vector2(293, 8)
 player = NodePath("../../player")
 
+[node name="player" parent="." instance=ExtResource("3_x42e6")]
+position = Vector2(-17, 619)
+
+[node name="TelephoneDax" parent="player" instance=ExtResource("4_6761a")]
+position = Vector2(-568, -313)
+
 [node name="Salut!MoiC\'estDax!" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_x42e6")
 bus = &"Dax"
@@ -324,6 +320,5 @@ collision_mask = 5
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-209, 367, -196, 778, 241, 765, 258, 377, 1381, 388, 1361, 1368, -1410, 1379, -1441, 362)
 
-[connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]
 [connection signal="finished" from="Salut!MoiC\'estDax!" to="." method="_on_salut_moi_cest_dax_finished"]
 [connection signal="body_entered" from="end" to="." method="_on_end_body_entered"]

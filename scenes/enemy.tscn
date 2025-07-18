@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://c12f2067hvmtk"]
+[gd_scene load_steps=106 format=3 uid="uid://c12f2067hvmtk"]
 
 [ext_resource type="Script" uid="uid://dr7g7d4bktyks" path="res://scripts/enemy.gd" id="1_veqxe"]
 [ext_resource type="Texture2D" uid="uid://bw46oc01ieco4" path="res://assets/sprites/enemis/idle/frame_00_delay-0.03s.png" id="2_t3vcr"]
@@ -98,6 +98,7 @@
 [ext_resource type="Texture2D" uid="uid://dmdndqkuswjkp" path="res://assets/sprites/enemis/mort/frame_26_delay-0.03s.png" id="96_6gy8s"]
 [ext_resource type="Texture2D" uid="uid://b6i0pmpgkqt8t" path="res://assets/sprites/enemis/mort/frame_27_delay-0.03s.png" id="97_uqpfh"]
 [ext_resource type="Texture2D" uid="uid://c0wleko1h2f5p" path="res://assets/sprites/enemis/mort/frame_28_delay-0.03s.png" id="98_p4l6o"]
+[ext_resource type="AudioStream" uid="uid://capngicvslqas" path="res://assets/sounds/enemy_dye.mp3" id="99_o2mnd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ile5s"]
 radius = 46.7428
@@ -432,7 +433,7 @@ height = 32.0
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 4
-collision_mask = 39
+collision_mask = 55
 motion_mode = 1
 script = ExtResource("1_veqxe")
 
@@ -517,6 +518,11 @@ debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 [node name="wait_death" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="dye_enemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("99_o2mnd")
+volume_db = 10.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

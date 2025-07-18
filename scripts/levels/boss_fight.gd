@@ -65,6 +65,7 @@ func _on_boss_boss_dead() -> void:
 
 
 func _on_button_pressed() -> void:
+	$click.play()
 	if is_dialoguing:
 		match prev_dialogue:
 			dialogue.DIALOGUE1:

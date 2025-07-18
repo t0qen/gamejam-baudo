@@ -10,6 +10,7 @@ extends CharacterBody2D
 var current_animation : String
 var prev_animation : String
 
+var is_attacking : bool = false
 var alive : bool = true
 
 @export var speed : int = 400
@@ -31,15 +32,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if alive:
 		deal_with_damage()
-		
 			
 		if player_chase:
-			print("CHASE")
+			
 			if player_chase_move:
-				play_animation("run")
+				if !is_attacking:
+					play_animation("run")
 				var target_direction = (player.global_position - global_position).normalized()
 				velocity = target_direction * speed
-			
+			else:
+				velocity = Vector2.ZERO
+				
 			position += (player.position - position) / speed
 			$PlayerDetection.look_at(player.global_position)
 			
@@ -48,24 +51,28 @@ func _physics_process(delta: float) -> void:
 					 
 				
 		else:
-			play_animation("idle")
-			velocity = Vector2.ZERO
-			if can_scope:
-				can_scope = false
-				DetectionRotation += 1
-				$PlayerDetection.rotation = DetectionRotation / 2
-				await get_tree().create_timer(0.2).timeout
-				can_scope = true
+			if !is_attacking:
+				play_animation("idle")
+				velocity = Vector2.ZERO
+				if can_scope:
+					can_scope = false
+					DetectionRotation += 1
+					$PlayerDetection.rotation = DetectionRotation / 2
+					await get_tree().create_timer(0.2).timeout
+					can_scope = true
 
 		if global.enemy_need_to_attack_anim:
-			player_chase_move = false
+			is_attacking = true
+			#global.enemy_need_to_attack_anim = false
+			print("PLAYER ATTACK ANIM")
 			velocity = Vector2.ZERO
 			play_animation("attack")
-			global.enemy_need_to_attack_anim = false
 			await get_tree().create_timer(1).timeout
-			player_chase_move = true
+			is_attacking = false
+
 			
 	if health <= 0 && alive:
+		$dye_enemy.play()
 		$Collisions.disabled = true
 		velocity = Vector2.ZERO
 		$PlayerDetection.queue_free()
@@ -101,6 +108,7 @@ func play_animation(animation):
 	
 	current_animation = animation
 	prev_animation = current_animation
+	print(current_animation)
 	match animation:
 		"dead":
 			dead_anim.show()
@@ -129,6 +137,7 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 			
 func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
+		
 		player_chase = false
 		
 func enemy():

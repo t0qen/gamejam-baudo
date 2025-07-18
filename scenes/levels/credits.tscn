@@ -1,47 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw74otuouhnsl"]
+[gd_scene load_steps=5 format=3 uid="uid://cw74otuouhnsl"]
 
-[ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_kxfi0"]
+[ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_fhg1p"]
+[ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="2_uvwux"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m0gy5"]
+font = ExtResource("1_fhg1p")
+font_size = 46
+
+[sub_resource type="LabelSettings" id="LabelSettings_mpx5v"]
+font = ExtResource("2_uvwux")
+font_size = 31
 
 [node name="credits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kxfi0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -8.0
-offset_right = 1169.0
-offset_bottom = 662.0
-color = Color(0.10748, 0.10748, 0.10748, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0605303, 0.0605303, 0.0605303, 1)
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 112.0
-offset_right = 732.0
-offset_bottom = 447.0
-text = "-- GAME ENGINE
-Godot
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_right = 105.0
+offset_bottom = 58.0
+grow_horizontal = 2
+text = "= CREDITS ="
+label_settings = SubResource("LabelSettings_m0gy5")
 
--- DEV, GAME DESIGNER, LEVEL DESIGNER --
-Al's
-t0qen (AYMERIC)
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -210.5
+offset_right = 480.0
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ce jeux a été créé par : 
+- Al's, t0qen : les développeurs polyvalents
+- OBCD : pour les personnages et leurs animations 
+ainsi que les tilesets
+- DarkPhoenix : la musique
+Ensembles forment la team ALT+F4.
 
--- GRAPHISTE --
-OBCD 
-
--- MUSIQUE --
-DarkPhoenix
-"
-
-[node name="switch" type="Timer" parent="."]
-wait_time = 20.0
-one_shot = true
-
-[connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]
+Tout a été fait main et avec coeur."
+label_settings = SubResource("LabelSettings_mpx5v")

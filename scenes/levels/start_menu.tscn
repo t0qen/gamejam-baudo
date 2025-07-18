@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dls31nm63dvlr"]
+[gd_scene load_steps=11 format=3 uid="uid://dls31nm63dvlr"]
 
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_bobbp"]
 [ext_resource type="Script" uid="uid://bck0gqja62o64" path="res://scripts/levels/start_menu.gd" id="1_cfn5g"]
 [ext_resource type="FontFile" uid="uid://bff5f1wvnem3p" path="res://assets/fonts/MonaspaceKrypton-Medium.otf" id="2_01ge7"]
 [ext_resource type="Texture2D" uid="uid://b8j7ifdqrr8hn" path="res://assets/sprites/zbaudo/run/frame_09_delay-0.03s.png" id="3_01ge7"]
 [ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="5_xhmce"]
+[ext_resource type="FontFile" uid="uid://b3vmorjo8shi5" path="res://assets/fonts/NotoSerif-Medium.ttf" id="6_xhmce"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gg7vo"]
 font = ExtResource("1_bobbp")
@@ -12,6 +13,14 @@ font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hutc"]
 font = ExtResource("5_xhmce")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rsusj"]
+font = ExtResource("2_01ge7")
+font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_ak3lw"]
+font = ExtResource("6_xhmce")
+font_color = Color(0.400698, 0.400698, 0.400698, 1)
 
 [node name="start_menu" type="Control"]
 layout_mode = 3
@@ -76,6 +85,24 @@ offset_bottom = 449.0
 text = "TU VEUX VRAIMENT QUITTER ??
 FAIS ALT+F4 AU PIRE"
 label_settings = SubResource("LabelSettings_7hutc")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 608.0
+offset_right = 217.0
+offset_bottom = 640.0
+text = "TEAM ALT+F4 "
+label_settings = SubResource("LabelSettings_rsusj")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 616.0
+offset_right = 688.0
+offset_bottom = 665.0
+text = "als1925, t0qen, obcd31_425, darkphoenix3254"
+label_settings = SubResource("LabelSettings_ak3lw")
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

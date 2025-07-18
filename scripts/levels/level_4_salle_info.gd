@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	global.is_dax_speek = true
-	$BlagueDax3.play()
+	$BlagueDax4.play()
 
 func _on_timer_timeout() -> void:
 	Transition.transition()

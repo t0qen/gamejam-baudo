@@ -212,11 +212,6 @@ func is_boss_attacking():
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	print("EXITED")
-	
-func _on_attack_duration_timeout() -> void:
-	attack_delay.start()
-	is_attacking = false
-	$Node2D.hide()
 
 func boss():
 	pass

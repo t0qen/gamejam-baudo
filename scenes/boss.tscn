@@ -754,7 +754,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4vsr"]
-size = Vector2(587.5, 53)
+size = Vector2(859.75, 90.25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_07lff"]
 animations = [{
@@ -1526,12 +1526,13 @@ visible = false
 color = Color(0.928891, 0.149574, 0.525563, 1)
 
 [node name="left_attack" type="Node2D" parent="."]
+visible = false
 position = Vector2(-204, 0)
 
 [node name="attack1" type="AnimatedSprite2D" parent="left_attack"]
-position = Vector2(324, 5)
+position = Vector2(477, -7.50333e-12)
 rotation = -1.5708
-scale = Vector2(0.75, 0.75)
+scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_4tdk8")
 autoplay = "default"
 frame = 124
@@ -1543,18 +1544,17 @@ collision_mask = 3
 priority = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left_attack/hitbox"]
-position = Vector2(329, 6)
+position = Vector2(463, 0)
 shape = SubResource("RectangleShape2D_d4vsr")
 disabled = true
 
 [node name="right_attack" type="Node2D" parent="."]
-visible = false
 position = Vector2(183, 0)
 
 [node name="attack1" type="AnimatedSprite2D" parent="right_attack"]
-position = Vector2(329, 0)
+position = Vector2(477, 1.09367e-10)
 rotation = -1.5708
-scale = Vector2(0.75, 0.75)
+scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_4tdk8")
 autoplay = "default"
 frame = 124
@@ -1602,7 +1602,8 @@ frame_progress = 0.40986
 [node name="cb2_attack" type="Node2D" parent="."]
 
 [node name="attack" type="AnimatedSprite2D" parent="cb2_attack"]
-position = Vector2(51, -71)
+position = Vector2(40, -88)
+scale = Vector2(1.15, 1.15)
 sprite_frames = SubResource("SpriteFrames_nncu5")
 frame = 18
 frame_progress = 1.0

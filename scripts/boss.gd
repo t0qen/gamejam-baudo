@@ -34,20 +34,21 @@ enum PHASE {
 var current_phase : PHASE
 
 func _ready() -> void:
+	start_cycle()
 	while !is_cycle_started:
 		await get_tree().create_timer(1).timeout
 		print("BOSS NOT STARTED")
 	
 func _physics_process(delta: float) -> void:
-	
-	update_phase()
-		
-		
-	receive_attack()
-	update_health_bar()
-	#print(current_health)
-	if current_health <= 0:
-		self.queue_free()
+	if !is_cycle_started:
+		update_phase()
+			
+			
+		receive_attack()
+		update_health_bar()
+		#print(current_health)
+		if current_health <= 0:
+			self.queue_free()
 
 
 func start_cycle():
@@ -165,8 +166,8 @@ func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
 			can_take_damage = false
-			current_health = current_health - 5
-			await get_tree().create_timer(0.5).timeout
+			current_health = current_health - 10
+			await get_tree().create_timer(0.75).timeout
 			can_take_damage = true
 		
 func attack_player(attack):

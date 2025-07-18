@@ -45,7 +45,7 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 		$hide_etage.show()
 		$noirgauche.show()
 		$Timer.start()
-		$enemies.hide()
+		$enemies.queue_free()
 		while tremble == true:
 			CameraManager.shake(0.5,  1.5, Vector2(50, 100), 0.1)
 			await get_tree().create_timer(0.5).timeout

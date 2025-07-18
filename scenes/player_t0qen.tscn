@@ -858,6 +858,7 @@ theme_override_font_sizes/font_size = 20
 text = "Appuies sur E"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]

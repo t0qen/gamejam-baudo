@@ -9,9 +9,9 @@ var body_in_vent : bool = false
 func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	print("BEGIN SCENE")
-	$noirgauche.show()
+	$porte1.hide()
+	$porte2.hide()
 	$hide_suite.show()
-	$noirhaut.show()
 	$Block_Gate2/CollisionShape2D.disabled = false
 	$block_gate/CollisionShape2D.disabled = false
 	$Timer.start()
@@ -20,15 +20,14 @@ func _ready() -> void:
 		await get_tree().create_timer(0.5).timeout
 	print("step0")
 	$block_gate/CollisionShape2D.disabled = true
-	$noirgauche.hide()
+	$porte1.show()
 	$hide_etage.hide()
-	$Arrow2.show()
+	$hide_etage2.hide()
+	$hide_etage3.hide()
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_step1:
 		print("step1")
-		$Arrow1.show()
-		$Arrow2.hide()
 		is_step_1_complete = true
 		$AsceuseurKey.hide()
 		tremble = true
@@ -42,17 +41,19 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 	print(body)
 	if is_step_1_complete:
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
+		$porte1.hide()
 		$hide_etage.show()
-		$noirgauche.show()
+		$hide_etage2.show()
+		$hide_etage3.show()
 		$Timer.start()
-		$enemies.queue_free()
+		$enemies.hide()
 		while tremble == true:
 			CameraManager.shake(0.5,  1.5, Vector2(50, 100), 0.1)
 			await get_tree().create_timer(0.5).timeout
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$Block_Gate2/CollisionShape2D.call_deferred("set", "disabled", true)
+		$porte2.show()
 		$hide_suite.hide()
-		$noirhaut.hide()
 		
 func _on_timer_timeout() -> void:
 	tremble = false

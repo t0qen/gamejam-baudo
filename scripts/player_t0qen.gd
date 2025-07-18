@@ -242,6 +242,7 @@ func dash(): # determine if player can dash and perform dash
 			if !is_dashing:
 				is_dashing = true
 				dash_duration_timer.start() # dash duration
+				$dash.play()
 				can_dash = false
 				$Dash.frame = 1
 				

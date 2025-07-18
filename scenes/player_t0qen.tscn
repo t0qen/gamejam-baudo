@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://cl71r21okvrwm"]
+[gd_scene load_steps=172 format=3 uid="uid://cl71r21okvrwm"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
 [ext_resource type="Texture2D" uid="uid://hf3py5xgk1ud" path="res://assets/sprites/zbaudo/idle/frame_01_delay-0.03s.png" id="2_i5eyg"]
@@ -157,6 +157,7 @@
 [ext_resource type="Texture2D" uid="uid://dror3y7wjweum" path="res://assets/sprites/zbaudo/mort/frame_20_delay-0.03s.png" id="152_uj3yp"]
 [ext_resource type="AudioStream" uid="uid://bycelqkb7ck4a" path="res://assets/sounds/player_attack.mp3" id="156_0gp3k"]
 [ext_resource type="AudioStream" uid="uid://dyvxtwa6i8gfo" path="res://assets/sounds/enemy_attack.mp3" id="157_xobgc"]
+[ext_resource type="AudioStream" uid="uid://b1k7wlgo2bde" path="res://assets/sounds/whoosh-motion-243505.mp3" id="158_xobgc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
 radius = 70.1142
@@ -870,6 +871,10 @@ bus = &"SFX"
 [node name="attack_enemis2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("157_xobgc")
 volume_db = 5.0
+bus = &"SFX"
+
+[node name="dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("158_xobgc")
 bus = &"SFX"
 
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]

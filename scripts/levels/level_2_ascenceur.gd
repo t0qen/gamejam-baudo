@@ -8,6 +8,7 @@ var body_in_vent : bool = false
 
 func _ready() -> void:
 	await get_tree().create_timer(1).timeout
+	$music.play()
 	print("BEGIN SCENE")
 	$porte1.hide()
 	$porte2.hide()

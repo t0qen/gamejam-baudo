@@ -427,8 +427,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shcg2"]
-radius = 11.0
-height = 32.0
+radius = 10.6666
+height = 21.3333
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
@@ -464,7 +464,6 @@ shape = SubResource("CircleShape2D_ile5s")
 [node name="pivot_idle" type="Node2D" parent="animations"]
 
 [node name="idle" type="AnimatedSprite2D" parent="animations/pivot_idle"]
-visible = false
 position = Vector2(-6.66667, -45.3333)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fpbnj")
@@ -511,7 +510,7 @@ one_shot = true
 one_shot = true
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
-position = Vector2(0, -48)
+position = Vector2(0, -53.3333)
 shape = SubResource("CapsuleShape2D_shcg2")
 debug_color = Color(0.651164, 0.408981, 0.82417, 0.42)
 

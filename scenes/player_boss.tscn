@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://cb2tmfsub5xev"]
+[gd_scene load_steps=172 format=3 uid="uid://cb2tmfsub5xev"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_fs60m"]
 [ext_resource type="Texture2D" uid="uid://bvgkdexj6kw84" path="res://assets/sprites/Interface/DashBleu.png" id="2_10fuf"]
@@ -156,6 +156,8 @@
 [ext_resource type="Texture2D" uid="uid://dror3y7wjweum" path="res://assets/sprites/zbaudo/mort/frame_20_delay-0.03s.png" id="154_giavl"]
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="155_qtow5"]
 [ext_resource type="AudioStream" uid="uid://bycelqkb7ck4a" path="res://assets/sounds/player_attack.mp3" id="156_10fuf"]
+[ext_resource type="AudioStream" uid="uid://dyvxtwa6i8gfo" path="res://assets/sounds/enemy_attack.mp3" id="157_uscmi"]
+[ext_resource type="AudioStream" uid="uid://b1k7wlgo2bde" path="res://assets/sounds/whoosh-motion-243505.mp3" id="158_2fysc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
 radius = 70.1142
@@ -862,6 +864,15 @@ vertical_alignment = 1
 
 [node name="attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("156_10fuf")
+bus = &"SFX"
+
+[node name="attack_enemis2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("157_uscmi")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("158_2fysc")
 bus = &"SFX"
 
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]

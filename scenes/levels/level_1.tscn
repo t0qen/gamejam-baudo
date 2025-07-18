@@ -692,6 +692,7 @@ polygon = PackedVector2Array(-209, 367, -196, 778, 241, 765, 258, 377, 1381, 388
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_qxy0u")
+volume_db = -10.0
 bus = &"Musique"
 
 [connection signal="finished" from="Salut!MoiC\'estDax!" to="." method="_on_salut_moi_cest_dax_finished"]

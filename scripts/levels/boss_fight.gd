@@ -26,6 +26,7 @@ func _ready() -> void:
 	print("BOSS FIGHT START !!")
 	$player.show()
 	$Boss.start_cycle()
+	$music.play()
 	$AudioStreamPlayer2D.play()
 
 

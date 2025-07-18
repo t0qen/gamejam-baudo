@@ -107,6 +107,7 @@ text = "als1925, t0qen, obcd31_425, darkphoenix3254"
 label_settings = SubResource("LabelSettings_ak3lw")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dwvb4cbrl0ts"]
+[gd_scene load_steps=12 format=4 uid="uid://dwvb4cbrl0ts"]
 
 [ext_resource type="Script" uid="uid://c1fk8mim4focm" path="res://scripts/levels/level_4_salle_info.gd" id="1_reroy"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_3oio2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dnr54gcou8ga2" path="res://assets/sprites/levels/infotileset.png" id="4_yspyd"]
 [ext_resource type="Texture2D" uid="uid://ih5223ksmtlc" path="res://assets/sprites/levels/tilesets.png" id="5_xqo5a"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="6_yspyd"]
+[ext_resource type="AudioStream" uid="uid://det3sa23ormvd" path="res://assets/music/level3+.mp3" id="7_xqo5a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuwli"]
 texture = ExtResource("3_uspc7")
@@ -516,3 +517,8 @@ position = Vector2(-6, 548)
 player = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource("2_3oio2")]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xqo5a")
+autoplay = true
+bus = &"Musique"

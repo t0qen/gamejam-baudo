@@ -8,7 +8,6 @@ var body_in_vent : bool = false
 
 func _ready() -> void:
 	await get_tree().create_timer(1).timeout
-	$music.play()
 	print("BEGIN SCENE")
 	$porte1.hide()
 	$porte2.hide()
@@ -26,6 +25,8 @@ func _ready() -> void:
 	$hide_etage.hide()
 	$hide_etage2.hide()
 	$hide_etage3.hide()
+	await get_tree().create_timer(1).timeout
+	$music.play()
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_step1:
@@ -33,7 +34,10 @@ func _physics_process(delta: float) -> void:
 		is_step_1_complete = true
 		$AsceuseurKey.hide()
 		tremble = true
+		$key.play()
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_vent:
+		$SFX.play()
+		await get_tree().create_timer(1.5).timeout
 		Transition.transition()
 		await Transition.on_transition_finished
 		get_tree().change_scene_to_file("res://scenes/levels/level_3_ventilations.tscn")

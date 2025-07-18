@@ -78,9 +78,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_health_bar()
 	if Input.is_action_just_pressed("pause"):
-		current_pause != current_pause
 		get_tree().paused = current_pause
-	
+		current_pause != current_pause
+		
 func _physics_process(delta: float) -> void:
 	#Engine.time_scale = 0.1
 	if player_alive :

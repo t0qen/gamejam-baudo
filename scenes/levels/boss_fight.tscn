@@ -664,6 +664,10 @@ boss_node = NodePath("../Boss")
 position = Vector2(0, -8)
 zoom = Vector2(0.6, 0.6)
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xhsqb")
+bus = &"Musique"
+
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="boss_dead" from="Boss" to="." method="_on_boss_boss_dead"]
 [connection signal="pressed" from="dialogue/Button" to="." method="_on_button_pressed"]

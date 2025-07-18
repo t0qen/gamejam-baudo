@@ -1,4 +1,4 @@
-[gd_scene load_steps=370 format=3 uid="uid://dhrswkm2pyd0k"]
+[gd_scene load_steps=372 format=3 uid="uid://dhrswkm2pyd0k"]
 
 [ext_resource type="Script" uid="uid://rrejglro0ea1" path="res://scripts/boss.gd" id="1_neq0i"]
 [ext_resource type="Texture2D" uid="uid://cynx6gd4i6rry" path="res://assets/sprites/boss/attack1/frame_002_delay-0.03s.png" id="4_iikyw"]
@@ -310,7 +310,9 @@
 [ext_resource type="Texture2D" uid="uid://ch52fmxgpw7y3" path="res://assets/sprites/boss/combat2/frame_084_delay-0.03s.png" id="355_v6fnh"]
 [ext_resource type="Texture2D" uid="uid://c8ag7h0ibxd78" path="res://assets/sprites/boss/combat2/frame_085_delay-0.03s.png" id="356_0u7pq"]
 [ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="356_ft11o"]
+[ext_resource type="AudioStream" uid="uid://hifq2gdate5u" path="res://assets/sounds/boss_attack.mp3" id="357_gukjf"]
 [ext_resource type="Texture2D" uid="uid://dyr8qf1ln8ybi" path="res://assets/sprites/boss/combat2/frame_086_delay-0.03s.png" id="357_uqytx"]
+[ext_resource type="AudioStream" uid="uid://cmrlb7owqehib" path="res://assets/sounds/boss_attack2.mp3" id="358_b13uf"]
 [ext_resource type="Texture2D" uid="uid://hpgauhcyi0bc" path="res://assets/sprites/boss/combat2/frame_087_delay-0.03s.png" id="358_kykg8"]
 [ext_resource type="Texture2D" uid="uid://dt5hdy20a2qe5" path="res://assets/sprites/boss/combat2/frame_088_delay-0.03s.png" id="359_m11j7"]
 [ext_resource type="Texture2D" uid="uid://hc6tkfl2vjwq" path="res://assets/sprites/boss/combat2/frame_089_delay-0.03s.png" id="360_pwlvc"]
@@ -1645,6 +1647,14 @@ text = "PHASE 1"
 label_settings = SubResource("LabelSettings_kuem8")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("357_gukjf")
+bus = &"SFX"
+
+[node name="attack2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("358_b13uf")
+bus = &"SFX"
 
 [connection signal="area_entered" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_entered"]
 [connection signal="area_exited" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_exited"]

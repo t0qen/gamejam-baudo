@@ -94,6 +94,7 @@ func attack1_cb2(): #
 		$cb2_attack/attack.show()
 		$cb2_attack/attack.play("default")
 		$cb2_attack_hitbox/CollisionShape2D.disabled = false
+		$attack2.play()
 		#$right_attack.hide()
 		#$left_attack.hide()
 		#var excepted_side # 1: gauche 2: droite
@@ -139,6 +140,7 @@ func attack1(mode): # attaque vient que d'un coté à la fois
 		await get_tree().create_timer(0.5).timeout
 		global.player_attacked_by_boss = true
 		current_attack_side.show()
+		$attack.play()
 		current_attack_side.get_child(0).play("default")
 		await get_tree().create_timer(0.5).timeout
 		$left_attack/hitbox/CollisionShape2D.disabled = true
@@ -181,7 +183,7 @@ func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
 			can_take_damage = false
-			current_health = current_health - 100
+			current_health = current_health - 20
 			modulate = Color.RED
 			await get_tree().create_timer(0.5).timeout
 			modulate = Color.WHITE

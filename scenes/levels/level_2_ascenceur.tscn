@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dlsef5aa8p028"]
+[gd_scene load_steps=27 format=4 uid="uid://dlsef5aa8p028"]
 
 [ext_resource type="Script" uid="uid://dkmj4v0ta8x0j" path="res://scripts/levels/level_2_ascenceur.gd" id="1_rvqcx"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_b4g1u"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://bod0wkkjlit4m" path="res://assets/sounds/elevator-45786.mp3" id="8_siycf"]
 [ext_resource type="AudioStream" uid="uid://caik6b3gu7otx" path="res://assets/sounds/elevator-ding-at-arenco-tower-dubai-38520.mp3" id="9_iv1n8"]
 [ext_resource type="AudioStream" uid="uid://ch27ndcmhx1y3" path="res://assets/music/level2.mp3" id="10_iv1n8"]
+[ext_resource type="AudioStream" uid="uid://d5387mxmwc" path="res://assets/sounds/opening-metal-door-98518.mp3" id="11_3guw7"]
+[ext_resource type="AudioStream" uid="uid://cahhblr0b8ceo" path="res://assets/sounds/ding.mp3" id="12_hwx06"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vkduq"]
 
@@ -761,6 +763,15 @@ bus = &"SFX"
 stream = ExtResource("10_iv1n8")
 volume_db = -10.0
 bus = &"Musique"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_3guw7")
+volume_db = 20.0
+bus = &"SFX"
+
+[node name="key" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_hwx06")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]
 [connection signal="body_exited" from="Vent3" to="." method="_on_vent_3_body_exited"]

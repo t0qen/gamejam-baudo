@@ -9,7 +9,9 @@ var body_in_vent : bool = false
 func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	print("BEGIN SCENE")
+	$noirgauche.show()
 	$hide_suite.show()
+	$noirhaut.show()
 	$Block_Gate2/CollisionShape2D.disabled = false
 	$block_gate/CollisionShape2D.disabled = false
 	$Timer.start()
@@ -18,6 +20,7 @@ func _ready() -> void:
 		await get_tree().create_timer(0.5).timeout
 	print("step0")
 	$block_gate/CollisionShape2D.disabled = true
+	$noirgauche.hide()
 	$hide_etage.hide()
 	$Arrow2.show()
 	
@@ -30,6 +33,8 @@ func _physics_process(delta: float) -> void:
 		$AsceuseurKey.hide()
 		tremble = true
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_vent:
+		Transition.transition()
+		await Transition.on_transition_finished
 		get_tree().change_scene_to_file("res://scenes/levels/level_3_ventilations.tscn")
 
 func _on_step_2_body_entered(body: Node2D) -> void:
@@ -38,6 +43,7 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 	if is_step_1_complete:
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$hide_etage.show()
+		$noirgauche.show()
 		$Timer.start()
 		$enemies.hide()
 		while tremble == true:
@@ -46,6 +52,7 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$Block_Gate2/CollisionShape2D.call_deferred("set", "disabled", true)
 		$hide_suite.hide()
+		$noirhaut.hide()
 		
 func _on_timer_timeout() -> void:
 	tremble = false

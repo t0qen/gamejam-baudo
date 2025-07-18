@@ -23,10 +23,10 @@ func _on_cle_usb_pressed() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	$PopUp/Label.text = "8780 Rue du Soir"
 	$AllonsAttraperMarGamerBoy.play()
-	await get_tree().create_timer(3).timeout
-	get_tree().change_scene_to_file("res://scenes/levels/level_5.tscn")
 	
 
 
 func _on_allons_attraper_mar_gamer_boy_finished() -> void:
-	get_tree().reload_current_scene()
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_file("res://scenes/levels/level_5.tscn")

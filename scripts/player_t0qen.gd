@@ -349,4 +349,6 @@ func _on_player_hitbox_area_exited(area: Area2D) -> void:
 
 
 func _on_wait_death_timeout() -> void:
+	Transition.transition()
+	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/dead_screen.tscn")

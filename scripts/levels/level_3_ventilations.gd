@@ -7,6 +7,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and global.player_press_e:
+		Transition.transition()
+		await Transition.on_transition_finished
 		get_tree().change_scene_to_file("res://scenes/levels/level_4_salle_info.tscn")
 
 

@@ -24,6 +24,7 @@ config/icon="res://icon.svg"
 
 global="*res://scripts/global.gd"
 CameraManager="*res://scripts/camera_manager.gd"
+Transition="*res://scenes/transition.tscn"
 
 [global_group]
 

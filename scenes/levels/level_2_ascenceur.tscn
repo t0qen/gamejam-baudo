@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dlsef5aa8p028"]
+[gd_scene load_steps=23 format=4 uid="uid://dlsef5aa8p028"]
 
 [ext_resource type="Script" uid="uid://dkmj4v0ta8x0j" path="res://scripts/levels/level_2_ascenceur.gd" id="1_rvqcx"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_b4g1u"]
@@ -175,6 +175,9 @@ distance = 81.0391
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohuyx"]
 size = Vector2(76, 746)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohuyx"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siycf"]
 size = Vector2(144, 96)
 
@@ -346,6 +349,21 @@ texture_filter = 1
 position = Vector2(522, -79)
 scale = Vector2(2, 2)
 texture = ExtResource("6_iv1n8")
+
+[node name="noirgauche" type="Panel" parent="."]
+offset_left = 752.0
+offset_top = -130.0
+offset_right = 768.0
+offset_bottom = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohuyx")
+
+[node name="noirhaut" type="Panel" parent="."]
+offset_left = 1026.0
+offset_top = -272.0
+offset_right = 1042.0
+offset_bottom = -139.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohuyx")
 
 [node name="player" parent="." instance=ExtResource("2_b4g1u")]
 position = Vector2(957, -66)

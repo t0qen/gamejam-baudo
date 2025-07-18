@@ -67,9 +67,6 @@ func start_cycle():
 	is_cycle_started = true
 	play_animation("idle")
 	$switch_phase.start()
-	
-	
-
 
 func update_phase():
 	match current_phase:

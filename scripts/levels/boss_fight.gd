@@ -59,6 +59,8 @@ func _on_boss_boss_dead() -> void:
 	$dialogue.show()
 	$dialogue/Button.hide()
 	$"dialogue/dialogue 4".show()
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_file("res://scenes/levels/cinematic_2.tscn")
 	
 
 

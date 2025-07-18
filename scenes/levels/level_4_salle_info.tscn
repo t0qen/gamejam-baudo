@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwvb4cbrl0ts"]
+[gd_scene load_steps=11 format=4 uid="uid://dwvb4cbrl0ts"]
 
 [ext_resource type="Script" uid="uid://c1fk8mim4focm" path="res://scripts/levels/level_4_salle_info.gd" id="1_reroy"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_3oio2"]
 [ext_resource type="Texture2D" uid="uid://cn5tlln16wu5h" path="res://assets/sprites/levels/Acseuceur1.png" id="3_uspc7"]
 [ext_resource type="Texture2D" uid="uid://dnr54gcou8ga2" path="res://assets/sprites/levels/infotileset.png" id="4_yspyd"]
 [ext_resource type="Texture2D" uid="uid://ih5223ksmtlc" path="res://assets/sprites/levels/tilesets.png" id="5_xqo5a"]
+[ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="6_yspyd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuwli"]
 texture = ExtResource("3_uspc7")
@@ -503,6 +504,15 @@ script = ExtResource("1_reroy")
 
 [node name="main" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAD/////AwASAAMAAAD//wAAAwASAAMAAAAAAAEAAwASAAMAAAAAAAAAAwASAAMAAAABAAAAAwASAAMAAAABAP//AwASAAMAAAAAAP//AwASAAMAAAD//wEAAwASAAMAAAD+/wEAAwASAAMAAAABAAEAAwASAAMAAAABAAIAAwASAAMAAAAAAAIAAwASAAMAAAD//wIAAwASAAMAAAD+/wAAAwASAAMAAAD+////AwASAAMAAAD9////AwASAAMAAAD9/wAAAwASAAMAAAD9/wEAAwASAAMAAAD+/wIAAwASAAMAAAD9/wIAAwASAAMAAAD9//7/AwASAAMAAAD9//3/AwASAAMAAAD+//3/AwASAAMAAAD///3/AwASAAMAAAAAAP3/AwASAAMAAAAAAP7/AwASAAMAAAABAP7/AwASAAMAAAACAP7/AwASAAMAAAACAP//AwASAAMAAAACAAAAAwASAAMAAAACAAEAAwASAAMAAAACAAIAAwASAAMAAAADAAIAAwASAAMAAAADAAEAAwASAAMAAAADAAAAAwASAAMAAAADAP//AwASAAMAAAADAP7/AwASAAMAAAACAP3/AwASAAMAAAABAP3/AwASAAMAAAADAP3/AwASAAMAAAD+//7/AwASAAMAAAD///7/AwASAAMAAAD9/wMAAwASAAMAAAD+/wMAAwASAAMAAAD//wMAAwASAAMAAAAAAAMAAwASAAMAAAABAAMAAwASAAMAAAACAAMAAwASAAMAAAADAAMAAwASAAMAAAADAPz/AwAEAAEAAAACAPz/AwAEAAEAAAABAPz/AwAEAAEAAAAAAPz/AwAEAAEAAAD///z/AwAEAAEAAAD+//z/AwAEAAEAAAD9//z/AwAEAAEAAAAEAPz/AwAFAAEAAAD8//z/AwABAAEAAAD8//3/AwARAAQAAAD8//7/AwARAAQAAAD8////AwARAAQAAAD8/wAAAwARAAQAAAD8/wEAAwARAAQAAAD8/wIAAwARAAQAAAD8/wMAAwARAAQAAAAEAP3/AwATAAQAAAAEAP7/AwATAAQAAAAEAP//AwATAAQAAAAEAAAAAwATAAQAAAAEAAEAAwATAAQAAAAEAAIAAwATAAQAAAAEAAMAAwATAAQAAAD8/wQAAwAHAAEAAAD9/wQAAwAIAAEAAAD+/wQAAwAJAAEAAAACAAQAAwAHAAEAAAADAAQAAwAIAAEAAAAEAAQAAwAJAAEAAAD//wQAAwAHAAEAAAAAAAQAAwAIAAEAAAABAAQAAwAJAAEAAAA=")
 tile_set = SubResource("TileSet_kf4u3")
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_yspyd")]
+position = Vector2(54, -305)
+player = NodePath("../player")
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_yspyd")]
+position = Vector2(-6, 548)
+player = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource("2_3oio2")]

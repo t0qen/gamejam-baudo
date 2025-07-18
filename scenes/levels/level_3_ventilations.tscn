@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b8qjq1mg3ndf3"]
+[gd_scene load_steps=18 format=4 uid="uid://b8qjq1mg3ndf3"]
 
 [ext_resource type="Script" uid="uid://qsflcba41w7a" path="res://scripts/levels/level_3_ventilations.gd" id="1_ktcwb"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_2kwoh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dj5prg5joafxu" path="res://assets/sprites/levels/Ventilationtileset.png" id="4_ogte4"]
 [ext_resource type="AudioStream" uid="uid://d5387mxmwc" path="res://assets/sounds/opening-metal-door-98518.mp3" id="5_m0scm"]
 [ext_resource type="AudioStream" uid="uid://det3sa23ormvd" path="res://assets/music/level3+.mp3" id="6_rtmcp"]
+[ext_resource type="AudioStream" uid="uid://mq63ldjrqq0w" path="res://assets/sounds/Dax/Blagues aléatoires/blague dax 4.mp3" id="7_rtmcp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ogte4"]
 
@@ -584,5 +585,10 @@ stream = ExtResource("6_rtmcp")
 autoplay = true
 bus = &"Musique"
 
+[node name="BlagueDax4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rtmcp")
+bus = &"Dax"
+
 [connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]
 [connection signal="body_exited" from="Vent3" to="." method="_on_vent_3_body_exited"]
+[connection signal="finished" from="BlagueDax4" to="." method="_on_blague_dax_4_finished"]

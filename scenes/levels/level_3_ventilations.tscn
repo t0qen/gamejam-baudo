@@ -582,7 +582,6 @@ bus = &"SFX"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rtmcp")
-autoplay = true
 bus = &"Musique"
 
 [node name="BlagueDax4" type="AudioStreamPlayer" parent="."]

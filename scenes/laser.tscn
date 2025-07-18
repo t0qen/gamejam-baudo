@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw5bq2cwer3w4"]
+[gd_scene load_steps=12 format=3 uid="uid://dw5bq2cwer3w4"]
 
 [ext_resource type="Script" uid="uid://clx728jxi0i0c" path="res://scripts/laser.gd" id="1_jjj73"]
 [ext_resource type="Texture2D" uid="uid://ctiremociwvn6" path="res://assets/sprites/Laser/Laser-1.png.png" id="2_a7dhc"]
 [ext_resource type="Texture2D" uid="uid://dkq5jtjxc1ndq" path="res://assets/sprites/Laser/laser.png" id="3_412cd"]
+[ext_resource type="AudioStream" uid="uid://5a2fgh3xwyd4" path="res://assets/sounds/laser.mp3" id="4_412cd"]
+[ext_resource type="AudioStream" uid="uid://rym52xtnb3ea" path="res://assets/sounds/laser-charge-175727.mp3" id="5_q8rul"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjj73"]
 texture = ExtResource("2_a7dhc")
@@ -67,6 +69,42 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(1, 1e-05), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.41), Vector2(1, 1.5), Vector2(1, 1.5), Vector2(1, 1e-05)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TeteLaserCol2/TeteLaser:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0399057, 0.0824718, 0.127698, 0.170264, 0.204849, 0.247415, 0.287321, 0.329887, 0.375114, 0.41768, 0.473548, 0.516114, 0.569321, 0.611888, 0.646472, 0.689039, 0.744907, 0.787473, 0.835359, 0.877926, 0.917831, 0.960397, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.00012207, 0), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, -5.54113), Vector2(0.00012207, 8.31169), Vector2(0.00012207, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.6, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_jjj73"]
 length = 0.001
@@ -117,6 +155,42 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TeteLaserCol2/TeteLaser:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6.93747, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_412cd"]
@@ -176,10 +250,23 @@ scale = Vector2(0.234, 0.234)
 polygon = PackedVector2Array(-70.1964, -60.9524, -70.1964, 66.4935, 76.8787, 66.4935, 76.8787, -60.9524)
 
 [node name="TeteLaser" type="Sprite2D" parent="TeteLaserCol2"]
-position = Vector2(0.00012207, 0)
+position = Vector2(-6.93747, 0)
 scale = Vector2(0.162338, 0.162338)
 texture = ExtResource("3_412cd")
 flip_h = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(0.324675, 0.324675)
+stream = ExtResource("4_412cd")
+volume_db = 8.667
+max_distance = 1000.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q8rul")
+volume_db = 6.933
+max_distance = 1000.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

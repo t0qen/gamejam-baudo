@@ -611,45 +611,35 @@ rotation = 1.5708
 [node name="enemies" type="Node2D" parent="."]
 position = Vector2(328, -176)
 
-[node name="Enemy2" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy2" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(-819, -132)
-player = NodePath("../../player")
 
-[node name="Enemy3" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy3" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(142, -1899)
-player = NodePath("../../player")
 
-[node name="Enemy6" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy6" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(-922, -3092)
-player = NodePath("../../player")
 
-[node name="Enemy7" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy7" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(59, -3078)
-player = NodePath("../../player")
 
-[node name="Enemy8" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy8" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(1703, -3341)
-player = NodePath("../../player")
 
-[node name="Enemy9" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy9" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(2749, -3331)
-player = NodePath("../../player")
 
-[node name="Enemy10" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy10" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(4011, -3378)
-player = NodePath("../../player")
 
-[node name="Enemy4" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy4" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(-913, -1885)
-player = NodePath("../../player")
 
-[node name="Enemy5" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy5" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(-398, -984)
-player = NodePath("../../player")
 
-[node name="Enemy12" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_nsrm0")]
+[node name="Enemy12" parent="enemies" instance=ExtResource("2_nsrm0")]
 position = Vector2(179, -128)
-player = NodePath("../../player")
 
 [node name="player" parent="." instance=ExtResource("3_x42e6")]
 position = Vector2(-17, 619)

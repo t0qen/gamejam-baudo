@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://cl71r21okvrwm"]
+[gd_scene load_steps=170 format=3 uid="uid://cl71r21okvrwm"]
 
 [ext_resource type="Script" uid="uid://xe1j1ds07ehs" path="res://scripts/player_t0qen.gd" id="1_u21xk"]
 [ext_resource type="Texture2D" uid="uid://hf3py5xgk1ud" path="res://assets/sprites/zbaudo/idle/frame_01_delay-0.03s.png" id="2_i5eyg"]
@@ -155,6 +155,7 @@
 [ext_resource type="Texture2D" uid="uid://l0olwcojevul" path="res://assets/sprites/zbaudo/mort/frame_18_delay-0.03s.png" id="150_jfeln"]
 [ext_resource type="Texture2D" uid="uid://8f28apx0uyp0" path="res://assets/sprites/zbaudo/mort/frame_19_delay-0.03s.png" id="151_qavfq"]
 [ext_resource type="Texture2D" uid="uid://dror3y7wjweum" path="res://assets/sprites/zbaudo/mort/frame_20_delay-0.03s.png" id="152_uj3yp"]
+[ext_resource type="AudioStream" uid="uid://bycelqkb7ck4a" path="res://assets/sounds/player_attack.mp3" id="156_0gp3k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
 radius = 70.1142
@@ -859,6 +860,10 @@ text = "Appuies sur E"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("156_0gp3k")
+bus = &"SFX"
 
 [connection signal="timeout" from="timers/dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="timers/dash_delay" to="." method="_on_dash_delay_timeout"]

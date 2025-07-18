@@ -163,12 +163,15 @@ func play_animation(animation):
 			dash_anim.show()
 			dash_anim.play("default")
 		"attack1":
+			$attack.play()
 			attack_1_anim.show()
 			attack_1_anim.play("default")
 		"attack2":
+			$attack.play()
 			attack_2_anim.show()
 			attack_2_anim.play("default")
 		"attack3":
+			$attack.play()
 			attack_3_anim.show()
 			attack_3_anim.play("default")
 		"idle":

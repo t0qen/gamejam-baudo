@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 			
 			if player_chase_move:
 				#if !is_attacking:
-				#	play_animation("run")
+				play_animation("run")
 				var target_direction = (player.global_position - global_position).normalized()
 				velocity = target_direction * speed
 			else:

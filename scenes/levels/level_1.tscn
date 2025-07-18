@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://xondpfojs2pb"]
+[gd_scene load_steps=18 format=4 uid="uid://xondpfojs2pb"]
 
 [ext_resource type="Script" uid="uid://gl58igbti3aw" path="res://scripts/levels/level_1.gd" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_nsrm0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ih5223ksmtlc" path="res://assets/sprites/levels/tilesets.png" id="4_qxy0u"]
 [ext_resource type="AudioStream" uid="uid://lyu802cpbgrm" path="res://assets/sounds/Dax/Salut ! Moi c'est Dax !.wav" id="4_x42e6"]
 [ext_resource type="PackedScene" uid="uid://dw5bq2cwer3w4" path="res://scenes/laser.tscn" id="6_sk5k4"]
+[ext_resource type="AudioStream" uid="uid://crva8htttwd0w" path="res://assets/music/level1.mp3" id="10_qxy0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_excbq"]
 texture = ExtResource("2_oc4kc")
@@ -688,6 +689,10 @@ collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-209, 367, -196, 778, 241, 765, 258, 377, 1381, 388, 1361, 1368, -1410, 1379, -1441, 362)
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qxy0u")
+bus = &"Musique"
 
 [connection signal="finished" from="Salut!MoiC\'estDax!" to="." method="_on_salut_moi_cest_dax_finished"]
 [connection signal="body_entered" from="end" to="." method="_on_end_body_entered"]

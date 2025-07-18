@@ -37,7 +37,7 @@ enum PHASE {
 var current_phase : PHASE
 
 func _ready() -> void:
-	pass
+	play_animation("idle")
 	
 func _physics_process(delta: float) -> void:
 	if is_cycle_started:
@@ -47,17 +47,19 @@ func _physics_process(delta: float) -> void:
 		receive_attack()
 		update_health_bar()
 		#print(current_health)
-	if current_health <= 0 && is_cycle_started:
-		print("DEAD")
-		is_dead = true
-		is_cycle_started = false
-		$CollisionShape2D.disabled = true
-		$health_bar.hide()
-		$CanvasModulate.show()
-		await get_tree().create_timer(5).timeout
-		$CanvasModulate.hide()
-		boss_dead.emit()
-		play_animation("dead")
+	if current_health <= 0:
+		if is_cycle_started:
+			play_animation("dead")
+			print("DEAD")
+			is_dead = true
+			is_cycle_started = false
+			$health_bar.hide()
+			boss_dead.emit()
+			$Label.hide()
+		$cb2_attack.hide()
+		$right_attack.hide()
+		$left_attack.hide()
+		modulate = Color.DARK_RED
 		
 
 func start_cycle():
@@ -73,7 +75,7 @@ func update_phase():
 	match current_phase:
 		PHASE.IDLE:
 			play_animation("idle")
-			$Label.text = "INACTIF, METS LE PLUS DE DEGAT"
+			$Label.text = "PHASE 3"
 		PHASE.CB1:
 			play_animation("combat1")
 			setup_att1()
@@ -182,10 +184,10 @@ func receive_attack():
 	if global.player_can_attack_boss == true && global.player_current_attack == true:
 		if can_take_damage:
 			can_take_damage = false
-			current_health = current_health - 10
-			$CanvasModulate.show()
+			current_health = current_health - 100
+			modulate = Color.RED
 			await get_tree().create_timer(0.5).timeout
-			$CanvasModulate.hide()
+			modulate = Color.WHITE
 			can_take_damage = true
 			
 			

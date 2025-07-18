@@ -96,9 +96,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 91.0
-offset_top = 109.0
+offset_top = 114.0
 offset_right = 1051.0
-offset_bottom = 1253.0
+offset_bottom = 1358.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "** Concept et Histoire **
@@ -120,6 +120,8 @@ Al's
 DarkPhoenix3254
 
 Tout a été fait main sauf les SFX.
+Tout le projet est open source !
+ - https://github.com/t0qen/gamejam-baudo
 Merci d'avoir joué !
  ----------------
 Réalisé lors de la Baudo Game Jam 2025.

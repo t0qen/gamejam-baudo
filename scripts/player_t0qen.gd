@@ -87,7 +87,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		enemy_attack()
 		attack()
-		print(is_on_boss_attack_area)
 		
 		if is_on_boss_attack_area:
 			if can_receive_boss_attack:

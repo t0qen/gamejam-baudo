@@ -274,9 +274,11 @@ func laser_attack():
 func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts nécessaires
 	if enemy_inattack_range and enemy_attack_cooldown == true :
 		print("enemy attack !")
-		current_health = current_health - 10
-		CameraManager.shake(0.4, 0.5, Vector2(50, 50), 0.1)
 		global.enemy_need_to_attack_anim = true
+		current_health = current_health - 10
+		$attack_enemis2.play()
+		CameraManager.shake(0.4, 0.5, Vector2(50, 50), 0.1)
+		
 		can_regen = false
 		if regen_start_timer.time_left > 0: # timer is active
 			regen_start_timer.stop()
@@ -342,6 +344,7 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 
 func _on_player_hitbox_area_exited(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
+		global.enemy_need_to_attack_anim = false
 		enemy_inattack_range = false
 		
 	if area.is_in_group("boss"):

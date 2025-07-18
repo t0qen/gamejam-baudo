@@ -26,6 +26,8 @@ var is_player_near : bool = false
 var can_take_damage : bool = true
 var current_attack : int 
 
+var is_dead : bool = false
+
 enum PHASE {
 	CB1,
 	CB2,
@@ -34,13 +36,10 @@ enum PHASE {
 var current_phase : PHASE
 
 func _ready() -> void:
-	start_cycle()
-	while !is_cycle_started:
-		await get_tree().create_timer(1).timeout
-		print("BOSS NOT STARTED")
+	pass
 	
 func _physics_process(delta: float) -> void:
-	if !is_cycle_started:
+	if is_cycle_started:
 		update_phase()
 			
 			
@@ -48,13 +47,17 @@ func _physics_process(delta: float) -> void:
 		update_health_bar()
 		#print(current_health)
 		if current_health <= 0:
-			self.queue_free()
+			is_dead = true
+			is_cycle_started = false
 
 
 func start_cycle():
 	current_phase = PHASE.CB1
+	is_cycle_started = true
 	play_animation("idle")
 	$switch_phase.start()
+	
+
 
 func update_phase():
 	match current_phase:

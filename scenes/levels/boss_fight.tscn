@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://s63seyesglme"]
+[gd_scene load_steps=6 format=3 uid="uid://s63seyesglme"]
 
 [ext_resource type="Script" uid="uid://byfhwi3tyt2bs" path="res://scripts/levels/boss_fight.gd" id="1_u4lat"]
 [ext_resource type="PackedScene" uid="uid://dhrswkm2pyd0k" path="res://scenes/boss.tscn" id="2_dw0xy"]
+[ext_resource type="AudioStream" uid="uid://clcvbtgcjbvxx" path="res://assets/music/boss_fight.mp3" id="2_xhsqb"]
 [ext_resource type="PackedScene" uid="uid://cb2tmfsub5xev" path="res://scenes/player_boss.tscn" id="3_dw0xy"]
 [ext_resource type="PackedScene" uid="uid://d36vr4sdkrq5" path="res://scenes/camera.tscn" id="4_tswhc"]
 
 [node name="boss_fight" type="Node2D"]
 script = ExtResource("1_u4lat")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xhsqb")
+bus = &"Musique"
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_dw0xy")]
 position = Vector2(-39, 39)

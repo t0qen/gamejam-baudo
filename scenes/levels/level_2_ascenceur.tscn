@@ -283,7 +283,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_iv1n8")
 shape = SubResource("RectangleShape2D_3guw7")
 
 [node name="hide_suite" type="MeshInstance2D" parent="."]
-visible = false
 modulate = Color(0.129412, 0.121569, 0.137255, 1)
 position = Vector2(994.5, -998)
 scale = Vector2(489, 1452)

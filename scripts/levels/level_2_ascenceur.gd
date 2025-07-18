@@ -19,6 +19,7 @@ func _ready() -> void:
 		CameraManager.shake(0.5,  1.5, Vector2(50, 100), 0.1)
 		await get_tree().create_timer(0.5).timeout
 	print("step0")
+	$ding.play()
 	$block_gate/CollisionShape2D.disabled = true
 	$porte1.show()
 	$hide_etage.hide()
@@ -50,6 +51,7 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 		while tremble == true:
 			CameraManager.shake(0.5,  1.5, Vector2(50, 100), 0.1)
 			await get_tree().create_timer(0.5).timeout
+		$ding.play()
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$Block_Gate2/CollisionShape2D.call_deferred("set", "disabled", true)
 		$porte2.show()

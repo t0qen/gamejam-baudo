@@ -46,6 +46,10 @@ var is_on_boss_attack_area : bool = false
 @export var regen_step : int = 40
 var can_regen : bool = true
 
+
+var current_pause = false
+
+
 # INPUTS
 var prev_inputs : int = 0 # useful for determine flip sprite
 
@@ -73,6 +77,9 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	update_health_bar()
+	if Input.is_action_just_pressed("pause"):
+		current_pause != current_pause
+		get_tree().paused = current_pause
 	
 func _physics_process(delta: float) -> void:
 	#Engine.time_scale = 0.1

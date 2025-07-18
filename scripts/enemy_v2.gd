@@ -1,35 +1,101 @@
 extends CharacterBody2D
 
-# ANIMATIONS
+# /* VARIABLE */
 @onready var idle_anim: AnimatedSprite2D = $animations/pivot_idle/idle
 @onready var attack_anim: AnimatedSprite2D = $animations/pivot_attack/attack
 @onready var run_anim: AnimatedSprite2D = $animations/pivot_run/run
 @onready var dead_anim: AnimatedSprite2D = $animations/pivot_dead/dead
-
-
 var current_animation : String
 var prev_animation : String
 
+@export var player : CharacterBody2D
+@export var speed : int = 400
+
 var is_attacking : bool = false
 var alive : bool = true
-
-@export var speed : int = 400
 var player_chase : bool = false
 var player_chase_move : bool = true
+
 
 var health : int = 100
 var player_inattack_zone = false
 var can_take_damage = true
-
-@export var player : CharacterBody2D
 var DetectionRotation : int = 0
 var can_rotate : bool = true
 var can_scope : bool = true 
+
+
+# /* FUNCTION */
+
+# PLAYER CHASE
+func handle_chase():
+	var target_direction = (player.global_position - global_position).normalized()
+	velocity = target_direction * speed
+	$PlayerDetection.look_at(player.global_position)
+
+
+# ANIMATIONS
+func flip_animation(input):
+	var excepted_flip : int
+	if input > 0:
+		excepted_flip = -1
+	else:
+		excepted_flip = 1
+	
+	for child in $animations.get_children():
+		child.scale.x = excepted_flip
+		
+		
+func play_animation(animation):
+	if prev_animation == animation:
+		return
+	# cache et stop tous les enfants de animations
+	for child in $animations.get_children():
+		for anim_child in child.get_children():
+			anim_child.stop()
+			anim_child.hide()
+	
+	current_animation = animation
+	prev_animation = current_animation
+	print(current_animation)
+	match animation:
+		"dead":
+			dead_anim.show()
+			dead_anim.play("default")
+		"run": 
+			run_anim.show()
+			run_anim.play("default")
+		"attack":
+			attack_anim.show()
+			attack_anim.play("default")
+		"idle":
+			idle_anim.show()
+			idle_anim.play("default")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# --------------------------------------------------------------------------------
 	
 func _ready() -> void:
 	play_animation("idle")
 	
 func _physics_process(delta: float) -> void:
+	Engine.time_scale = 0.1
 	if alive:
 		deal_with_damage()
 			
@@ -38,12 +104,11 @@ func _physics_process(delta: float) -> void:
 			if player_chase_move:
 				#if !is_attacking:
 				#	play_animation("run")
-				var target_direction = (player.global_position - global_position).normalized()
-				velocity = target_direction * speed
+				
 			else:
 				velocity = Vector2.ZERO
 				
-			$PlayerDetection.look_at(player.global_position)
+			
 			
 			if velocity.x != 0:
 				flip_animation(velocity.x)
@@ -83,44 +148,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 		
 		
-func flip_animation(input):
-	var excepted_flip : int
-	
-	
-	for child in $animations.get_children():
-		if input > 0:
-			child.scale.x = -1
-		else:
-			child.scale.x = 1
-		
-		
-		
-		
-func play_animation(animation):
-	if prev_animation == animation:
-		return
-	# cache et stop tous les enfants de animations
-	for child in $animations.get_children():
-		for anim_child in child.get_children():
-			anim_child.stop()
-			anim_child.hide()
-	
-	current_animation = animation
-	prev_animation = current_animation
-	print(current_animation)
-	match animation:
-		"dead":
-			dead_anim.show()
-			dead_anim.play("default")
-		"run": 
-			run_anim.show()
-			run_anim.play("default")
-		"attack":
-			attack_anim.show()
-			attack_anim.play("default")
-		"idle":
-			idle_anim.show()
-			idle_anim.play("default")
+
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	

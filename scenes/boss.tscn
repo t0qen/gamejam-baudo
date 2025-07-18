@@ -1549,6 +1549,7 @@ shape = SubResource("RectangleShape2D_d4vsr")
 disabled = true
 
 [node name="right_attack" type="Node2D" parent="."]
+visible = false
 position = Vector2(183, 0)
 
 [node name="attack1" type="AnimatedSprite2D" parent="right_attack"]

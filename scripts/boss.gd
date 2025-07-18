@@ -26,6 +26,7 @@ var is_player_near : bool = false
 var can_take_damage : bool = true
 var current_attack : int 
 
+signal boss_dead()
 var is_dead : bool = false
 
 enum PHASE {
@@ -46,16 +47,25 @@ func _physics_process(delta: float) -> void:
 		receive_attack()
 		update_health_bar()
 		#print(current_health)
-		if current_health <= 0:
-			is_dead = true
-			is_cycle_started = false
-
+	if current_health <= 0 && is_cycle_started:
+		print("DEAD")
+		is_dead = true
+		is_cycle_started = false
+		$CollisionShape2D.disabled = true
+		$health_bar.hide()
+		$CanvasModulate.show()
+		await get_tree().create_timer(5).timeout
+		$CanvasModulate.hide()
+		boss_dead.emit()
+		play_animation("dead")
+		
 
 func start_cycle():
 	current_phase = PHASE.CB1
 	is_cycle_started = true
 	play_animation("idle")
 	$switch_phase.start()
+	
 	
 
 
@@ -150,6 +160,9 @@ func play_animation(animation):
 	current_animation = animation
 	prev_animation = current_animation
 	match animation:
+		"dead":
+			$animation/dead/dead.show()
+			$animation/dead/dead.play("default")
 		"combat1":
 			combat_1_anim.show()
 			combat_1_anim.play("default")
@@ -170,8 +183,12 @@ func receive_attack():
 		if can_take_damage:
 			can_take_damage = false
 			current_health = current_health - 10
-			await get_tree().create_timer(0.75).timeout
+			$CanvasModulate.show()
+			await get_tree().create_timer(0.5).timeout
+			$CanvasModulate.hide()
 			can_take_damage = true
+			
+			
 		
 func attack_player(attack):
 	if can_attack:

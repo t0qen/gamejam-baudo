@@ -1,4 +1,4 @@
-[gd_scene load_steps=370 format=3 uid="uid://dhrswkm2pyd0k"]
+[gd_scene load_steps=368 format=3 uid="uid://dhrswkm2pyd0k"]
 
 [ext_resource type="Script" uid="uid://rrejglro0ea1" path="res://scripts/boss.gd" id="1_neq0i"]
 [ext_resource type="Texture2D" uid="uid://cynx6gd4i6rry" path="res://assets/sprites/boss/attack1/frame_002_delay-0.03s.png" id="4_iikyw"]
@@ -1410,6 +1410,17 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1u7gf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("391_uhgo3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nncu5"]
 animations = [{
 "frames": [{
@@ -1476,20 +1487,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u7gf"]
-radius = 220.0
+radius = 279.0
 height = 1068.0
-
-[sub_resource type="Animation" id="Animation_ft11o"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_1u7gf"]
-resource_name = "attack1_left"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ft11o"]
-_data = {
-&"RESET": SubResource("Animation_ft11o"),
-&"attack1_left": SubResource("Animation_1u7gf")
-}
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 2
@@ -1520,10 +1519,6 @@ max_value = 1000.0
 step = 1.0
 value = 1000.0
 show_percentage = false
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.928891, 0.149574, 0.525563, 1)
 
 [node name="left_attack" type="Node2D" parent="."]
 visible = false
@@ -1594,11 +1589,16 @@ frame = 100
 [node name="idle" type="Node2D" parent="animation"]
 
 [node name="idle" type="AnimatedSprite2D" parent="animation/idle"]
-visible = false
 position = Vector2(-3, -169)
 sprite_frames = SubResource("SpriteFrames_ad7xa")
 autoplay = "default"
 frame_progress = 0.40986
+
+[node name="dead" type="Node2D" parent="animation"]
+
+[node name="dead" type="AnimatedSprite2D" parent="animation/dead"]
+position = Vector2(-3, -169)
+sprite_frames = SubResource("SpriteFrames_1u7gf")
 
 [node name="cb2_attack" type="Node2D" parent="."]
 
@@ -1615,7 +1615,7 @@ collision_mask = 3
 priority = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cb2_attack_hitbox"]
-position = Vector2(0, 8)
+position = Vector2(0, -80)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1u7gf")
 disabled = true
@@ -1630,10 +1630,9 @@ offset_right = 38.0
 offset_bottom = -472.0
 text = "PHASE 1"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ft11o")
-}
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(1, 0, 0, 1)
 
 [connection signal="area_entered" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_entered"]
 [connection signal="area_exited" from="receive_attack_hitbox" to="." method="_on_receive_attack_hitbox_area_exited"]

@@ -26,3 +26,6 @@ boss_node = NodePath("../Boss")
 [node name="camera" parent="." instance=ExtResource("4_tswhc")]
 position = Vector2(0, -8)
 zoom = Vector2(0.6, 0.6)
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="boss_dead" from="Boss" to="." method="_on_boss_boss_dead"]

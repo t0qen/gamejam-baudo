@@ -516,6 +516,15 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.905172, 0.159483)
 
+[sub_resource type="Gradient" id="Gradient_nw48v"]
+offsets = PackedFloat32Array(0, 0.0119048, 0.607143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.0481927, 0.0481927, 0.0481927, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sd2fj"]
+gradient = SubResource("Gradient_nw48v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_cp2kk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kfod8"]
@@ -527,15 +536,6 @@ font_color = Color(0, 0, 0, 1)
 font = ExtResource("7_bavu1")
 font_size = 33
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Gradient" id="Gradient_nw48v"]
-offsets = PackedFloat32Array(0, 0.0119048, 0.607143, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.0481927, 0.0481927, 0.0481927, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sd2fj"]
-gradient = SubResource("Gradient_nw48v")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3syop"]
 polygon = PackedVector2Array(-998, 599, -998, -402, 998, -402, 998, 600, -995, 600, -997, 822, 1318, 808, 1284, -908, -1302, -948, -1228, 756, -1032, 707, -996, 600)
@@ -558,7 +558,7 @@ tile_set = SubResource("TileSet_5aevp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -114)
-scale = Vector2(1.527, 1.527)
+scale = Vector2(2.24267, 2.24267)
 texture = SubResource("GradientTexture2D_n1gdh")
 texture_scale = 14.84
 
@@ -566,6 +566,29 @@ texture_scale = 14.84
 position = Vector2(1, 162)
 scale = Vector2(1.527, 1.527)
 player = NodePath("../player")
+
+[node name="player" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("3_dw0xy")]
+position = Vector2(-624, 304)
+collision_mask = 94
+will_instanciate_cam = false
+boss_node = NodePath("../Boss")
+
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+color = Color(0.730825, 0.186759, 0.262647, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_sd2fj")
+texture_scale = 23.75
+
+[node name="camera" parent="." instance=ExtResource("4_tswhc")]
+position = Vector2(0, -8)
+zoom = Vector2(0.6, 0.6)
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xhsqb")
+bus = &"Musique"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.74978, 0.74978, 0.74978, 1)
 
 [node name="dialogue" type="Node2D" parent="."]
 light_mask = 2
@@ -688,29 +711,6 @@ theme_override_fonts/font = ExtResource("10_32r5c")
 theme_override_font_sizes/font_size = 46
 text = "NEXT "
 
-[node name="player" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("3_dw0xy")]
-position = Vector2(-624, 304)
-collision_mask = 94
-will_instanciate_cam = false
-boss_node = NodePath("../Boss")
-
-[node name="PointLight2D" type="PointLight2D" parent="player"]
-color = Color(0.730825, 0.186759, 0.262647, 1)
-energy = 0.7
-texture = SubResource("GradientTexture2D_sd2fj")
-texture_scale = 23.75
-
-[node name="camera" parent="." instance=ExtResource("4_tswhc")]
-position = Vector2(0, -8)
-zoom = Vector2(0.6, 0.6)
-
-[node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_xhsqb")
-bus = &"Musique"
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.617455, 0.617455, 0.617455, 1)
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_3syop")
 
@@ -730,5 +730,5 @@ texture = SubResource("GradientTexture2D_5aevp")
 texture_scale = 5.47
 
 [connection signal="boss_dead" from="Boss" to="." method="_on_boss_boss_dead"]
-[connection signal="pressed" from="dialogue/Button" to="." method="_on_button_pressed"]
 [connection signal="finished" from="music" to="." method="_on_music_finished"]
+[connection signal="pressed" from="dialogue/Button" to="." method="_on_button_pressed"]

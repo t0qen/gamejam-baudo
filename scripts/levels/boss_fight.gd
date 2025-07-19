@@ -64,7 +64,7 @@ func update_dialogue():
 
 
 func _on_boss_boss_dead() -> void:
-	$AudioStreamPlayer2D.stop()
+	$music.stop()
 	is_boss_dead = true
 	await get_tree().create_timer(2).timeout
 	$player.queue_free()

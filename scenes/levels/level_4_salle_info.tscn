@@ -1,11 +1,14 @@
-[gd_scene load_steps=15 format=4 uid="uid://dwvb4cbrl0ts"]
+[gd_scene load_steps=21 format=4 uid="uid://dwvb4cbrl0ts"]
 
 [ext_resource type="Script" uid="uid://c1fk8mim4focm" path="res://scripts/levels/level_4_salle_info.gd" id="1_reroy"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_3oio2"]
 [ext_resource type="Texture2D" uid="uid://cn5tlln16wu5h" path="res://assets/sprites/levels/Acseuceur1.png" id="3_uspc7"]
+[ext_resource type="Texture2D" uid="uid://7yrjb26cet15" path="res://assets/sprites/levels/ordi allume.png" id="4_um0ld"]
 [ext_resource type="Texture2D" uid="uid://dnr54gcou8ga2" path="res://assets/sprites/levels/infotileset.png" id="4_yspyd"]
 [ext_resource type="Texture2D" uid="uid://ih5223ksmtlc" path="res://assets/sprites/levels/tilesets.png" id="5_xqo5a"]
+[ext_resource type="Texture2D" uid="uid://cmctiavysk3bw" path="res://assets/sprites/levels/ordi eteind.png" id="6_bmiwj"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="6_yspyd"]
+[ext_resource type="Texture2D" uid="uid://dsam6o0yxoj3y" path="res://assets/sprites/levels/table.png" id="7_hka0h"]
 [ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="7_xqo5a"]
 [ext_resource type="AudioStream" uid="uid://det3sa23ormvd" path="res://assets/music/level3+.mp3" id="8_8wbol"]
 [ext_resource type="AudioStream" uid="uid://c7yjjrpbxkk2" path="res://assets/sounds/Dax/Blagues aléatoires/blague dax 7.mp3" id="8_fuwli"]
@@ -133,6 +136,11 @@ texture_region_size = Vector2i(64, 64)
 6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlelk"]
+texture = ExtResource("4_um0ld")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kh8ax"]
 texture = ExtResource("5_xqo5a")
@@ -494,6 +502,17 @@ texture_region_size = Vector2i(100, 100)
 9:9/0 = 0
 7:9/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rv0xh"]
+texture = ExtResource("6_bmiwj")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l814n"]
+texture = ExtResource("7_hka0h")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
 [sub_resource type="TileSet" id="TileSet_kf4u3"]
 tile_size = Vector2i(100, 100)
 physics_layer_0/collision_layer = 16
@@ -501,6 +520,9 @@ physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_fuwli")
 sources/1 = SubResource("TileSetAtlasSource_8wbol")
 sources/3 = SubResource("TileSetAtlasSource_kh8ax")
+sources/2 = SubResource("TileSetAtlasSource_dlelk")
+sources/4 = SubResource("TileSetAtlasSource_rv0xh")
+sources/5 = SubResource("TileSetAtlasSource_l814n")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf4u3"]
 size = Vector2(162, 82)
@@ -511,6 +533,16 @@ script = ExtResource("1_reroy")
 [node name="main" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD/////AwASAAMAAAD//wAAAwASAAMAAAAAAAEAAwASAAMAAAAAAAAAAwASAAMAAAABAAAAAwASAAMAAAABAP//AwASAAMAAAAAAP//AwASAAMAAAD//wEAAwASAAMAAAD+/wEAAwASAAMAAAABAAEAAwASAAMAAAABAAIAAwASAAMAAAAAAAIAAwASAAMAAAD//wIAAwASAAMAAAD+/wAAAwASAAMAAAD+////AwASAAMAAAD9////AwASAAMAAAD9/wAAAwASAAMAAAD9/wEAAwASAAMAAAD+/wIAAwASAAMAAAD9/wIAAwASAAMAAAD9//7/AwASAAMAAAD9//3/AwASAAMAAAD+//3/AwASAAMAAAD///3/AwASAAMAAAAAAP3/AwASAAMAAAAAAP7/AwASAAMAAAABAP7/AwASAAMAAAACAP7/AwASAAMAAAACAP//AwASAAMAAAACAAAAAwASAAMAAAACAAEAAwASAAMAAAACAAIAAwASAAMAAAADAAIAAwASAAMAAAADAAEAAwASAAMAAAADAAAAAwASAAMAAAADAP//AwASAAMAAAADAP7/AwASAAMAAAACAP3/AwASAAMAAAABAP3/AwASAAMAAAADAP3/AwASAAMAAAD+//7/AwASAAMAAAD///7/AwASAAMAAAD9/wMAAwASAAMAAAD+/wMAAwASAAMAAAD//wMAAwASAAMAAAAAAAMAAwASAAMAAAABAAMAAwASAAMAAAACAAMAAwASAAMAAAADAAMAAwASAAMAAAADAPz/AwAEAAEAAAACAPz/AwAEAAEAAAABAPz/AwAEAAEAAAAAAPz/AwAEAAEAAAD///z/AwAEAAEAAAD+//z/AwAEAAEAAAD9//z/AwAEAAEAAAAEAPz/AwAFAAEAAAD8//z/AwABAAEAAAD8//3/AwARAAQAAAD8//7/AwARAAQAAAD8////AwARAAQAAAD8/wAAAwARAAQAAAD8/wEAAwARAAQAAAD8/wIAAwARAAQAAAD8/wMAAwARAAQAAAAEAP3/AwATAAQAAAAEAP7/AwATAAQAAAAEAP//AwATAAQAAAAEAAAAAwATAAQAAAAEAAEAAwATAAQAAAAEAAIAAwATAAQAAAAEAAMAAwATAAQAAAD8/wQAAwAHAAEAAAD9/wQAAwAIAAEAAAD+/wQAAwAJAAEAAAACAAQAAwAHAAEAAAADAAQAAwAIAAEAAAAEAAQAAwAJAAEAAAD//wQAAwAHAAEAAAAAAAQAAwAIAAEAAAABAAQAAwAJAAEAAAA=")
+tile_set = SubResource("TileSet_kf4u3")
+
+[node name="main2" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAACAP7/BQAAAAAAAAACAAAABQAAAAAAAAACAAIABQAAAAAAAAAAAAIABQAAAAAAAAAAAAAABQAAAAAAAAAAAP7/BQAAAAAAAAD+//7/BQAAAAAAAAD+/wAABQAAAAAAAAD+/wIABQAAAAAAAAA=")
+tile_set = SubResource("TileSet_kf4u3")
+
+[node name="main3" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAACAP7/AgAAAAAAAAACAAAABAAAAAAAAAACAAIABAAAAAAAAAAAAAIABAAAAAAAAAAAAAAABAAAAAAAAAAAAP7/BAAAAAAAAAD+//7/BAAAAAAAAAD+/wAABAAAAAAAAAD+/wIABAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kf4u3")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_yspyd")]
@@ -531,19 +563,13 @@ bus = &"Musique"
 stream = ExtResource("8_fuwli")
 
 [node name="Vent3" type="Area2D" parent="."]
-position = Vector2(53, -169)
+position = Vector2(338, -301)
+scale = Vector2(0.797345, 2.26157)
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vent3"]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_kf4u3")
-
-[node name="Panel" type="Panel" parent="Vent3"]
-offset_left = -81.0
-offset_top = -49.0
-offset_right = -41.0
-offset_bottom = -9.0
-scale = Vector2(4.10121, 2.31293)
 
 [connection signal="finished" from="BlagueDax7" to="." method="_on_blague_dax_7_finished"]
 [connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]

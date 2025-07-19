@@ -25,6 +25,8 @@ func _ready() -> void:
 	$ding.play()
 	$block_gate/CollisionShape2D.disabled = true
 	$porte1.show()
+	$occluders/porte_ouverte1.show()
+	$"occluders/porte_fermée1".hide()
 	$hide_etage.hide()
 	$hide_etage2.hide()
 	$hide_etage3.hide()
@@ -37,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		is_step_1_complete = true
 		$step1.queue_free()
 		$AsceuseurKey.queue_free()
+		$PointLight2D3.hide()
 		tremble = true
 		$key.play()
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_vent:
@@ -52,6 +55,8 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 	if is_step_1_complete:
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$porte1.hide()
+		$occluders/porte_ouverte1.hide()
+		$"occluders/porte_fermée1".show()
 		$hide_etage.show()
 		$hide_etage2.show()
 		$hide_etage3.show()
@@ -64,6 +69,8 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$Block_Gate2/CollisionShape2D.call_deferred("set", "disabled", true)
 		$porte2.show()
+		$"occluders/porte_fermée2".hide()
+		$occluders/porte_ouverte2.show()
 		$hide_suite.hide()
 		
 func _on_timer_timeout() -> void:

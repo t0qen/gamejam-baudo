@@ -1,5 +1,5 @@
 extends Node2D
-
+#coucou
 var is_step_1_complete : bool = false
 var tremble : bool = true
 var can_step_2 : bool = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://ljll86j571ey"]
+[gd_scene load_steps=17 format=4 uid="uid://ljll86j571ey"]
 
 [ext_resource type="Script" uid="uid://b2kgeh1dfa0pk" path="res://scripts/levels/level_5.gd" id="1_r1vs7"]
 [ext_resource type="Texture2D" uid="uid://cn5tlln16wu5h" path="res://assets/sprites/levels/Acseuceur1.png" id="2_fi56y"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="6_vvoq0"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="7_fsnos"]
 [ext_resource type="AudioStream" uid="uid://dh2civn86p3sk" path="res://assets/sounds/Dax/Blagues aléatoires/blague dax 1.mp3" id="8_mxx4w"]
+[ext_resource type="AudioStream" uid="uid://dirsbdqjwn034" path="res://assets/sounds/Dax/villa.wav" id="10_tqnj0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxx4w"]
 texture = ExtResource("2_fi56y")
@@ -559,6 +560,10 @@ player = NodePath("../player")
 
 [node name="BlagueDax1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_mxx4w")
+bus = &"Dax"
+
+[node name="Villa" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_tqnj0")
 bus = &"Dax"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

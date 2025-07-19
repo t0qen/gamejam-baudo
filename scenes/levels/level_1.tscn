@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://xondpfojs2pb"]
+[gd_scene load_steps=35 format=4 uid="uid://xondpfojs2pb"]
 
 [ext_resource type="Script" uid="uid://gl58igbti3aw" path="res://scripts/levels/level_1.gd" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_nsrm0"]
@@ -564,6 +564,15 @@ polygon = PackedVector2Array(-262, -2801, -262, -2401, -195, -2400, -195, -2600,
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mm8aj"]
 polygon = PackedVector2Array(-200, 160, -1164, 159, -1164, -606, -1004, -604, -1004, -601, -804, -600, -718, -600, -718, -205, -684, -204, -683, -601, -201, -600, -200, -801, -682, -800, -683, -1000, -719, -999, -718, -801, -1165, -801, -1162, -1603, -1004, -1603, -1004, -1404, -997, -1403, -998, -1801, -1164, -1800, -1164, -2604, -801, -2600, -801, -2401, -739, -2400, -736, -2801, -1164, -2800, -1161, -4003, -523, -4003, -520, -3808, -484, -3808, -483, -4007, 481, -4003, 484, -3806, 517, -3806, 516, -4006, 600, -4004, 600, -4000, 1399, -3999, 1400, -4004, 1480, -4004, 1482, -3804, 1516, -3804, 1516, -4004, 1600, -4004, 1599, -3999, 2400, -4000, 2400, -4004, 2480, -4004, 2483, -3803, 2516, -3804, 2516, -4004, 2600, -4004, 2600, -4000, 3400, -4000, 3400, -4004, 3480, -4004, 3482, -3604, 3516, -3604, 3516, -4004, 3599, -4004, 3600, -3999, 4826, -4000, 5028, -4000, 5028, -4202, 4834, -4202, 4836, -4600, 5366, -4600, 5368, -4202, 5172, -4202, 5173, -4001, 5767, -4003, 5765, -3207, 5871, -3203, 6199, -4512, 4821, -5445, -801, -5512, -2192, -3720, -1399, 207, -1197, 426, -198, 424)
 
+[sub_resource type="Gradient" id="Gradient_p2t8f"]
+offsets = PackedFloat32Array(0, 0.559524, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mm8aj"]
+gradient = SubResource("Gradient_p2t8f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="level1" type="Node2D"]
 script = ExtResource("1_ksju7")
 
@@ -826,6 +835,14 @@ occluder = SubResource("OccluderPolygon2D_dnkej")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="occuluders"]
 occluder = SubResource("OccluderPolygon2D_mm8aj")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(5101, -4434)
+color = Color(1, 0, 0, 1)
+energy = 1.8
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_mm8aj")
+texture_scale = 15.9
 
 [connection signal="finished" from="Salut!MoiC\'estDax!" to="." method="_on_salut_moi_cest_dax_finished"]
 [connection signal="body_entered" from="end" to="." method="_on_end_body_entered"]

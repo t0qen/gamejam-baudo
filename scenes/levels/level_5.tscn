@@ -547,6 +547,7 @@ position = Vector2(-34, -22)
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
 energy = 2.55
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_dwyms")
 texture_scale = 22.42
 

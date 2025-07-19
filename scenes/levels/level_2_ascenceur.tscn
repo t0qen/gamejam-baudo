@@ -554,12 +554,12 @@ distance = 81.0391
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohuyx"]
 size = Vector2(76, 3580)
 
-[sub_resource type="Gradient" id="Gradient_p2t8f"]
+[sub_resource type="Gradient" id="Gradient_3jrai"]
 offsets = PackedFloat32Array(0, 0.559524, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3jrai"]
-gradient = SubResource("Gradient_p2t8f")
+gradient = SubResource("Gradient_3jrai")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -643,22 +643,31 @@ mesh = SubResource("BoxMesh_vkduq")
 position = Vector2(1327, 905)
 
 [node name="Enemy" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-307, 1433)
+position = Vector2(-284, 1433)
 player = NodePath("../../player")
 
 [node name="Enemy2" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-310, 2150)
+position = Vector2(-261, 2307)
+player = NodePath("../../player")
+
+[node name="Enemy5" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
+position = Vector2(-560, 1906)
 player = NodePath("../../player")
 
 [node name="Enemy3" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-324, 46)
+position = Vector2(-252, 552)
+player = NodePath("../../player")
+
+[node name="Enemy6" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
+position = Vector2(-566, 132)
 player = NodePath("../../player")
 
 [node name="Enemy4" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("3_avlpn")]
-position = Vector2(-302, 733)
+position = Vector2(-580, 1011)
 player = NodePath("../../player")
 
 [node name="hide_etage" type="MeshInstance2D" parent="."]
+visible = false
 modulate = Color(0.2, 0.2, 0.2, 1)
 position = Vector2(1099, 2159.5)
 scale = Vector2(2012, 3519)
@@ -677,7 +686,7 @@ scale = Vector2(704.5, 381.534)
 mesh = SubResource("BoxMesh_vkduq")
 
 [node name="Laser" parent="." instance=ExtResource("6_72knw")]
-position = Vector2(874, -1308)
+position = Vector2(882, -735)
 scale = Vector2(2.0992, 2.0992)
 
 [node name="Laser2" parent="." instance=ExtResource("6_72knw")]
@@ -685,7 +694,7 @@ position = Vector2(874, -1600)
 scale = Vector2(2.0992, 2.0992)
 
 [node name="Laser3" parent="." instance=ExtResource("6_72knw")]
-position = Vector2(874, -1023)
+position = Vector2(881, -1192)
 scale = Vector2(2.0992, 2.0992)
 
 [node name="Vent3" type="Area2D" parent="."]

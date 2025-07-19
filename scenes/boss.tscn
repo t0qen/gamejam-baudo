@@ -1535,6 +1535,7 @@ position = Vector2(0, -154)
 shape = SubResource("CapsuleShape2D_neq0i")
 
 [node name="health_bar" type="ProgressBar" parent="."]
+light_mask = 2
 offset_left = -147.0
 offset_top = -400.0
 offset_right = -136.0
@@ -1642,6 +1643,7 @@ frame_progress = 1.0
 wait_time = 20.0
 
 [node name="Label" type="Label" parent="."]
+light_mask = 2
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

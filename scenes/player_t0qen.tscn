@@ -160,7 +160,7 @@
 [ext_resource type="AudioStream" uid="uid://b1k7wlgo2bde" path="res://assets/sounds/whoosh-motion-243505.mp3" id="158_xobgc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u21xk"]
-radius = 70.1142
+radius = 93.0484
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vae4"]
 bg_color = Color(0, 0, 0, 1)
@@ -736,7 +736,7 @@ position = Vector2(0, 70)
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
-position = Vector2(0, -80)
+position = Vector2(0, -70)
 shape = SubResource("CircleShape2D_u21xk")
 
 [node name="health_bar" type="ProgressBar" parent="."]

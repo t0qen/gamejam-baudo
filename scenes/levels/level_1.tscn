@@ -720,13 +720,16 @@ position = Vector2(-17, 619)
 position = Vector2(-568, -313)
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
-color = Color(1, 0.407246, 0.338652, 1)
 energy = 2.0
 shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_filter_smooth = 4.0
 texture = SubResource("GradientTexture2D_excbq")
-texture_scale = 12.01
+texture_scale = 32.34
 
 [node name="PointLight2D2" type="PointLight2D" parent="player"]
+visible = false
 blend_mode = 1
 texture = SubResource("GradientTexture2D_dnkej")
 texture_scale = 34.49

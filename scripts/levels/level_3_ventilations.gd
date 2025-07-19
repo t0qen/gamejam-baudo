@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	global.is_dax_speek = true
-	$BlagueDax4.play()
+	$TrouveLaSortie.play()
 	
 	
 	
@@ -33,3 +33,10 @@ func _on_blague_dax_4_finished() -> void:
 	global.is_dax_speek = false
 	await get_tree().create_timer(2).timeout
 	$music.play()
+
+
+func _on_trouve_la_sortie_finished() -> void:
+	global.is_dax_speek = false
+	await get_tree().create_timer(1).timeout
+	global.is_dax_speek = true
+	$BlagueDax4.play()

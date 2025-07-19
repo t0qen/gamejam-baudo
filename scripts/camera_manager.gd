@@ -2,6 +2,8 @@ extends Node
 
 var current_cam = null
 
+
+
 func set_current_cam(cam):
 	current_cam = cam
 	

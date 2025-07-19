@@ -35,7 +35,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_step1:
 		print("step1")
 		is_step_1_complete = true
-		$AsceuseurKey.hide()
+		$step1.queue_free()
+		$AsceuseurKey.queue_free()
 		tremble = true
 		$key.play()
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_vent:

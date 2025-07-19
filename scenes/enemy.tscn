@@ -101,8 +101,7 @@
 [ext_resource type="AudioStream" uid="uid://capngicvslqas" path="res://assets/sounds/enemy_dye.mp3" id="99_o2mnd"]
 
 [sub_resource type="Gradient" id="Gradient_o2mnd"]
-offsets = PackedFloat32Array(0, 0.0238095, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.255952, 0.255952, 0.255952, 1, 0, 0, 0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_o4y0d"]
 gradient = SubResource("Gradient_o2mnd")
@@ -458,7 +457,8 @@ polygon = PackedVector2Array(402, 119, 431, 48, 444, -63, 431, -165, 399, -253, 
 disabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerDetection"]
-position = Vector2(297.206, 6.70859)
+visible = false
+position = Vector2(-0.971222, -3.3543)
 scale = Vector2(1, 1)
 color = Color(1, 0, 0, 1)
 energy = 16.0

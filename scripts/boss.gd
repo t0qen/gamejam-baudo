@@ -72,13 +72,16 @@ func update_phase():
 	match current_phase:
 		PHASE.IDLE:
 			play_animation("idle")
+			$cb2_attack_hitbox/MeshInstance2D.hide()
 			$Label.text = "PHASE 3"
 		PHASE.CB1:
 			play_animation("combat1")
+			$cb2_attack_hitbox/MeshInstance2D.hide()
 			setup_att1()
 			$Label.text = "PHASE 1"
 		PHASE.CB2:
 			play_animation("combat2")
+			$cb2_attack_hitbox/MeshInstance2D.show()
 			setup_att1_cb2()
 			$Label.text = "PHASE 2"
 	
@@ -170,6 +173,7 @@ func play_animation(animation):
 		"combat2":
 			combat_2_anim.show()
 			combat_2_anim.play("default")
+			$cb2_attack_hitbox/MeshInstance2D.show()
 		"idle":
 			idle_anim.show()
 			idle_anim.play("default")

@@ -13,17 +13,32 @@ enum dialogue {
 var current_dialogue : dialogue = dialogue.DIALOGUE1
 var prev_dialogue : dialogue
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		if is_dialoguing:
+			match prev_dialogue:
+				dialogue.DIALOGUE1:
+					current_dialogue = dialogue.DIALOGUE2
+				dialogue.DIALOGUE2:
+					current_dialogue = dialogue.DIALOGUE3
+				dialogue.DIALOGUE3:
+					current_dialogue = dialogue.FINISHED
+			update_dialogue()
+	
+
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$player.hide()
 	await get_tree().create_timer(2).timeout
 	is_dialoguing = true
 	$dialogue.show()
 	update_dialogue()
-	while !is_dialogue_finished: 
+	while !is_dialogue_finished:
 		await get_tree().create_timer(0.1).timeout
 		print("waiting for dialogue reachs end")
 	
 	print("BOSS FIGHT START !!")
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$player.show()
 	$Boss.start_cycle()
 	$music.play()

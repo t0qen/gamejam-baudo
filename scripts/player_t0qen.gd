@@ -82,6 +82,7 @@ func _process(delta: float) -> void:
 		current_pause != current_pause
 		
 func _physics_process(delta: float) -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	#Engine.time_scale = 0.1
 	if player_alive :
 		if global.need_to_take_damage_laser:

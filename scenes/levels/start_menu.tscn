@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dls31nm63dvlr"]
+[gd_scene load_steps=13 format=3 uid="uid://dls31nm63dvlr"]
 
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_bobbp"]
 [ext_resource type="Script" uid="uid://bck0gqja62o64" path="res://scripts/levels/start_menu.gd" id="1_cfn5g"]
 [ext_resource type="FontFile" uid="uid://bff5f1wvnem3p" path="res://assets/fonts/MonaspaceKrypton-Medium.otf" id="2_01ge7"]
+[ext_resource type="AudioStream" uid="uid://bmc82a0j11va4" path="res://assets/music/menu.mp3" id="2_cfn5g"]
 [ext_resource type="FontFile" uid="uid://b3vmorjo8shi5" path="res://assets/fonts/NotoSerif-Medium.ttf" id="6_xhmce"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rsusj"]
@@ -71,6 +72,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cfn5g")
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cfn5g")
+autoplay = true
+bus = &"Musique"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

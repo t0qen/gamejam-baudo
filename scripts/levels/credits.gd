@@ -1,7 +1,8 @@
 extends Control
 
 func _ready() -> void:
-	await get_tree().create_timer(2).timeout
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play("crédits")
 	
 

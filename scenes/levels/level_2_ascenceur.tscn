@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dlsef5aa8p028"]
+[gd_scene load_steps=43 format=4 uid="uid://dlsef5aa8p028"]
 
 [ext_resource type="Script" uid="uid://dkmj4v0ta8x0j" path="res://scripts/levels/level_2_ascenceur.gd" id="1_rvqcx"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_b4g1u"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://ch27ndcmhx1y3" path="res://assets/music/level2.mp3" id="10_iv1n8"]
 [ext_resource type="AudioStream" uid="uid://d5387mxmwc" path="res://assets/sounds/opening-metal-door-98518.mp3" id="11_3guw7"]
 [ext_resource type="AudioStream" uid="uid://cahhblr0b8ceo" path="res://assets/sounds/ding.mp3" id="12_hwx06"]
+[ext_resource type="AudioStream" uid="uid://wg04thh363w1" path="res://assets/sounds/Dax/retourne dans lascenseur.wav" id="15_p2t8f"]
+[ext_resource type="AudioStream" uid="uid://bdnnw8gypo5sk" path="res://assets/sounds/Dax/recupere cle usb.wav" id="16_3jrai"]
 
 [sub_resource type="Gradient" id="Gradient_72knw"]
 offsets = PackedFloat32Array(0, 0.00595238, 0.309524, 0.982143)
@@ -620,6 +622,7 @@ tile_map_data = PackedByteArray("AAAGAAEAAwATAAUAAAAGAP3/AwAFAAIAAAAFAP3/AwAEAAI
 tile_set = SubResource("TileSet_3p3kk")
 
 [node name="porte1" type="TileMapLayer" parent="."]
+visible = false
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAGAAEAAwAXAAUAAAAGAP3/AwAFAAIAAAAFAP3/AwAEAAIAAAAEAAEAAwAVAAUAAAAFAAEAAwAWAAUAAAAEAPX/AwABAAEAAAAEAPb/AwABAAIAAAAEAPf/AwABAAIAAAAEAPj/AwABAAIAAAAFAPX/AwAEAAEAAAAFAPb/AwAEAAIAAAAFAPf/AwAEAAIAAAAFAPj/AwAEAAIAAAAGAPX/AwAFAAEAAAAEAPn/AwABAAIAAAAEAPr/AwABAAIAAAAEAPv/AwABAAIAAAAEAPz/AwABAAIAAAAFAPn/AwAEAAIAAAAFAPr/AwAEAAIAAAAFAPv/AwAEAAIAAAAFAPz/AwAEAAIAAAAEAP3/AwABAAIAAAAGAPz/AwAFAAIAAAAGAPv/AwAFAAIAAAAGAPr/AwAFAAIAAAAGAPn/AwAFAAIAAAAGAPj/AwAFAAIAAAAGAPf/AwAFAAIAAAAGAPb/AwAFAAIAAAAIABMAAwAFAAgAAAAIABQAAwAFAAkAAAAHABMAAwAFAAgAAAAGABMAAwAFAAgAAAAFABMAAwAFAAgAAAAEABMAAwAFAAgAAAADABMAAwAFAAgAAAACABMAAwAFAAgAAAACABQAAwABAAkAAAADABQAAwACAAkAAAAEABQAAwACAAkAAAAFABQAAwACAAkAAAAGABQAAwACAAkAAAAHABQAAwACAAkAAAAEAP7/AwAVAAIAAAAEAP//AwAVAAMAAAAEAAAAAwAVAAQAAAAFAP7/AwAWAAIAAAAFAP//AwAWAAMAAAAFAAAAAwAWAAQAAAAGAP7/AwAXAAIAAAAGAP//AwAXAAMAAAAGAAAAAwAXAAQAAAA=")
 tile_set = SubResource("TileSet_3p3kk")
@@ -656,7 +659,6 @@ position = Vector2(-302, 733)
 player = NodePath("../../player")
 
 [node name="hide_etage" type="MeshInstance2D" parent="."]
-visible = false
 modulate = Color(0.2, 0.2, 0.2, 1)
 position = Vector2(1099, 2159.5)
 scale = Vector2(2012, 3519)
@@ -863,12 +865,20 @@ bus = &"SFX"
 stream = ExtResource("12_hwx06")
 bus = &"SFX"
 
+[node name="RetourneDansLascenseur" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_p2t8f")
+bus = &"Dax"
+
+[node name="RecupereCleUsb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_3jrai")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.356044, 0.404224, 0.409036, 1)
 
 [node name="occluders" type="Node2D" parent="."]
 
 [node name="porte_ouverte1" type="LightOccluder2D" parent="occluders"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_72knw")
 
 [node name="porte_fermée1" type="LightOccluder2D" parent="occluders"]
@@ -893,3 +903,5 @@ occluder = SubResource("OccluderPolygon2D_t7uns")
 [connection signal="body_entered" from="step1" to="." method="_on_step_1_body_entered"]
 [connection signal="body_exited" from="step1" to="." method="_on_step_1_body_exited"]
 [connection signal="body_entered" from="step2" to="." method="_on_step_2_body_entered"]
+[connection signal="finished" from="RetourneDansLascenseur" to="." method="_on_retourne_dans_lascenseur_finished"]
+[connection signal="finished" from="RecupereCleUsb" to="." method="_on_recupere_cle_usb_finished"]

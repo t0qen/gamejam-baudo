@@ -6,9 +6,7 @@ func _ready() -> void:
 
 
 func _on_salut_moi_cest_dax_finished() -> void:
-	global.is_dax_speek = false
-	await get_tree().create_timer(2).timeout
-	$music.play()
+	$NousVoilaDansLimmeuble.play()
 
 
 func _on_end_body_entered(body: Node2D) -> void:
@@ -17,3 +15,9 @@ func _on_end_body_entered(body: Node2D) -> void:
 		Transition.transition()
 		await Transition.on_transition_finished
 		get_tree().change_scene_to_file("res://scenes/levels/level_2_ascenceur.tscn")
+
+
+func _on_nous_voila_dans_limmeuble_finished() -> void:
+	global.is_dax_speek = false
+	await get_tree().create_timer(2).timeout
+	$music.play()

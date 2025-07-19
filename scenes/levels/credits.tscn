@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw74otuouhnsl"]
+[gd_scene load_steps=10 format=3 uid="uid://cw74otuouhnsl"]
 
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_fhg1p"]
 [ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_uvwux"]
 [ext_resource type="FontFile" uid="uid://ee2n5s5hxtv1" path="res://assets/fonts/NotoSans-VariableFont_wdth,wght.ttf" id="3_m0gy5"]
+[ext_resource type="AudioStream" uid="uid://bmc82a0j11va4" path="res://assets/music/menu.mp3" id="4_m0gy5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m0gy5"]
 font = ExtResource("1_fhg1p")
@@ -134,5 +135,10 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_x5bms")
 }
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m0gy5")
+autoplay = true
+bus = &"Musique"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=372 format=3 uid="uid://dhrswkm2pyd0k"]
+[gd_scene load_steps=373 format=3 uid="uid://dhrswkm2pyd0k"]
 
 [ext_resource type="Script" uid="uid://rrejglro0ea1" path="res://scripts/boss.gd" id="1_neq0i"]
 [ext_resource type="Texture2D" uid="uid://cynx6gd4i6rry" path="res://assets/sprites/boss/attack1/frame_002_delay-0.03s.png" id="4_iikyw"]
@@ -358,6 +358,12 @@
 [ext_resource type="Texture2D" uid="uid://cu044ko88ikxw" path="res://assets/sprites/boss/idle/frame_22_delay-0.03s.png" id="400_2q5ew"]
 [ext_resource type="Texture2D" uid="uid://4fley2p4j1xd" path="res://assets/sprites/boss/idle/frame_23_delay-0.03s.png" id="401_yenms"]
 [ext_resource type="Texture2D" uid="uid://cjwonalrw8yp2" path="res://assets/sprites/boss/idle/frame_24_delay-0.03s.png" id="402_yrs6d"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gukjf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u7gf"]
+radius = 279.0
+height = 1068.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1d66"]
 radius = 128.0
@@ -1489,10 +1495,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u7gf"]
-radius = 279.0
-height = 1068.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_kuem8"]
 font = ExtResource("356_ft11o")
 
@@ -1500,6 +1502,25 @@ font = ExtResource("356_ft11o")
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_neq0i")
+
+[node name="cb2_attack_hitbox" type="Area2D" parent="." groups=["boss"]]
+collision_layer = 2
+collision_mask = 3
+priority = 10
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="cb2_attack_hitbox"]
+visible = false
+modulate = Color(0.889756, 0.0141464, 2.88785e-07, 0.145098)
+position = Vector2(-0.00012451, -80)
+rotation = 1.5708
+scale = Vector2(557.358, 533.743)
+mesh = SubResource("CapsuleMesh_gukjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cb2_attack_hitbox"]
+position = Vector2(0, -80)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1u7gf")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -154)
@@ -1616,17 +1637,6 @@ scale = Vector2(1.15, 1.15)
 sprite_frames = SubResource("SpriteFrames_nncu5")
 frame = 18
 frame_progress = 1.0
-
-[node name="cb2_attack_hitbox" type="Area2D" parent="." groups=["boss"]]
-collision_layer = 2
-collision_mask = 3
-priority = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cb2_attack_hitbox"]
-position = Vector2(0, -80)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_1u7gf")
-disabled = true
 
 [node name="switch_phase" type="Timer" parent="."]
 wait_time = 20.0

@@ -27,11 +27,11 @@ func _ready() -> void:
 	$porte1.show()
 	$occluders/porte_ouverte1.show()
 	$"occluders/porte_fermée1".hide()
+	global.is_dax_speek = true
+	$RecupereCleUsb.play()
 	$hide_etage.hide()
 	$hide_etage2.hide()
 	$hide_etage3.hide()
-	await get_tree().create_timer(1).timeout
-	$music.play()
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_step1:
@@ -42,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		$PointLight2D3.hide()
 		tremble = true
 		$key.play()
+		global.is_dax_speek = true
+		$RetourneDansLascenseur.play()
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_vent:
 		$SFX.play()
 		await get_tree().create_timer(1.5).timeout
@@ -101,3 +103,12 @@ func _on_step_1_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		body_in_step1 = false
 		global.player_press_e = false
+
+
+func _on_retourne_dans_lascenseur_finished() -> void:
+	global.is_dax_speek = false
+
+
+func _on_recupere_cle_usb_finished() -> void:
+	global.is_dax_speek = false
+	$music.play()

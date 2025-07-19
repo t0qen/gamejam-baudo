@@ -15,9 +15,11 @@ warnings/check_angle_interpolation_type_conflicting=false
 
 [application]
 
-config/name="GameJam Baudo"
+config/name="Mission: GmerBoy"
+config/version="1.0.0"
 run/main_scene="uid://dls31nm63dvlr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -28,6 +30,7 @@ Transition="*res://scenes/transition.tscn"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [global_group]

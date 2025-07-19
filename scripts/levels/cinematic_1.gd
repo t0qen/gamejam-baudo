@@ -2,6 +2,7 @@ extends Node2D
 @onready var switch: Timer = $switch
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	switch.start()
 	
 func _on_switch_timeout() -> void:

@@ -573,13 +573,13 @@ tile_map_data = PackedByteArray("AAD//wEAAwADAAgAAAAAAAEAAwADAAgAAAD+/wIAAwABAAk
 tile_set = SubResource("TileSet_mm8aj")
 
 [node name="Label3" type="Label" parent="."]
-offset_left = -394.0
-offset_top = 739.0
-offset_right = 20.0
-offset_bottom = 805.0
-text = "- Espace pour Dash 
+offset_left = -206.0
+offset_top = 730.0
+offset_right = 208.0
+offset_bottom = 796.0
+text = "- Espace/A pour faire une roulade 
 - Clic gauche/X pour attaquer
-- ZQSD (azerty) / WASD (qwerty) pour se déplacer"
+"
 label_settings = SubResource("LabelSettings_dnkej")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -754,7 +754,7 @@ position = Vector2(-568, -313)
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
 position = Vector2(5, -6)
-energy = 2.0
+energy = 1.5
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_excbq")

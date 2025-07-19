@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var is_player_in_vent : bool = false
 
 func _ready() -> void:
 	global.is_dax_speek = true
@@ -10,7 +10,9 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("action") and global.player_press_e:
+	
+	if Input.is_action_just_pressed("action") and global.player_press_e && !is_player_in_vent:
+		is_player_in_vent = true
 		$SFX.play()
 		await get_tree().create_timer(1.5).timeout
 		Transition.transition()

@@ -563,6 +563,24 @@ gradient = SubResource("Gradient_3jrai")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_72knw"]
+polygon = PackedVector2Array(1025, 198, 835, 198, 835, -200, 1236, -201, 1243, -402, 800, -400, 801, 398, 1027, 400)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yu1cg"]
+polygon = PackedVector2Array(1207, 200, 835, 198, 835, -200, 1023, -202, 1023, -397, 800, -400, 801, 398, 1222, 399)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p2t8f"]
+polygon = PackedVector2Array(956, 199, 935, 399, 1400, 399, 1396, -404, 1166, -403, 1166, -201, 1367, -200, 1369, 199)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0jf5e"]
+polygon = PackedVector2Array(1172, 200, 1172, 399, 1400, 399, 1396, -404, 996, -401, 975, -200, 1367, -200, 1369, 199)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3jrai"]
+polygon = PackedVector2Array(1400, 398, 1404, 399, 1404, 395, 1566, 395, 1565, 3759, 636, 3757, 636, 395, 797, 396, 796, 402, 917, 402, 876, 242, 542, 219, 400, 4188, 1842, 4046, 1708, 127, 1470, 132)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t7uns"]
+polygon = PackedVector2Array(1171, -409, 1365, -408, 1366, -2002, 833, -2006, 837, -413, 1022, -407, 1016, -385, 426, -253, 472, -2174, 1492, -2330, 1837, -1314, 1501, -340, 1188, -376)
+
 [sub_resource type="Gradient" id="Gradient_qxy0u"]
 offsets = PackedFloat32Array(0, 0.0185185, 0.512346, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.299048, 0.299048, 0.299048, 1, 0.104938, 0.104938, 0.104938, 1, 0, 0, 0, 1)
@@ -575,29 +593,11 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siycf"]
 size = Vector2(196, 196)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_72knw"]
-polygon = PackedVector2Array(1025, 198, 835, 198, 835, -200, 1236, -201, 1243, -402, 800, -400, 801, 398, 1027, 400)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yu1cg"]
-polygon = PackedVector2Array(1207, 200, 835, 198, 835, -200, 1023, -202, 1023, -397, 800, -400, 801, 398, 1222, 399)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p2t8f"]
-polygon = PackedVector2Array(956, 199, 935, 399, 1400, 399, 1396, -404, 1162, -403, 1166, -201, 1367, -200, 1369, 199)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0jf5e"]
-polygon = PackedVector2Array(1172, 200, 1172, 399, 1400, 399, 1396, -404, 996, -401, 975, -200, 1367, -200, 1369, 199)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3jrai"]
-polygon = PackedVector2Array(1400, 398, 1404, 399, 1404, 395, 1566, 395, 1565, 3759, 636, 3757, 636, 395, 797, 396, 796, 402, 917, 402, 876, 242, 542, 219, 400, 4188, 1842, 4046, 1708, 127, 1470, 132)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t7uns"]
-polygon = PackedVector2Array(1171, -409, 1365, -408, 1366, -2002, 833, -2006, 837, -413, 1022, -407, 1016, -385, 426, -253, 472, -2174, 1492, -2330, 1837, -1314, 1501, -340, 1188, -376)
-
 [node name="level2_ascenceur" type="Node2D"]
 script = ExtResource("1_rvqcx")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(1098, -1974)
+position = Vector2(1101, -1858)
 color = Color(0, 1, 0, 1)
 energy = 2.0
 texture = SubResource("GradientTexture2D_p2t8f")
@@ -666,6 +666,11 @@ player = NodePath("../../player")
 position = Vector2(-580, 1011)
 player = NodePath("../../player")
 
+[node name="AsceuseurKey" type="Sprite2D" parent="."]
+position = Vector2(1032.21, 3543.21)
+scale = Vector2(0.191813, 0.191813)
+texture = ExtResource("5_ohuyx")
+
 [node name="hide_etage" type="MeshInstance2D" parent="."]
 modulate = Color(0.2, 0.2, 0.2, 1)
 position = Vector2(1099, 2159.5)
@@ -685,15 +690,19 @@ scale = Vector2(704.5, 381.534)
 mesh = SubResource("BoxMesh_vkduq")
 
 [node name="Laser" parent="." instance=ExtResource("6_72knw")]
-position = Vector2(882, -735)
+position = Vector2(873, -1190)
+scale = Vector2(2.0992, 2.0992)
+
+[node name="Laser4" parent="." instance=ExtResource("6_72knw")]
+position = Vector2(885, -713)
 scale = Vector2(2.0992, 2.0992)
 
 [node name="Laser2" parent="." instance=ExtResource("6_72knw")]
-position = Vector2(874, -1600)
+position = Vector2(872, -1696)
 scale = Vector2(2.0992, 2.0992)
 
 [node name="Laser3" parent="." instance=ExtResource("6_72knw")]
-position = Vector2(881, -1192)
+position = Vector2(874, -1426)
 scale = Vector2(2.0992, 2.0992)
 
 [node name="Vent3" type="Area2D" parent="."]
@@ -788,11 +797,6 @@ shape = SubResource("RectangleShape2D_t7uns")
 position = Vector2(1100.69, -18.5)
 shape = SubResource("RectangleShape2D_yu1cg")
 
-[node name="AsceuseurKey" type="Sprite2D" parent="."]
-position = Vector2(1032.21, 3543.21)
-scale = Vector2(0.191813, 0.191813)
-texture = ExtResource("5_ohuyx")
-
 [node name="block_gate" type="StaticBody2D" parent="."]
 position = Vector2(-2417, -53)
 scale = Vector2(2, 2)
@@ -828,6 +832,28 @@ energy = 1.8
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_3jrai")
 texture_scale = 15.9
+
+[node name="occluders" type="Node2D" parent="."]
+
+[node name="porte_ouverte1" type="LightOccluder2D" parent="occluders"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_72knw")
+
+[node name="porte_fermée1" type="LightOccluder2D" parent="occluders"]
+occluder = SubResource("OccluderPolygon2D_yu1cg")
+
+[node name="porte_ouverte2" type="LightOccluder2D" parent="occluders"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_p2t8f")
+
+[node name="porte_fermée2" type="LightOccluder2D" parent="occluders"]
+occluder = SubResource("OccluderPolygon2D_0jf5e")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="occluders"]
+occluder = SubResource("OccluderPolygon2D_3jrai")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="occluders"]
+occluder = SubResource("OccluderPolygon2D_t7uns")
 
 [node name="player" parent="." instance=ExtResource("2_b4g1u")]
 position = Vector2(1096, -23)
@@ -883,28 +909,6 @@ stream = ExtResource("16_3jrai")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.356044, 0.404224, 0.409036, 1)
-
-[node name="occluders" type="Node2D" parent="."]
-
-[node name="porte_ouverte1" type="LightOccluder2D" parent="occluders"]
-visible = false
-occluder = SubResource("OccluderPolygon2D_72knw")
-
-[node name="porte_fermée1" type="LightOccluder2D" parent="occluders"]
-occluder = SubResource("OccluderPolygon2D_yu1cg")
-
-[node name="porte_ouverte2" type="LightOccluder2D" parent="occluders"]
-visible = false
-occluder = SubResource("OccluderPolygon2D_p2t8f")
-
-[node name="porte_fermée2" type="LightOccluder2D" parent="occluders"]
-occluder = SubResource("OccluderPolygon2D_0jf5e")
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="occluders"]
-occluder = SubResource("OccluderPolygon2D_3jrai")
-
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="occluders"]
-occluder = SubResource("OccluderPolygon2D_t7uns")
 
 [connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]
 [connection signal="body_exited" from="Vent3" to="." method="_on_vent_3_body_exited"]

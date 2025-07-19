@@ -525,6 +525,21 @@ font_size = 15
 
 [sub_resource type="BoxMesh" id="BoxMesh_dga24"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qxy0u"]
+polygon = PackedVector2Array(5766, -3208, 5600, -3208, 5599, -3199, 1166, -3199, 1166, -2800, 736, -2800, 736, -2403, 803, -2400, 804, -2601, 1005, -2600, 1004, -2605, 1166, -2605, 1166, -1799, 998, -1800, 998, -1402, 1004, -1402, 1005, -1604, 1166, -1604, 1166, -809, 998, -809, 998, -799, 718, -799, 718, -999, 682, -1000, 682, -800, 195, -800, 196, -602, 682, -600, 682, -208, 716, -207, 716, -601, 1004, -600, 1004, -604, 1166, -604, 1166, 158, 201, 158, 201, 424, 1204, 426, 5781, -3103)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_excbq"]
+polygon = PackedVector2Array(-800, -1799, -802, -1401, -796, -1401, -796, -1600, -199, -1600, -198, -1799)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iav0o"]
+polygon = PackedVector2Array(201, -1799, 199, -1401, 205, -1402, 204, -1600, 802, -1600, 803, -1799)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dnkej"]
+polygon = PackedVector2Array(-262, -2801, -262, -2401, -195, -2400, -195, -2600, 200, -2599, 200, -2399, 262, -2401, 263, -2798)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mm8aj"]
+polygon = PackedVector2Array(-200, 160, -1164, 159, -1164, -606, -1004, -604, -1004, -601, -804, -600, -718, -600, -718, -205, -684, -204, -683, -601, -201, -600, -200, -801, -682, -800, -683, -1000, -719, -999, -718, -801, -1165, -801, -1162, -1603, -1004, -1603, -1004, -1404, -997, -1403, -998, -1801, -1164, -1800, -1164, -2604, -801, -2600, -801, -2401, -739, -2400, -736, -2801, -1164, -2800, -1161, -4003, -523, -4003, -520, -3808, -484, -3808, -483, -4007, 481, -4003, 484, -3806, 517, -3806, 516, -4006, 600, -4004, 600, -4000, 1399, -3999, 1400, -4004, 1480, -4004, 1482, -3804, 1516, -3804, 1516, -4004, 1600, -4004, 1599, -3999, 2400, -4000, 2400, -4004, 2480, -4004, 2483, -3803, 2516, -3804, 2516, -4004, 2600, -4004, 2600, -4000, 3400, -4000, 3400, -4004, 3480, -4004, 3482, -3604, 3516, -3604, 3516, -4004, 3599, -4004, 3600, -3999, 4826, -4000, 5028, -4000, 5028, -4202, 4834, -4202, 4836, -4600, 5366, -4600, 5368, -4202, 5172, -4202, 5173, -4001, 5767, -4003, 5765, -3207, 5871, -3203, 6199, -4512, 4821, -5445, -801, -5512, -2192, -3720, -1399, 207, -1197, 426, -198, 424)
+
 [sub_resource type="Gradient" id="Gradient_qxy0u"]
 offsets = PackedFloat32Array(0, 0.0185185, 0.512346, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.299048, 0.299048, 0.299048, 1, 0.104938, 0.104938, 0.104938, 1, 0, 0, 0, 1)
@@ -548,21 +563,6 @@ size = Vector2(513, 323)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dga24"]
 size = Vector2(49.25, 2742)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qxy0u"]
-polygon = PackedVector2Array(5766, -3208, 5600, -3208, 5599, -3199, 1166, -3199, 1166, -2800, 736, -2800, 736, -2403, 803, -2400, 804, -2601, 1005, -2600, 1004, -2605, 1166, -2605, 1166, -1799, 998, -1800, 998, -1402, 1004, -1402, 1005, -1604, 1166, -1604, 1166, -809, 998, -809, 998, -799, 718, -799, 718, -999, 682, -1000, 682, -800, 195, -800, 196, -602, 682, -600, 682, -208, 716, -207, 716, -601, 1004, -600, 1004, -604, 1166, -604, 1166, 158, 201, 158, 201, 424, 1204, 426, 5781, -3103)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_excbq"]
-polygon = PackedVector2Array(-800, -1799, -802, -1401, -796, -1401, -796, -1600, -199, -1600, -198, -1799)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iav0o"]
-polygon = PackedVector2Array(201, -1799, 199, -1401, 205, -1402, 204, -1600, 802, -1600, 803, -1799)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dnkej"]
-polygon = PackedVector2Array(-262, -2801, -262, -2401, -195, -2400, -195, -2600, 200, -2599, 200, -2399, 262, -2401, 263, -2798)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mm8aj"]
-polygon = PackedVector2Array(-200, 160, -1164, 159, -1164, -606, -1004, -604, -1004, -601, -804, -600, -718, -600, -718, -205, -684, -204, -683, -601, -201, -600, -200, -801, -682, -800, -683, -1000, -719, -999, -718, -801, -1165, -801, -1162, -1603, -1004, -1603, -1004, -1404, -997, -1403, -998, -1801, -1164, -1800, -1164, -2604, -801, -2600, -801, -2401, -739, -2400, -736, -2801, -1164, -2800, -1161, -4003, -523, -4003, -520, -3808, -484, -3808, -483, -4007, 481, -4003, 484, -3806, 517, -3806, 516, -4006, 600, -4004, 600, -4000, 1399, -3999, 1400, -4004, 1480, -4004, 1482, -3804, 1516, -3804, 1516, -4004, 1600, -4004, 1599, -3999, 2400, -4000, 2400, -4004, 2480, -4004, 2483, -3803, 2516, -3804, 2516, -4004, 2600, -4004, 2600, -4000, 3400, -4000, 3400, -4004, 3480, -4004, 3482, -3604, 3516, -3604, 3516, -4004, 3599, -4004, 3600, -3999, 4826, -4000, 5028, -4000, 5028, -4202, 4834, -4202, 4836, -4600, 5366, -4600, 5368, -4202, 5172, -4202, 5173, -4001, 5767, -4003, 5765, -3207, 5871, -3203, 6199, -4512, 4821, -5445, -801, -5512, -2192, -3720, -1399, 207, -1197, 426, -198, 424)
 
 [sub_resource type="Gradient" id="Gradient_p2t8f"]
 offsets = PackedFloat32Array(0, 0.559524, 1)
@@ -755,6 +755,23 @@ player = NodePath("../../player")
 position = Vector2(179, -128)
 player = NodePath("../../player")
 
+[node name="occuluders" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="occuluders"]
+occluder = SubResource("OccluderPolygon2D_qxy0u")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="occuluders"]
+occluder = SubResource("OccluderPolygon2D_excbq")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="occuluders"]
+occluder = SubResource("OccluderPolygon2D_iav0o")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="occuluders"]
+occluder = SubResource("OccluderPolygon2D_dnkej")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="occuluders"]
+occluder = SubResource("OccluderPolygon2D_mm8aj")
+
 [node name="player" parent="." instance=ExtResource("3_x42e6")]
 position = Vector2(-17, 619)
 
@@ -818,23 +835,6 @@ bus = &"Dax"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.629978, 0.683245, 0.688519, 1)
-
-[node name="occuluders" type="Node2D" parent="."]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="occuluders"]
-occluder = SubResource("OccluderPolygon2D_qxy0u")
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="occuluders"]
-occluder = SubResource("OccluderPolygon2D_excbq")
-
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="occuluders"]
-occluder = SubResource("OccluderPolygon2D_iav0o")
-
-[node name="LightOccluder2D5" type="LightOccluder2D" parent="occuluders"]
-occluder = SubResource("OccluderPolygon2D_dnkej")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="occuluders"]
-occluder = SubResource("OccluderPolygon2D_mm8aj")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(5101, -4434)

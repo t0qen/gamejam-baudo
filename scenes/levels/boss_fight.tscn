@@ -568,8 +568,10 @@ scale = Vector2(1.527, 1.527)
 player = NodePath("../player")
 
 [node name="dialogue" type="Node2D" parent="."]
+light_mask = 2
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="dialogue"]
+light_mask = 2
 position = Vector2(0, 392)
 scale = Vector2(968.5, 180.25)
 mesh = SubResource("BoxMesh_cp2kk")
@@ -694,7 +696,7 @@ boss_node = NodePath("../Boss")
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
 color = Color(0.730825, 0.186759, 0.262647, 1)
-energy = 0.25
+energy = 0.7
 texture = SubResource("GradientTexture2D_sd2fj")
 texture_scale = 23.75
 
@@ -707,7 +709,7 @@ stream = ExtResource("2_xhsqb")
 bus = &"Musique"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.69169, 0.399589, 0.48371, 1)
+color = Color(0.617455, 0.617455, 0.617455, 1)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_3syop")

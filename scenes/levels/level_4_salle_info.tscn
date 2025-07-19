@@ -634,7 +634,6 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vent3"]
 position = Vector2(200.926, -1.54759)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_kf4u3")
 
 [node name="InsereCleusb" type="AudioStreamPlayer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dwvb4cbrl0ts"]
+[gd_scene load_steps=33 format=4 uid="uid://dwvb4cbrl0ts"]
 
 [ext_resource type="Script" uid="uid://c1fk8mim4focm" path="res://scripts/levels/level_4_salle_info.gd" id="1_reroy"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_3oio2"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://det3sa23ormvd" path="res://assets/music/level3+.mp3" id="8_8wbol"]
 [ext_resource type="AudioStream" uid="uid://c7yjjrpbxkk2" path="res://assets/sounds/Dax/Blagues aléatoires/blague dax 7.mp3" id="8_fuwli"]
 [ext_resource type="AudioStream" uid="uid://k4qtx31byupu" path="res://assets/sounds/Dax/insere cleusb.wav" id="13_bmiwj"]
+[ext_resource type="AudioStream" uid="uid://cahhblr0b8ceo" path="res://assets/sounds/ding.mp3" id="14_hka0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuwli"]
 texture = ExtResource("3_uspc7")
@@ -81,6 +82,12 @@ texture_region_size = Vector2i(64, 64)
 7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 8:0/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hka0h"]
+polygon = PackedVector2Array(-5.75548, -16.0074, 2.87774, -15.8276, 5.2159, -17.0866, 20.1442, -16.9067, 28.7774, -10.9714, 29.1378, 21.1173, 11.2693, 20.9143, 8.83272, 18.4776, 7.00526, 17.767, 5.78696, 16.3456, 3.9595, 16.041, 2.84272, 14.7212, 1.25858, 14.9352, -5.95728, 15.0191)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dlelk"]
+polygon = PackedVector2Array(-5.75548, -16.0074, 2.87774, -15.8276, 5.2159, -17.0866, 20.1442, -16.9067, 28.7774, -10.9714, 29.1378, 21.1173, 11.2693, 20.9143, 8.83272, 18.4776, 7.00526, 17.767, 5.78696, 16.3456, 3.9595, 16.041, 2.84272, 14.7212, 1.25858, 14.9352, -5.95728, 15.0191)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wbol"]
 texture = ExtResource("4_yspyd")
 texture_region_size = Vector2i(64, 64)
@@ -134,14 +141,20 @@ texture_region_size = Vector2i(64, 64)
 9:4/0 = 0
 4:5/0 = 0
 5:5/0 = 0
+5:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_hka0h")
 6:5/0 = 0
+6:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_dlelk")
 7:5/0 = 0
 8:5/0 = 0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bmiwj"]
+polygon = PackedVector2Array(7.13489, -31.2152, 16.9454, -38.6473, 50, -38.5543, 50, 19.0868, 42.8064, 23.2018, 38.1301, 27.8781, 5.39576, 28.4177, -8.63322, 28.5975, -10.4318, 28.2378, -10.7023, -30.7692)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlelk"]
 texture = ExtResource("4_um0ld")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_bmiwj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kh8ax"]
 texture = ExtResource("5_xqo5a")
@@ -503,19 +516,28 @@ texture_region_size = Vector2i(100, 100)
 9:9/0 = 0
 7:9/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l814n"]
+polygon = PackedVector2Array(7.13489, -31.2152, 16.9454, -38.6473, 50, -38.5543, 50, 19.0868, 42.8064, 23.2018, 38.1301, 27.8781, 5.39576, 28.4177, -8.63322, 28.5975, -10.4318, 28.2378, -10.7023, -30.7692)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rv0xh"]
 texture = ExtResource("6_bmiwj")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_l814n")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ngl0j"]
+polygon = PackedVector2Array(-16.7967, -45.6336, -10.7023, -46.8227, 39.9851, -47.2687, 44.7417, -43.1066, 47.7146, -37.7555, 47.8424, 37.0509, 45.3244, 43.346, 41.0078, 46.4036, -12.4103, 46.5834, -17.3609, 44.4682, -19.696, 41.3209, -21.3204, 37.666, -45.3363, 37.9041, -50, 32.9989, -48.4578, 26.7558, -43.5526, 24.3775, -21.9993, 24.0803, -21.9855, -26.1277, -43.9985, -26.0126, -48.4578, -29.5801, -50, -33.4448, -47.2687, -37.9041, -42.958, -39.6878, -20.9587, -39.6878)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l814n"]
 texture = ExtResource("7_hka0h")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ngl0j")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 
 [sub_resource type="TileSet" id="TileSet_kf4u3"]
 tile_size = Vector2i(100, 100)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_fuwli")
@@ -525,11 +547,40 @@ sources/2 = SubResource("TileSetAtlasSource_dlelk")
 sources/4 = SubResource("TileSetAtlasSource_rv0xh")
 sources/5 = SubResource("TileSetAtlasSource_l814n")
 
+[sub_resource type="Gradient" id="Gradient_bmiwj"]
+offsets = PackedFloat32Array(0, 0.0178571, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.410714, 0.410714, 0.410714, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hka0h"]
+gradient = SubResource("Gradient_bmiwj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.913793, 0.181034)
+
+[sub_resource type="Gradient" id="Gradient_rv0xh"]
+offsets = PackedFloat32Array(0, 0.613095)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l814n"]
+gradient = SubResource("Gradient_rv0xh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf4u3"]
-size = Vector2(162, 82)
+size = Vector2(343.12, 118.06)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rv0xh"]
+polygon = PackedVector2Array(-766, 798, 971, 800, 969, -604, -763, -603, -766, 791, -827, 795, -966, -943, 1469, -936, 1402, 1156, -1033, 1001, -775, 792, -766, 791)
 
 [node name="level4_salle_info" type="Node2D"]
 script = ExtResource("1_reroy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2232.0
+offset_top = -1315.0
+offset_right = 2457.0
+offset_bottom = 1791.0
+color = Color(0.446777, 0.446777, 0.446777, 1)
 
 [node name="main" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
@@ -541,19 +592,32 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAACAP7/BQAAAAAAAAACAAAABQAAAAAAAAACAAIABQAAAAAAAAAAAAIABQAAAAAAAAAAAAAABQAAAAAAAAAAAP7/BQAAAAAAAAD+//7/BQAAAAAAAAD+/wAABQAAAAAAAAD+/wIABQAAAAAAAAA=")
 tile_set = SubResource("TileSet_kf4u3")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(515, -303)
+color = Color(0, 0.996078, 0, 1)
+texture = SubResource("GradientTexture2D_hka0h")
+texture_scale = 5.46
+
 [node name="main3" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAACAP7/AgAAAAAAAAACAAAABAAAAAAAAAACAAIABAAAAAAAAAAAAAIABAAAAAAAAAAAAAAABAAAAAAAAAAAAP7/BAAAAAAAAAD+//7/BAAAAAAAAAD+/wAABAAAAAAAAAD+/wIABAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kf4u3")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_yspyd")]
-position = Vector2(650, 98)
+position = Vector2(312, 239)
 player = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource("2_3oio2")]
+position = Vector2(-94, 613)
 
 [node name="TelephoneDax" parent="player" instance=ExtResource("7_xqo5a")]
 position = Vector2(-576, -324)
+
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_l814n")
+texture_scale = 15.73
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_8wbol")
@@ -569,12 +633,24 @@ scale = Vector2(0.797345, 2.26157)
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vent3"]
-position = Vector2(2, 0)
+position = Vector2(200.926, -1.54759)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_kf4u3")
 
 [node name="InsereCleusb" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_bmiwj")
+volume_db = 10.0
 bus = &"Dax"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.340339, 0.340339, 0.340339, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_rv0xh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_hka0h")
+bus = &"SFX"
 
 [connection signal="finished" from="BlagueDax7" to="." method="_on_blague_dax_7_finished"]
 [connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]

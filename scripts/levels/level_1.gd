@@ -6,6 +6,7 @@ func _ready() -> void:
 
 
 func _on_salut_moi_cest_dax_finished() -> void:
+	await get_tree().create_timer(2).timeout
 	$NousVoilaDansLimmeuble.play()
 
 

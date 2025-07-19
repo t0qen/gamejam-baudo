@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://xondpfojs2pb"]
+[gd_scene load_steps=33 format=4 uid="uid://xondpfojs2pb"]
 
 [ext_resource type="Script" uid="uid://gl58igbti3aw" path="res://scripts/levels/level_1.gd" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_nsrm0"]
@@ -518,6 +518,11 @@ sources/2 = SubResource("TileSetAtlasSource_mm8aj")
 font = ExtResource("6_dnkej")
 font_size = 15
 
+[sub_resource type="LabelSettings" id="LabelSettings_dnkej"]
+font = ExtResource("6_dnkej")
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_dga24"]
 
 [sub_resource type="Gradient" id="Gradient_qxy0u"]
@@ -573,12 +578,25 @@ tile_map_data = PackedByteArray("AAABAP//AgAAAAAAAGD+////AgAAAAAAAGA=")
 tile_set = SubResource("TileSet_mm8aj")
 
 [node name="Label" type="Label" parent="tables"]
-offset_left = 103.5
-offset_top = -100.0
-offset_right = 197.5
-offset_bottom = -34.0
+offset_left = 109.0
+offset_top = -106.0
+offset_right = 203.0
+offset_bottom = -40.0
 text = "Espace ou A pour dash"
 label_settings = SubResource("LabelSettings_mm8aj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="tables"]
+offset_left = -197.0
+offset_top = 369.5
+offset_right = 217.0
+offset_bottom = 435.5
+text = "- Espace pour Dash 
+- Clic gauche/X pour attaquer
+- ZQSD (azerty) / WASD (qwerty) pour se déplacer"
+label_settings = SubResource("LabelSettings_dnkej")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

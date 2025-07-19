@@ -3,6 +3,7 @@ extends Node2D
 var is_boss_dead : bool = false
 var is_dialoguing : bool = false
 var is_dialogue_finished : bool = false
+var can_pass_dialogue : bool = true
 
 enum dialogue {
 	DIALOGUE1,
@@ -42,7 +43,6 @@ func _ready() -> void:
 	$player.show()
 	$Boss.start_cycle()
 	$music.play()
-	$AudioStreamPlayer2D.play()
 
 
 func update_dialogue():
@@ -62,10 +62,6 @@ func update_dialogue():
 			is_dialoguing = false
 			is_dialogue_finished = true
 
-func _on_audio_stream_player_2d_finished() -> void:
-	if !is_boss_dead:
-		$AudioStreamPlayer2D.play()
-
 
 func _on_boss_boss_dead() -> void:
 	$AudioStreamPlayer2D.stop()
@@ -81,12 +77,22 @@ func _on_boss_boss_dead() -> void:
 
 
 func _on_button_pressed() -> void:
-	if is_dialoguing:
-		match prev_dialogue:
-			dialogue.DIALOGUE1:
-				current_dialogue = dialogue.DIALOGUE2
-			dialogue.DIALOGUE2:
-				current_dialogue = dialogue.DIALOGUE3
-			dialogue.DIALOGUE3:
-				current_dialogue = dialogue.FINISHED
-		update_dialogue()
+	print("PASS")
+	if can_pass_dialogue:
+		can_pass_dialogue = false
+		if is_dialoguing:
+			match prev_dialogue:
+				dialogue.DIALOGUE1:
+					current_dialogue = dialogue.DIALOGUE2
+				dialogue.DIALOGUE2:
+					current_dialogue = dialogue.DIALOGUE3
+				dialogue.DIALOGUE3:
+					current_dialogue = dialogue.FINISHED
+			update_dialogue()
+			await get_tree().create_timer(1).timeout
+			can_pass_dialogue = true
+
+
+func _on_music_finished() -> void:
+	if !is_boss_dead:
+		$music.play()

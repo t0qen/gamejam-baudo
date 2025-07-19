@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://ljll86j571ey"]
+[gd_scene load_steps=23 format=4 uid="uid://ljll86j571ey"]
 
 [ext_resource type="Script" uid="uid://b2kgeh1dfa0pk" path="res://scripts/levels/level_5.gd" id="1_r1vs7"]
 [ext_resource type="Texture2D" uid="uid://cn5tlln16wu5h" path="res://assets/sprites/levels/Acseuceur1.png" id="2_fi56y"]
@@ -503,11 +503,36 @@ sources/0 = SubResource("TileSetAtlasSource_mxx4w")
 sources/1 = SubResource("TileSetAtlasSource_vvoq0")
 sources/3 = SubResource("TileSetAtlasSource_tqnj0")
 
+[sub_resource type="Gradient" id="Gradient_tqnj0"]
+offsets = PackedFloat32Array(0, 0.0178571, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.22619, 0.22619, 0.22619, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dwyms"]
+gradient = SubResource("Gradient_tqnj0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.956897, 0.452586)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi56y"]
 size = Vector2(1148, 148)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hldbq"]
 size = Vector2(294, 290)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6xwso"]
+polygon = PackedVector2Array(-600, 398, 395, 397, 397, -801, 1365, -802, 1365, -1397, 996, -1397, 995, -1605, 1366, -1603, 1366, -2000, 1164, -2001, 1165, -2201, 966, -2201, 966, -2401, 765, -2399, 766, -2600, 167, -2600, 166, -4443, -359, -4457, -364, -2600, -963, -2600, -964, -2400, -1165, -2399, -1164, -2200, -1363, -2200, -1364, -1999, -1564, -2000, -1563, -1602, -1199, -1602, -1200, -1400, -1564, -1399, -1563, -803, -600, -802, -600, 392, -614, 397, -1852, 590, -1919, -2516, -1680, -4473, 852, -4754, 2075, -3134, 2454, -987, 1604, 1037, 509, 1166, -977, 976, -1020, 689, -614, 397, -600, 392)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ke18"]
+polygon = PackedVector2Array(-119, -1401, -118, -1000, -84, -1000, -84, -1398, 600, -1400, 600, -1602, -84, -1604, -83, -2003, -118, -2002, -117, -1604, -804, -1602, -804, -1401)
+
+[sub_resource type="Gradient" id="Gradient_j14br"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0y7y4"]
+gradient = SubResource("Gradient_j14br")
+fill = 1
+fill_from = Vector2(0.521552, 0)
+fill_to = Vector2(0.75431, 1)
 
 [node name="level_5" type="Node2D"]
 script = ExtResource("1_r1vs7")
@@ -519,6 +544,11 @@ tile_set = SubResource("TileSet_dwyms")
 
 [node name="player" parent="." instance=ExtResource("5_fi56y")]
 position = Vector2(-34, -22)
+
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+energy = 2.55
+texture = SubResource("GradientTexture2D_dwyms")
+texture_scale = 22.42
 
 [node name="TelephoneDax" parent="player" instance=ExtResource("6_vvoq0")]
 position = Vector2(-576, -324)
@@ -565,6 +595,21 @@ bus = &"Dax"
 [node name="Villa" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_tqnj0")
 bus = &"Dax"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.700237, 0.602221, 0.562594, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_6xwso")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_5ke18")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-93, -2981)
+color = Color(0.968133, 0.623718, 0.742018, 1)
+texture = SubResource("GradientTexture2D_0y7y4")
+texture_scale = 16.25
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -140,10 +140,10 @@ func attack1(mode): # attaque vient que d'un coté à la fois
 			$right_attack/hitbox2/CollisionShape2D.disabled = false
 			
 		current_attack_side.look_at(player.global_position)
+		$attack.play()
 		await get_tree().create_timer(0.5).timeout
 		global.player_attacked_by_boss = true
 		current_attack_side.show()
-		$attack.play()
 		current_attack_side.get_child(0).play("default")
 		await get_tree().create_timer(0.5).timeout
 		$left_attack/hitbox/CollisionShape2D.disabled = true

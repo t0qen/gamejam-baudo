@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://s63seyesglme"]
+[gd_scene load_steps=28 format=4 uid="uid://s63seyesglme"]
 
 [ext_resource type="Script" uid="uid://byfhwi3tyt2bs" path="res://scripts/levels/boss_fight.gd" id="1_u4lat"]
 [ext_resource type="PackedScene" uid="uid://dhrswkm2pyd0k" path="res://scenes/boss.tscn" id="2_dw0xy"]
@@ -506,6 +506,16 @@ sources/0 = SubResource("TileSetAtlasSource_uw7c3")
 sources/1 = SubResource("TileSetAtlasSource_n1gdh")
 sources/3 = SubResource("TileSetAtlasSource_nw48v")
 
+[sub_resource type="Gradient" id="Gradient_uw7c3"]
+offsets = PackedFloat32Array(0, 0.00595238, 0.0178571, 0.642857, 0.875)
+colors = PackedColorArray(1, 1, 1, 1, 0.667824, 0.667824, 0.667824, 1, 0.611111, 0.611111, 0.611111, 1, 0.125, 0.125, 0.125, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n1gdh"]
+gradient = SubResource("Gradient_uw7c3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.905172, 0.159483)
+
 [sub_resource type="BoxMesh" id="BoxMesh_cp2kk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kfod8"]
@@ -518,6 +528,26 @@ font = ExtResource("7_bavu1")
 font_size = 33
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_nw48v"]
+offsets = PackedFloat32Array(0, 0.0119048, 0.607143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.0481927, 0.0481927, 0.0481927, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sd2fj"]
+gradient = SubResource("Gradient_nw48v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3syop"]
+polygon = PackedVector2Array(-998, 599, -998, -402, 998, -402, 998, 600, -995, 600, -997, 822, 1318, 808, 1284, -908, -1302, -948, -1228, 756, -1032, 707, -996, 600)
+
+[sub_resource type="Gradient" id="Gradient_6km7l"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5aevp"]
+gradient = SubResource("Gradient_6km7l")
+fill = 1
+fill_to = Vector2(0.482759, 0.590517)
+
 [node name="boss_fight" type="Node2D"]
 script = ExtResource("1_u4lat")
 
@@ -526,9 +556,11 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD7/wIAAwALABcAAAD8/wIAAwALABcAAAD9/wIAAwALABcAAAD+/wIAAwALABcAAAD+/wEAAwALABcAAAD//wEAAwALABcAAAAAAAEAAwALABcAAAABAAEAAwALABcAAAACAAEAAwALABcAAAADAAEAAwALABcAAAADAAAAAwALABcAAAADAAIAAwALABcAAAACAAIAAwALABcAAAABAAIAAwALABcAAAAAAAIAAwALABcAAAD//wIAAwALABcAAAAEAAIAAwALABcAAAAFAAIAAwAVAAwAAAAFAAEAAwAVAAwAAAAEAAEAAwALABcAAAAEAAAAAwALABcAAAAFAAAAAwAVAAwAAAAFAP//AwAVAAwAAAAFAP7/AwAVAAwAAAAFAP3/AwALABcAAAAEAP3/AwALABYAAAADAP3/AwALABYAAAACAP3/AwALABYAAAABAP3/AwALABYAAAAAAP3/AwALABYAAAD///3/AwALABYAAAD+//3/AwALABYAAAD9//3/AwALABYAAAD8//3/AwALABYAAAD7//3/AwALABYAAAD6//3/AwALABcAAAD6//7/AwAZAAwAAAD6////AwAZAAwAAAD7////AwALABcAAAD7/wAAAwALABcAAAD7/wEAAwALABcAAAD6/wIAAwAZAAwAAAD6/wEAAwAZAAwAAAD6/wAAAwAZAAwAAAD7//7/AwALABcAAAD8//7/AwALABcAAAD8////AwALABcAAAD8/wAAAwALABcAAAD8/wEAAwALABcAAAD9/wEAAwALABcAAAD9/wAAAwALABcAAAD9////AwALABcAAAD9//7/AwALABcAAAD+////AwALABcAAAD+/wAAAwALABcAAAD//wAAAwALABcAAAAAAAAAAwALABcAAAABAAAAAwALABcAAAACAAAAAwALABcAAAACAP//AwALABcAAAADAP//AwALABcAAAABAP//AwALABcAAAAAAP//AwALABcAAAD/////AwALABcAAAABAP7/AwALABcAAAACAP7/AwALABcAAAADAP7/AwALABcAAAAAAP7/AwALABcAAAD///7/AwALABcAAAD+//7/AwALABcAAAD6//z/AwALABcAAAD7//z/AwALABcAAAADAPz/AwALABcAAAAEAPz/AwALABcAAAAFAPz/AwALABcAAAACAPz/AwALABcAAAABAPz/AwALABcAAAAAAPz/AwALABcAAAD///z/AwALABcAAAD+//z/AwALABcAAAD9//z/AwALABcAAAD8//z/AwALABcAAAAEAP7/AwAJABcAAAAEAP//AwAJABcAAAD7/wMAAwAVAAkAAAD8/wMAAwAVAAkAAAD9/wMAAwAVAAkAAAD+/wMAAwAVAAkAAAD//wMAAwAVAAkAAAAAAAMAAwAVAAkAAAABAAMAAwAVAAkAAAACAAMAAwAVAAkAAAADAAMAAwAVAAkAAAAEAAMAAwAVAAkAAAA=")
 tile_set = SubResource("TileSet_5aevp")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_xhsqb")
-bus = &"Musique"
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -114)
+scale = Vector2(1.527, 1.527)
+texture = SubResource("GradientTexture2D_n1gdh")
+texture_scale = 14.84
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_dw0xy")]
 position = Vector2(1, 162)
@@ -536,7 +568,6 @@ scale = Vector2(1.527, 1.527)
 player = NodePath("../player")
 
 [node name="dialogue" type="Node2D" parent="."]
-visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="dialogue"]
 position = Vector2(0, 392)
@@ -646,6 +677,7 @@ scale = Vector2(1.71519, 1.71519)
 texture = ExtResource("8_32r5c")
 
 [node name="Button" type="Button" parent="dialogue"]
+visible = false
 offset_left = 520.0
 offset_top = 408.0
 offset_right = 653.0
@@ -660,6 +692,12 @@ collision_mask = 94
 will_instanciate_cam = false
 boss_node = NodePath("../Boss")
 
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+color = Color(0.730825, 0.186759, 0.262647, 1)
+energy = 0.25
+texture = SubResource("GradientTexture2D_sd2fj")
+texture_scale = 23.75
+
 [node name="camera" parent="." instance=ExtResource("4_tswhc")]
 position = Vector2(0, -8)
 zoom = Vector2(0.6, 0.6)
@@ -668,6 +706,27 @@ zoom = Vector2(0.6, 0.6)
 stream = ExtResource("2_xhsqb")
 bus = &"Musique"
 
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.69169, 0.399589, 0.48371, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_3syop")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-825, -223)
+energy = 3.6
+texture = SubResource("GradientTexture2D_5aevp")
+texture_scale = 5.47
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(818, -230)
+scale = Vector2(-1, 1)
+energy = 3.6
+texture = SubResource("GradientTexture2D_5aevp")
+texture_scale = 5.47
+
 [connection signal="boss_dead" from="Boss" to="." method="_on_boss_boss_dead"]
 [connection signal="pressed" from="dialogue/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="music" to="." method="_on_music_finished"]

@@ -445,7 +445,6 @@ collision_layer = 4
 [node name="PlayerDetectionCollisions" type="CollisionPolygon2D" parent="PlayerDetection"]
 position = Vector2(-1, 61)
 polygon = PackedVector2Array(402, 119, 431, 48, 444, -63, 431, -165, 399, -253, 1, -61)
-disabled = true
 
 [node name="Polygon2D" type="Polygon2D" parent="PlayerDetection"]
 light_mask = 2

@@ -8,17 +8,12 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	Transition.transition()
 	await Transition.on_transition_finished
-	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
-
-	
+	get_tree().change_scene_to_file("res://scenes/levels/start_menu.tscn")
 
 func _on_vrm_nul_dax_3_finished() -> void:
 	global.is_dax_speek = false
 
-	
-
-
 func _on_button_2_pressed() -> void:
 	Transition.transition()
 	await Transition.on_transition_finished
-	get_tree().change_scene_to_file("res://scenes/levels/start_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")

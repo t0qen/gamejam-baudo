@@ -622,10 +622,6 @@ texture_scale = 15.73
 
 [node name="pause" parent="player" instance=ExtResource("11_dlelk")]
 visible = false
-offset_left = -637.0
-offset_top = 286.0
-offset_right = -637.0
-offset_bottom = 286.0
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_8wbol")

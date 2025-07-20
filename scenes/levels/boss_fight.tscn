@@ -583,10 +583,6 @@ texture_scale = 23.75
 
 [node name="pause" parent="player" instance=ExtResource("7_n1gdh")]
 visible = false
-offset_left = -1183.0
-offset_top = -16.0
-offset_right = -1183.0
-offset_bottom = -16.0
 
 [node name="camera" parent="." instance=ExtResource("4_tswhc")]
 position = Vector2(0, -8)

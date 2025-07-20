@@ -7,6 +7,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
+		
 		get_tree().paused = true
 		is_paused = true
 		show()
@@ -15,7 +16,7 @@ func _process(delta: float) -> void:
 func _on_reprendre_pressed() -> void:
 	get_tree().paused = false
 	hide()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 
 

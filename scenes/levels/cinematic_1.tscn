@@ -1,20 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccv7b5rwcb0x5"]
+[gd_scene load_steps=3 format=3 uid="uid://ccv7b5rwcb0x5"]
 
 [ext_resource type="Script" uid="uid://ciuf4dcgs8ba6" path="res://scripts/levels/cinematic_1.gd" id="1_j6636"]
+[ext_resource type="VideoStream" uid="uid://cf0c3aysr1p7g" path="res://assets/cinematiques/cinematique-1.ogv" id="2_2uxcl"]
 
 [node name="cinematic1" type="Node2D"]
 script = ExtResource("1_j6636")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "CINEMATIQUE 1, PASSE AU NIVEAU SUIVANT DANS 2s"
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -768.0
+offset_top = -484.0
+offset_right = 1152.0
+offset_bottom = 596.0
+stream = ExtResource("2_2uxcl")
+volume_db = 5.0
+autoplay = true
+bus = &"Cinematiques"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 56)
+zoom = Vector2(0.6, 0.6)
 
-[node name="switch" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
-[connection signal="timeout" from="switch" to="." method="_on_switch_timeout"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

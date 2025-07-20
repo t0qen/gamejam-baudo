@@ -12,6 +12,7 @@
 [node name="pause" type="Node2D"]
 process_mode = 3
 light_mask = 2
+position = Vector2(1, 0)
 script = ExtResource("1_aicil")
 
 [node name="Pause" type="Sprite2D" parent="."]

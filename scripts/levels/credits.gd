@@ -14,3 +14,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	Transition.transition()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/levels/start_menu.tscn")
+
+
+func _on_button_pressed() -> void:
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_file("res://scenes/levels/start_menu.tscn")

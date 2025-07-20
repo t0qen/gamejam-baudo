@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw74otuouhnsl"]
+[gd_scene load_steps=22 format=3 uid="uid://cw74otuouhnsl"]
 
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_fhg1p"]
 [ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_uvwux"]
 [ext_resource type="FontFile" uid="uid://ee2n5s5hxtv1" path="res://assets/fonts/NotoSans-VariableFont_wdth,wght.ttf" id="3_m0gy5"]
 [ext_resource type="AudioStream" uid="uid://bmc82a0j11va4" path="res://assets/music/menu.mp3" id="4_m0gy5"]
+[ext_resource type="Texture2D" uid="uid://cdbxov2weuh5r" path="res://assets/menus/menu.png" id="5_mpx5v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m0gy5"]
 font = ExtResource("1_fhg1p")
@@ -50,6 +51,28 @@ _data = {
 &"RESET": SubResource("Animation_4c5nq"),
 &"crédits": SubResource("Animation_mpx5v")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c5nq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5bms"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvrsu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlra1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tbrj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66pw8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kljwr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccjqj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hkv2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twb4m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is8mj"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -141,4 +164,27 @@ stream = ExtResource("4_m0gy5")
 autoplay = true
 bus = &"Musique"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 157.0
+offset_bottom = 56.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_4c5nq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_x5bms")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uvrsu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_tlra1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6tbrj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_66pw8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kljwr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_ccjqj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3hkv2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_twb4m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_is8mj")
+flat = true
+
+[node name="Menu2" type="Sprite2D" parent="."]
+position = Vector2(77, 32)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_mpx5v")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

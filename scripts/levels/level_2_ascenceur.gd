@@ -10,7 +10,6 @@ var body_has_been_vent : bool = false
 
 func _ready() -> void:
 	await get_tree().create_timer(1).timeout
-	print("BEGIN SCENE")
 	$porte1.hide()
 	$porte2.hide()
 	$hide_suite.show()
@@ -22,7 +21,6 @@ func _ready() -> void:
 		CameraManager.shake(0.5,  1.5, Vector2(50, 100), 0.1)
 		await get_tree().create_timer(0.5).timeout
 	$sound.stop()
-	print("step0")
 	await  get_tree().create_timer(1).timeout
 	$ding.play()
 	$block_gate/CollisionShape2D.disabled = true
@@ -43,7 +41,6 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and global.player_press_e and body_in_step1:
-		print("step1")
 		is_step_1_complete = true
 		$step1.queue_free()
 		$AsceuseurKey.queue_free()
@@ -63,8 +60,6 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scenes/levels/level_3_ventilations.tscn")
 
 func _on_step_2_body_entered(body: Node2D) -> void:
-	print("step2")
-	print(body)
 	if is_step_1_complete && !step2_did:
 		step2_did = true
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)

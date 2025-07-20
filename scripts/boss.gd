@@ -46,11 +46,9 @@ func _physics_process(delta: float) -> void:
 			
 		receive_attack()
 		update_health_bar()
-		#print(current_health)
 	if current_health <= 0:
 		if is_cycle_started:
 			play_animation("dead")
-			print("DEAD")
 			is_dead = true
 			is_cycle_started = false
 			$health_bar.hide()
@@ -234,12 +232,13 @@ func attack_player(attack):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("ENTERED")
-	print(body.get_groups())
-	if body.has_method("player"):
-		print("PLAYER")
-		if is_attacking:
-			print("ATTACK")
+	pass
+	#print("ENTERED")
+	#print(body.get_groups())
+	#if body.has_method("player"):
+		#print("PLAYER")
+		#if is_attacking:
+			#print("ATTACK")
 			
 			#player.boss_attack()
 
@@ -247,7 +246,7 @@ func is_boss_attacking():
 	return is_attacking
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("EXITED")
+	pass
 
 func boss():
 	pass
@@ -262,7 +261,6 @@ func _on_receive_attack_hitbox_area_exited(area: Area2D) -> void:
 
 
 func _on_switch_phase_timeout() -> void:
-	print("CHANGE PHASE")
 	match current_phase :
 		PHASE.IDLE:
 			current_phase = PHASE.CB1

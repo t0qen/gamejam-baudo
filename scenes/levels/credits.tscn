@@ -1,16 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[gd_scene load_steps=12 format=3 uid="uid://cw74otuouhnsl"]
-=======
 [gd_scene load_steps=16 format=3 uid="uid://cw74otuouhnsl"]
->>>>>>> Stashed changes
-=======
-[gd_scene load_steps=16 format=3 uid="uid://cw74otuouhnsl"]
->>>>>>> Stashed changes
-=======
-[gd_scene load_steps=16 format=3 uid="uid://cw74otuouhnsl"]
->>>>>>> Stashed changes
 
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_fhg1p"]
 [ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_uvwux"]
@@ -55,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -908)]
+"values": [Vector2(0, 0), Vector2(0, -956.815)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5bms"]
@@ -64,40 +52,24 @@ _data = {
 &"crédits": SubResource("Animation_mpx5v")
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mpx5v"]
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpx5v"]
 texture = ExtResource("5_mpx5v")
-modulate_color = Color(0.537011, 0.537011, 0.537011, 1)
+modulate_color = Color(0.625597, 0.625597, 0.625597, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4c5nq"]
 texture = ExtResource("5_mpx5v")
-modulate_color = Color(0.306923, 0.306923, 0.306923, 1)
+modulate_color = Color(0.205117, 0.205117, 0.205117, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5bms"]
 texture = ExtResource("5_mpx5v")
-modulate_color = Color(0.589096, 0.589096, 0.589096, 1)
+modulate_color = Color(0.556953, 0.556953, 0.556953, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvrsu"]
 texture = ExtResource("5_mpx5v")
-modulate_color = Color(0.340339, 0.340339, 0.340339, 1)
+modulate_color = Color(0.381703, 0.381703, 0.381703, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlra1"]
 texture = ExtResource("5_mpx5v")
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -168,6 +140,9 @@ Al's
 ** Musiques **
 DarkPhoenix3254
 
+** SFX **
+pixabay.com
+
 Tout a été fait main sauf les SFX.
 Tout le projet est open source !
  - https://github.com/t0qen/gamejam-baudo
@@ -190,40 +165,23 @@ autoplay = true
 bus = &"Musique"
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-offset_right = 157.0
-offset_bottom = 56.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mpx5v")
-flat = true
-
-[node name="Menu2" type="Sprite2D" parent="."]
-position = Vector2(77, 32)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_mpx5v")
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-offset_left = 27.0
-offset_top = 19.0
-offset_right = 220.0
-offset_bottom = 101.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -299.0
+offset_right = -340.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/focus = SubResource("StyleBoxTexture_mpx5v")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_4c5nq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_x5bms")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_uvrsu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_tlra1")
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

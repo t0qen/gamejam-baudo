@@ -892,6 +892,7 @@ bus = &"SFX"
 
 [node name="ding" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_iv1n8")
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="music" type="AudioStreamPlayer" parent="."]

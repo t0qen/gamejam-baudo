@@ -50,6 +50,9 @@ var can_regen : bool = true
 var current_pause = false
 
 
+var can_take_laser_damage : bool = true
+
+
 # INPUTS
 var prev_inputs : int = 0 # useful for determine flip sprite
 
@@ -92,8 +95,12 @@ func _physics_process(delta: float) -> void:
 	
 	#Engine.time_scale = 0.1
 	if player_alive :
-		if global.need_to_take_damage_laser:
+		if global.need_to_take_damage_laser && can_take_laser_damage:
+			can_take_laser_damage = false
 			laser_attack()
+			await get_tree().create_timer(1).timeout
+			can_take_laser_damage = true
+			
 			
 		if !attack_ip:
 			move()

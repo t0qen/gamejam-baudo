@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and global.player_press_e:
+		$Enemy2.queue_free()
 		$AudioStreamPlayer.play()
 		await get_tree().create_timer(1).timeout
 		Transition.transition()

@@ -75,7 +75,7 @@ func _on_step_2_body_entered(body: Node2D) -> void:
 		while tremble == true:
 			CameraManager.shake(0.5,  1.5, Vector2(50, 100), 0.1)
 			await get_tree().create_timer(0.5).timeout
-		
+		$sound.stop()
 		$ding.play()
 		$block_gate/CollisionShape2D.call_deferred("set", "disabled", false)
 		$Block_Gate2/CollisionShape2D.call_deferred("set", "disabled", true)

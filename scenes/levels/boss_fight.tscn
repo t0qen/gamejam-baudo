@@ -680,32 +680,6 @@ position = Vector2(-384, 384)
 scale = Vector2(1.71519, 1.71519)
 texture = ExtResource("8_32r5c")
 
-[node name="dialogue 4" type="Node2D" parent="dialogue"]
-visible = false
-
-[node name="Label" type="Label" parent="dialogue/dialogue 4"]
-offset_left = -256.0
-offset_top = 368.0
-offset_right = 528.0
-offset_bottom = 455.0
-text = "Ahah ! Je suis le plus fort ! Tu es capturé
-maintenant, je vais t'ammener à Baudo, satané 
-GamerBoy !"
-label_settings = SubResource("LabelSettings_kfod8")
-
-[node name="Label2" type="Label" parent="dialogue/dialogue 4"]
-offset_left = -72.0
-offset_top = 312.0
-offset_right = 67.0
-offset_bottom = 354.0
-text = "ZBaudo "
-label_settings = SubResource("LabelSettings_lu7xo")
-
-[node name="Frame00Delay-0_03s" type="Sprite2D" parent="dialogue/dialogue 4"]
-position = Vector2(-384, 384)
-scale = Vector2(1.71519, 1.71519)
-texture = ExtResource("8_32r5c")
-
 [node name="Button" type="Button" parent="dialogue"]
 visible = false
 offset_left = 520.0

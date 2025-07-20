@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj5ivps06yu8h"]
+
+[ext_resource type="Script" uid="uid://c8lq8vltyiknq" path="res://scripts/levels/intro_boss.gd" id="1_i1smw"]
+[ext_resource type="VideoStream" uid="uid://mt47bf0j64e5" path="res://assets/cinematiques/intro-boss.ogv" id="1_n7qcx"]
+
+[node name="intro_boss" type="Node2D"]
+script = ExtResource("1_i1smw")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_top = -648.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+stream = ExtResource("1_n7qcx")
+autoplay = true
+bus = &"Cinematiques"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

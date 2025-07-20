@@ -871,10 +871,6 @@ texture_scale = 17.16
 
 [node name="pause" parent="player" instance=ExtResource("10_t7uns")]
 visible = false
-offset_left = -581.0
-offset_top = -331.0
-offset_right = -581.0
-offset_bottom = -331.0
 
 [node name="Block_Gate2" type="StaticBody2D" parent="."]
 position = Vector2(964, -304)

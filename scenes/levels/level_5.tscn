@@ -557,10 +557,6 @@ position = Vector2(-576, -324)
 
 [node name="pause" parent="player" instance=ExtResource("7_dwyms")]
 visible = false
-offset_left = -550.0
-offset_top = -331.0
-offset_right = -550.0
-offset_bottom = -331.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-238, -3344)

@@ -581,13 +581,6 @@ energy = 0.7
 texture = SubResource("GradientTexture2D_sd2fj")
 texture_scale = 23.75
 
-[node name="pause" parent="player" instance=ExtResource("7_n1gdh")]
-visible = false
-offset_left = -1183.0
-offset_top = -16.0
-offset_right = -1183.0
-offset_bottom = -16.0
-
 [node name="camera" parent="." instance=ExtResource("4_tswhc")]
 position = Vector2(0, -8)
 zoom = Vector2(0.6, 0.6)
@@ -738,6 +731,11 @@ scale = Vector2(-1, 1)
 energy = 3.6
 texture = SubResource("GradientTexture2D_5aevp")
 texture_scale = 5.47
+
+[node name="pause" parent="." instance=ExtResource("7_n1gdh")]
+visible = false
+position = Vector2(-2, 68)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="boss_dead" from="Boss" to="." method="_on_boss_boss_dead"]
 [connection signal="finished" from="music" to="." method="_on_music_finished"]

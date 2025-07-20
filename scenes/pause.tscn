@@ -1,56 +1,17 @@
-[gd_scene load_steps=27 format=3 uid="uid://bq7frj1sybg80"]
+[gd_scene load_steps=7 format=3 uid="uid://bq7frj1sybg80"]
 
 [ext_resource type="Script" uid="uid://n6ghljnsdopi" path="res://scripts/pause.gd" id="1_aicil"]
 [ext_resource type="Texture2D" uid="uid://bsb2rn11ihec7" path="res://assets/menus/pause.png" id="1_m0klm"]
 [ext_resource type="Texture2D" uid="uid://dnggh7fjm3cdi" path="res://assets/menus/reprendre.png" id="2_aicil"]
 [ext_resource type="Texture2D" uid="uid://cdbxov2weuh5r" path="res://assets/menus/menu.png" id="3_jn4bt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aicil"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aicil"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jn4bt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1fnm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wen6a"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cml1b"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xtef"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmhi0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw83q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0akjr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_capb0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcmcy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl8xs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn06s"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrtv1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30wyh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcd8f"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3fa8"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbku2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwa2k"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i0p2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_404jg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q5rd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jn4bt"]
 
 [node name="pause" type="Node2D"]
 process_mode = 3
+light_mask = 2
 script = ExtResource("1_aicil")
 
 [node name="Pause" type="Sprite2D" parent="."]
@@ -67,17 +28,7 @@ offset_left = -159.0
 offset_top = 83.0
 offset_right = 88.0
 offset_bottom = 157.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_aicil")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_jn4bt")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_r1fnm")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_wen6a")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cml1b")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_1xtef")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xmhi0")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_xw83q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0akjr")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_capb0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_gcmcy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aicil")
 flat = true
 
 [node name="Reprendre" type="Sprite2D" parent="."]
@@ -90,17 +41,7 @@ offset_left = -154.0
 offset_top = -37.0
 offset_right = 133.0
 offset_bottom = 49.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_jl8xs")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qn06s")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_vrtv1")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_30wyh")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gcd8f")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_t3fa8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nbku2")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hwa2k")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4i0p2")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_404jg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_7q5rd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jn4bt")
 flat = true
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

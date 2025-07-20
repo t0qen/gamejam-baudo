@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct8q4cef6kwp1"]
+[gd_scene load_steps=10 format=3 uid="uid://ct8q4cef6kwp1"]
 
 [ext_resource type="Script" uid="uid://dnabl30rrk204" path="res://scripts/dead_screen.gd" id="1_b3wyb"]
 [ext_resource type="AudioStream" uid="uid://oqexe4c5o0f5" path="res://assets/sounds/Dax/vrm nul dax3.wav" id="3_urrme"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="4_g6ylt"]
 [ext_resource type="Texture2D" uid="uid://cdbxov2weuh5r" path="res://assets/menus/menu.png" id="5_5pyt7"]
 [ext_resource type="Texture2D" uid="uid://cou3tklktr4i2" path="res://assets/menus/jouer.png" id="6_qaisq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8b16"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8b16"]
 
@@ -25,6 +28,7 @@ offset_bottom = 648.0
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8b16")
 
 [node name="Button" type="Button" parent="ReferenceRect"]
 layout_mode = 0

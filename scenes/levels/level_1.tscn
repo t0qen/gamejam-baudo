@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://xondpfojs2pb"]
+[gd_scene load_steps=36 format=4 uid="uid://xondpfojs2pb"]
 
 [ext_resource type="Script" uid="uid://gl58igbti3aw" path="res://scripts/levels/level_1.gd" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="2_nsrm0"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dw5bq2cwer3w4" path="res://scenes/laser.tscn" id="6_sk5k4"]
 [ext_resource type="AudioStream" uid="uid://crva8htttwd0w" path="res://assets/music/level1.mp3" id="10_qxy0u"]
 [ext_resource type="AudioStream" uid="uid://bikmgef5qobj5" path="res://assets/sounds/Dax/nous voila dans limmeuble.wav" id="11_excbq"]
+[ext_resource type="PackedScene" uid="uid://bq7frj1sybg80" path="res://scenes/pause.tscn" id="11_mm8aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_excbq"]
 texture = ExtResource("2_oc4kc")
@@ -791,6 +792,9 @@ visible = false
 blend_mode = 1
 texture = SubResource("GradientTexture2D_dnkej")
 texture_scale = 34.49
+
+[node name="pause2" parent="player" instance=ExtResource("11_mm8aj")]
+visible = false
 
 [node name="Salut!MoiC\'estDax!" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_x42e6")

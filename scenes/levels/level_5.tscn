@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ljll86j571ey"]
+[gd_scene load_steps=24 format=4 uid="uid://ljll86j571ey"]
 
 [ext_resource type="Script" uid="uid://b2kgeh1dfa0pk" path="res://scripts/levels/level_5.gd" id="1_r1vs7"]
 [ext_resource type="Texture2D" uid="uid://cn5tlln16wu5h" path="res://assets/sprites/levels/Acseuceur1.png" id="2_fi56y"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="5_fi56y"]
 [ext_resource type="PackedScene" uid="uid://dw5bq2cwer3w4" path="res://scenes/laser.tscn" id="6_hldbq"]
 [ext_resource type="PackedScene" uid="uid://ce3h5e3b0v3b2" path="res://scenes/telephone_dax.tscn" id="6_vvoq0"]
+[ext_resource type="PackedScene" uid="uid://bq7frj1sybg80" path="res://scenes/pause.tscn" id="7_dwyms"]
 [ext_resource type="PackedScene" uid="uid://c12f2067hvmtk" path="res://scenes/enemy.tscn" id="7_fsnos"]
 [ext_resource type="AudioStream" uid="uid://dh2civn86p3sk" path="res://assets/sounds/Dax/Blagues aléatoires/blague dax 1.mp3" id="8_mxx4w"]
 [ext_resource type="AudioStream" uid="uid://dirsbdqjwn034" path="res://assets/sounds/Dax/villa.wav" id="10_tqnj0"]
@@ -553,6 +554,13 @@ texture_scale = 22.42
 
 [node name="TelephoneDax" parent="player" instance=ExtResource("6_vvoq0")]
 position = Vector2(-576, -324)
+
+[node name="pause" parent="player" instance=ExtResource("7_dwyms")]
+visible = false
+offset_left = -550.0
+offset_top = -331.0
+offset_right = -550.0
+offset_bottom = -331.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-238, -3344)

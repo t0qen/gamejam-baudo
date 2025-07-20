@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://s63seyesglme"]
+[gd_scene load_steps=29 format=4 uid="uid://s63seyesglme"]
 
 [ext_resource type="Script" uid="uid://byfhwi3tyt2bs" path="res://scripts/levels/boss_fight.gd" id="1_u4lat"]
 [ext_resource type="PackedScene" uid="uid://dhrswkm2pyd0k" path="res://scenes/boss.tscn" id="2_dw0xy"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d36vr4sdkrq5" path="res://scenes/camera.tscn" id="4_tswhc"]
 [ext_resource type="FontFile" uid="uid://cos5xlj5d4gvg" path="res://assets/fonts/MonaspaceNeon-Medium.otf" id="6_tswhc"]
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="7_bavu1"]
+[ext_resource type="PackedScene" uid="uid://bq7frj1sybg80" path="res://scenes/pause.tscn" id="7_n1gdh"]
 [ext_resource type="Texture2D" uid="uid://yqts2va350od" path="res://assets/dialogue/frame_00_delay-0.03s.png" id="8_32r5c"]
 [ext_resource type="Texture2D" uid="uid://dnnj6idd0mw10" path="res://assets/dialogue/martin.png" id="9_78gr8"]
 [ext_resource type="FontFile" uid="uid://ee2n5s5hxtv1" path="res://assets/fonts/NotoSans-VariableFont_wdth,wght.ttf" id="10_32r5c"]
@@ -575,11 +576,17 @@ will_instanciate_cam = false
 boss_node = NodePath("../Boss")
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
-visible = false
 color = Color(0.730825, 0.186759, 0.262647, 1)
 energy = 0.7
 texture = SubResource("GradientTexture2D_sd2fj")
 texture_scale = 23.75
+
+[node name="pause" parent="player" instance=ExtResource("7_n1gdh")]
+visible = false
+offset_left = -1183.0
+offset_top = -16.0
+offset_right = -1183.0
+offset_bottom = -16.0
 
 [node name="camera" parent="." instance=ExtResource("4_tswhc")]
 position = Vector2(0, -8)
@@ -590,7 +597,6 @@ stream = ExtResource("2_xhsqb")
 bus = &"Musique"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.74978, 0.74978, 0.74978, 1)
 
 [node name="dialogue" type="Node2D" parent="."]

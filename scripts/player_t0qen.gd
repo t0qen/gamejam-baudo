@@ -58,6 +58,9 @@ var prev_inputs : int = 0 # useful for determine flip sprite
 	# -- UI
 @onready var health_bar: ProgressBar = $health_bar
 
+
+var is_paused : bool = false
+
 # /* FUNCTIONS */
 
 # MAIN
@@ -72,17 +75,21 @@ func _ready() -> void:
 	health_bar.max_value = HEALTH
 	health_bar.value = HEALTH
 	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	# Setup Dash ui
 	$Dash.frame = 0
 	
 func _process(delta: float) -> void:
+	
 	update_health_bar()
-	if Input.is_action_just_pressed("pause"):
-		get_tree().paused = current_pause
-		current_pause != current_pause
+	#if Input.is_action_just_pressed("pause") && !is_paused:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#is_paused = true
+		#$Control.show()
+		#get_tree().paused = true
 		
 func _physics_process(delta: float) -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	#Engine.time_scale = 0.1
 	if player_alive :
 		if global.need_to_take_damage_laser:
@@ -366,3 +373,18 @@ func _on_wait_death_timeout() -> void:
 	Transition.transition()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/dead_screen.tscn")
+
+
+func _on_reprendre_pressed() -> void:
+	print("TQT")
+	if is_paused:
+		print("REPREND")
+		
+		$Control.hide()
+		is_paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		get_tree().paused = false
+
+func _on_menu_pressed() -> void:
+	if is_paused:
+		get_tree().change_scene_to_file("res://scenes/levels/start_menu.tscn")

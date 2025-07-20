@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dlsef5aa8p028"]
+[gd_scene load_steps=44 format=4 uid="uid://dlsef5aa8p028"]
 
 [ext_resource type="Script" uid="uid://dkmj4v0ta8x0j" path="res://scripts/levels/level_2_ascenceur.gd" id="1_rvqcx"]
 [ext_resource type="PackedScene" uid="uid://cl71r21okvrwm" path="res://scenes/player_t0qen.tscn" id="2_b4g1u"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bod0wkkjlit4m" path="res://assets/sounds/elevator-45786.mp3" id="8_siycf"]
 [ext_resource type="AudioStream" uid="uid://caik6b3gu7otx" path="res://assets/sounds/elevator-ding-at-arenco-tower-dubai-38520.mp3" id="9_iv1n8"]
 [ext_resource type="AudioStream" uid="uid://ch27ndcmhx1y3" path="res://assets/music/level2.mp3" id="10_iv1n8"]
+[ext_resource type="PackedScene" uid="uid://bq7frj1sybg80" path="res://scenes/pause.tscn" id="10_t7uns"]
 [ext_resource type="AudioStream" uid="uid://d5387mxmwc" path="res://assets/sounds/opening-metal-door-98518.mp3" id="11_3guw7"]
 [ext_resource type="AudioStream" uid="uid://cahhblr0b8ceo" path="res://assets/sounds/ding.mp3" id="12_hwx06"]
 [ext_resource type="AudioStream" uid="uid://wg04thh363w1" path="res://assets/sounds/Dax/retourne dans lascenseur.wav" id="15_p2t8f"]
@@ -867,6 +868,13 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_72knw")
 texture_scale = 17.16
+
+[node name="pause" parent="player" instance=ExtResource("10_t7uns")]
+visible = false
+offset_left = -581.0
+offset_top = -331.0
+offset_right = -581.0
+offset_bottom = -331.0
 
 [node name="Block_Gate2" type="StaticBody2D" parent="."]
 position = Vector2(964, -304)

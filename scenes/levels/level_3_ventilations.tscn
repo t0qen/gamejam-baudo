@@ -674,23 +674,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ultba")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vent3"]
 shape = SubResource("RectangleShape2D_ogte4")
 
-[node name="player" parent="." instance=ExtResource("2_2kwoh")]
-position = Vector2(-133, 0)
-scale = Vector2(0.600257, 0.600257)
-
-[node name="TelephoneDax" parent="player" instance=ExtResource("3_ogte4")]
-position = Vector2(-576.42, -324.861)
-
-[node name="PointLight2D" type="PointLight2D" parent="player"]
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_ultba")
-texture_scale = 17.2
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(-0.419793, -0.860863)
-zoom = Vector2(1.635, 1.635)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
@@ -710,6 +693,23 @@ bus = &"Dax"
 [node name="TrouveLaSortie" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_481cf")
 bus = &"Dax"
+
+[node name="player" parent="." instance=ExtResource("2_2kwoh")]
+position = Vector2(-133, 0)
+scale = Vector2(0.600257, 0.600257)
+
+[node name="TelephoneDax" parent="player" instance=ExtResource("3_ogte4")]
+position = Vector2(-576.42, -324.861)
+
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_ultba")
+texture_scale = 17.2
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-0.419793, -0.860863)
+zoom = Vector2(1.635, 1.635)
 
 [connection signal="body_entered" from="Vent3" to="." method="_on_vent_3_body_entered"]
 [connection signal="body_exited" from="Vent3" to="." method="_on_vent_3_body_exited"]

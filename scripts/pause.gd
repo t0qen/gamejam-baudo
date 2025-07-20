@@ -21,4 +21,6 @@ func _on_reprendre_pressed() -> void:
 
 
 func _on_menu_pressed() -> void:
+	get_tree().paused = false
+	hide()
 	get_tree().change_scene_to_file("res://scenes/levels/start_menu.tscn")

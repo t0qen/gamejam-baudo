@@ -36,6 +36,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_v8b16")
 flat = true
 
 [node name="Button2" type="Button" parent="ReferenceRect"]
+layout_mode = 0
 offset_left = 531.0
 offset_top = 344.0
 offset_right = 696.0

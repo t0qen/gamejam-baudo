@@ -95,11 +95,9 @@ func _physics_process(delta: float) -> void:
 	
 	#Engine.time_scale = 0.1
 	if player_alive :
-		if global.need_to_take_damage_laser && can_take_laser_damage:
-			can_take_laser_damage = false
+		if global.need_to_take_damage_laser:
 			laser_attack()
-			await get_tree().create_timer(1).timeout
-			can_take_laser_damage = true
+		
 			
 			
 		if !attack_ip:

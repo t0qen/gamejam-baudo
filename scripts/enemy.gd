@@ -63,7 +63,6 @@ func _physics_process(delta: float) -> void:
 		if global.enemy_need_to_attack_anim:
 			is_attacking = true
 			#global.enemy_need_to_attack_anim = false
-			print("PLAYER ATTACK ANIM")
 			velocity = Vector2.ZERO
 			play_animation("attack")
 			await get_tree().create_timer(1).timeout
@@ -107,7 +106,6 @@ func play_animation(animation):
 	
 	current_animation = animation
 	prev_animation = current_animation
-	print(current_animation)
 	match animation:
 		"dead":
 			dead_anim.show()
@@ -125,10 +123,8 @@ func play_animation(animation):
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	
 	if body.has_method("player"):
-		print("ENTRED ", body)
 		if can_rotate:
 			player_chase = true
-			print("CAN")
 			can_rotate = false
 			DetectionRotation += 1
 			$PlayerDetection.rotation = DetectionRotation / 2
@@ -144,7 +140,6 @@ func enemy():
 
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
-		print("ENTERED")
 		player_chase_move = false
 		player_inattack_zone = true
 

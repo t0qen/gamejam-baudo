@@ -188,9 +188,9 @@ func receive_attack():
 		if can_take_damage:
 			can_take_damage = false
 			current_health = current_health - 10
-			modulate = Color.RED
+			$animation.modulate = Color.RED
 			await get_tree().create_timer(0.5).timeout
-			modulate = Color.WHITE
+			$animation.modulate = Color.WHITE
 			can_take_damage = true
 			
 			

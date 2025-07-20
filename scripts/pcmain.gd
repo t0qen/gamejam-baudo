@@ -1,6 +1,7 @@
 extends Control
 
 var can_play : bool = true
+var has_pressed : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,8 +18,10 @@ func _on_nous_ne_somme_pas_là_pour_sabonner_finished() -> void:
 
 
 func _on_cle_usb_pressed() -> void:
-	$PopUp.show()
-	$PopUp/AnimatedSprite2D.play("loading")
+	if !has_pressed:
+		has_pressed = true
+		$PopUp.show()
+		$PopUp/AnimatedSprite2D.play("loading")
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

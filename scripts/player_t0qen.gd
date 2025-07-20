@@ -117,12 +117,9 @@ func _physics_process(delta: float) -> void:
 			$Label.hide()
 		
 	if current_health <= 0 && player_alive : # Tue le joueur si il a 0 vie
-		print("dead")
 		player_alive = false # ajouter un ecran de fin
 		play_animation("dead") 
 		$timers/wait_death.start()
-		print("started timer")
-		
 	
 	
 # SUB 
@@ -196,7 +193,6 @@ func play_animation(animation):
 func regen():
 	if can_regen:
 		if current_health < HEALTH:
-			print("REGEN")
 			current_health = HEALTH
 			can_regen = false
 			regen_start_timer.start()
@@ -229,7 +225,7 @@ func update_health_bar():
 	
 func move(): # func to move player 
 	var direction : Vector2 = get_inputs()
-	#print(direction)
+
 	if direction.length() > 0: # if player wants to move
 		if is_dashing:
 			if !attack_ip:
@@ -266,7 +262,6 @@ func player(): # Permet au joueur de se faire détecter pas l'ennemi
 		
 # SIGNALS
 func _on_dash_delay_timeout() -> void: # delay when player can't dash
-	print("DASH DELAY FINISHED")
 	can_dash = true
 	$Dash.frame = 0
 	
@@ -289,7 +284,6 @@ func laser_attack():
 	
 func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts nécessaires
 	if enemy_inattack_range and enemy_attack_cooldown == true :
-		print("enemy attack !")
 		global.enemy_need_to_attack_anim = true
 		current_health = current_health - 10
 		$attack_enemis2.play()
@@ -310,7 +304,6 @@ func enemy_attack(): # Détecte quand l'ennemi attaque et enlève les dégâts n
 		$animations.modulate = Color.WHITE
 
 func boss_attack():
-	print("RECEIVE BOSS ATTACK")
 	current_health = current_health - 60
 	can_regen = false
 	if regen_start_timer.time_left > 0: # timer is active
@@ -349,7 +342,6 @@ func _on_regen_start_timeout() -> void:
 
 
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
-	print(area)
 	if area.is_in_group("enemy"):
 		enemy_inattack_range = true
 		
@@ -376,10 +368,7 @@ func _on_wait_death_timeout() -> void:
 
 
 func _on_reprendre_pressed() -> void:
-	print("TQT")
 	if is_paused:
-		print("REPREND")
-		
 		$Control.hide()
 		is_paused = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

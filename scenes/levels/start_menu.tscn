@@ -1,6 +1,5 @@
-[gd_scene load_steps=38 format=3 uid="uid://dls31nm63dvlr"]
+[gd_scene load_steps=20 format=3 uid="uid://dls31nm63dvlr"]
 
-[ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_bobbp"]
 [ext_resource type="Script" uid="uid://bck0gqja62o64" path="res://scripts/levels/start_menu.gd" id="1_cfn5g"]
 [ext_resource type="FontFile" uid="uid://bff5f1wvnem3p" path="res://assets/fonts/MonaspaceKrypton-Medium.otf" id="2_01ge7"]
 [ext_resource type="AudioStream" uid="uid://bmc82a0j11va4" path="res://assets/music/menu.mp3" id="2_cfn5g"]
@@ -17,99 +16,43 @@ font_size = 27
 font = ExtResource("6_xhmce")
 font_color = Color(0.400698, 0.400698, 0.400698, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfn5g"]
-bg_color = Color(0.22, 0.22, 0.22, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hutc"]
+texture = ExtResource("7_ak3lw")
+modulate_color = Color(0.597176, 0.597176, 0.597176, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhmce"]
-bg_color = Color(0.3, 0.3, 0.3, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsusj"]
+texture = ExtResource("7_ak3lw")
+modulate_color = Color(0.169245, 0.169245, 0.169245, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hutc"]
-bg_color = Color(0.21, 0.21, 0.21, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ak3lw"]
+texture = ExtResource("7_ak3lw")
+modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsusj"]
-bg_color = Color(0.21, 0.21, 0.21, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07enr"]
+texture = ExtResource("7_ak3lw")
+modulate_color = Color(0.340339, 0.340339, 0.340339, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ak3lw"]
-bg_color = Color(0.1, 0.1, 0.1, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3111u"]
+texture = ExtResource("7_ak3lw")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3111u"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1cnnc"]
+texture = ExtResource("8_07enr")
+modulate_color = Color(0.61339, 0.61339, 0.61339, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cnnc"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tiyiu"]
+texture = ExtResource("8_07enr")
+modulate_color = Color(0.2484, 0.2484, 0.2484, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tiyiu"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cahn"]
+texture = ExtResource("8_07enr")
+modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cahn"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqqx5"]
+texture = ExtResource("8_07enr")
+modulate_color = Color(0.355314, 0.355314, 0.355314, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqqx5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i45uw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycnxj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ydn3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a68ne"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1wv0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsjas"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jalfe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sni8v"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8f3w"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt3pe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stcqg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw7lw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls281"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5n6g"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0pif"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbvo8"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j0jn"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i45uw"]
+texture = ExtResource("8_07enr")
 
 [node name="start_menu" type="Node2D"]
 script = ExtResource("1_cfn5g")
@@ -152,125 +95,33 @@ grow_vertical = 2
 text = "als1925, t0qen, obcd31_425, darkphoenix3254"
 label_settings = SubResource("LabelSettings_ak3lw")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-visible = false
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="BackGround" type="Panel" parent="ReferenceRect"]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="Start" type="Button" parent="ReferenceRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = 6.0
-offset_right = 199.0
-offset_bottom = 132.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_bobbp")
-theme_override_font_sizes/font_size = 71
-theme_override_styles/focus = SubResource("StyleBoxFlat_cfn5g")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_xhmce")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7hutc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rsusj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ak3lw")
-text = "START"
-
-[node name="Label" type="Label" parent="ReferenceRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -618.0
-offset_top = -166.0
-offset_right = 619.0
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 10
-theme_override_constants/shadow_offset_y = 10
-theme_override_fonts/font = ExtResource("1_bobbp")
-theme_override_font_sizes/font_size = 91
-text = "MISSION: GAMERBOY"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Logo" type="Sprite2D" parent="."]
 texture = ExtResource("6_rsusj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.6, 0.6)
 
-[node name="Jouer" type="Sprite2D" parent="."]
-position = Vector2(-550, 336)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("7_ak3lw")
-
-[node name="Credit" type="Sprite2D" parent="."]
-position = Vector2(-619, 0)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("8_07enr")
-
 [node name="start" type="Button" parent="."]
-offset_left = -912.0
-offset_top = 192.0
-offset_right = -189.0
-offset_bottom = 480.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_3111u")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1cnnc")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_tiyiu")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4cahn")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_qqqx5")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_i45uw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ycnxj")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_2ydn3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a68ne")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_y1wv0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_tsjas")
-flat = true
+offset_left = -872.0
+offset_top = 166.0
+offset_right = -182.0
+offset_bottom = 467.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_7hutc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rsusj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ak3lw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07enr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3111u")
 
 [node name="credits" type="Button" parent="."]
-offset_left = -871.0
-offset_top = -85.0
-offset_right = -396.0
-offset_bottom = 74.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_jalfe")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_sni8v")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_w8f3w")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_yt3pe")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_stcqg")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_pw7lw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ls281")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_h5n6g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s0pif")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_cbvo8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8j0jn")
-flat = true
+offset_left = -858.0
+offset_top = -143.0
+offset_right = -305.0
+offset_bottom = 119.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_1cnnc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tiyiu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4cahn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qqqx5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i45uw")
 
-[connection signal="pressed" from="ReferenceRect/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

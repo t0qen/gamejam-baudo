@@ -29,7 +29,6 @@ func player_movement(input, delta):
 func _physics_process(delta):
 	
 	var input = Input.get_vector("move_left","move_right","move_up","move_down")
-	print(input)
 	player_movement(input, delta)
 	
 	if input.x != 0:
@@ -60,7 +59,6 @@ func enemy_attack():
 		health = health - 20
 		enemy_attack_cooldown = false
 		$attack_cooldown.start(0.5)
-		print(health)
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true

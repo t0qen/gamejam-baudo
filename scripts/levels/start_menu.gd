@@ -5,7 +5,7 @@ func  _ready() -> void:
 	$Menu.play()
 	
 func _on_start_pressed() -> void:
-	print("PRESSED")
+	
 	Transition.transition()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/levels/cinematic_1.tscn")

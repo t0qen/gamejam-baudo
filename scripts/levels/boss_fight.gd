@@ -36,9 +36,6 @@ func _ready() -> void:
 	update_dialogue()
 	while !is_dialogue_finished:
 		await get_tree().create_timer(0.1).timeout
-		print("waiting for dialogue reachs end")
-	
-	print("BOSS FIGHT START !!")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$player.show()
 	$Boss.start_cycle()
@@ -77,7 +74,6 @@ func _on_boss_boss_dead() -> void:
 
 
 func _on_button_pressed() -> void:
-	print("PASS")
 	if can_pass_dialogue:
 		can_pass_dialogue = false
 		if is_dialoguing:

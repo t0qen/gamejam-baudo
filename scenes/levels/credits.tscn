@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw74otuouhnsl"]
+[gd_scene load_steps=16 format=3 uid="uid://cw74otuouhnsl"]
 
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="1_fhg1p"]
 [ext_resource type="Script" uid="uid://bam6l1aj3b1fk" path="res://scripts/levels/credits.gd" id="1_uvwux"]
@@ -52,7 +52,24 @@ _data = {
 &"crédits": SubResource("Animation_mpx5v")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mpx5v"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpx5v"]
+texture = ExtResource("5_mpx5v")
+modulate_color = Color(0.625597, 0.625597, 0.625597, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4c5nq"]
+texture = ExtResource("5_mpx5v")
+modulate_color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5bms"]
+texture = ExtResource("5_mpx5v")
+modulate_color = Color(0.556953, 0.556953, 0.556953, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvrsu"]
+texture = ExtResource("5_mpx5v")
+modulate_color = Color(0.381703, 0.381703, 0.381703, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlra1"]
+texture = ExtResource("5_mpx5v")
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -145,16 +162,23 @@ autoplay = true
 bus = &"Musique"
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 157.0
-offset_bottom = 56.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mpx5v")
-flat = true
-
-[node name="Menu2" type="Sprite2D" parent="."]
-position = Vector2(77, 32)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_mpx5v")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -299.0
+offset_right = -340.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_mpx5v")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_4c5nq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x5bms")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uvrsu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tlra1")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

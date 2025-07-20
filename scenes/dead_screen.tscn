@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct8q4cef6kwp1"]
+[gd_scene load_steps=17 format=3 uid="uid://ct8q4cef6kwp1"]
 
 [ext_resource type="Script" uid="uid://dnabl30rrk204" path="res://scripts/dead_screen.gd" id="1_b3wyb"]
 [ext_resource type="AudioStream" uid="uid://oqexe4c5o0f5" path="res://assets/sounds/Dax/vrm nul dax3.wav" id="3_urrme"]
@@ -7,9 +7,43 @@
 [ext_resource type="Texture2D" uid="uid://cdbxov2weuh5r" path="res://assets/menus/menu.png" id="5_5pyt7"]
 [ext_resource type="Texture2D" uid="uid://cou3tklktr4i2" path="res://assets/menus/jouer.png" id="6_qaisq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8b16"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_585ho"]
+texture = ExtResource("6_qaisq")
+modulate_color = Color(0.597176, 0.597176, 0.597176, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pyt7"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v8b16"]
+texture = ExtResource("6_qaisq")
+modulate_color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pyt7"]
+texture = ExtResource("6_qaisq")
+modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qaisq"]
+texture = ExtResource("6_qaisq")
+modulate_color = Color(0.340339, 0.340339, 0.340339, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mws2h"]
+texture = ExtResource("6_qaisq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bdp4"]
+texture = ExtResource("5_5pyt7")
+modulate_color = Color(0.625597, 0.625597, 0.625597, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_33e7q"]
+texture = ExtResource("5_5pyt7")
+modulate_color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5se58"]
+texture = ExtResource("5_5pyt7")
+modulate_color = Color(0.556953, 0.556953, 0.556953, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ub6ii"]
+texture = ExtResource("5_5pyt7")
+modulate_color = Color(0.381703, 0.381703, 0.381703, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrijn"]
+texture = ExtResource("5_5pyt7")
 
 [node name="dead_screen" type="Node2D"]
 script = ExtResource("1_b3wyb")
@@ -26,23 +60,6 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Button" type="Button" parent="ReferenceRect"]
-layout_mode = 0
-offset_left = 236.0
-offset_top = 302.0
-offset_right = 466.0
-offset_bottom = 404.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v8b16")
-flat = true
-
-[node name="Button2" type="Button" parent="ReferenceRect"]
-offset_left = 531.0
-offset_top = 344.0
-offset_right = 696.0
-offset_bottom = 398.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5pyt7")
-flat = true
-
 [node name="VrmNulDax3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_urrme")
 bus = &"Dax"
@@ -52,21 +69,39 @@ position = Vector2(576, 324)
 scale = Vector2(0.74, 0.74)
 texture = ExtResource("3_v8b16")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 150.0
+offset_top = 332.0
+offset_right = 565.0
+offset_bottom = 509.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_585ho")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_v8b16")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5pyt7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qaisq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mws2h")
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 602.0
+offset_top = 346.0
+offset_right = 1003.0
+offset_bottom = 532.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_3bdp4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_33e7q")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5se58")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ub6ii")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vrijn")
+
 [node name="TelephoneDax" parent="." instance=ExtResource("4_g6ylt")]
-visible = false
 position = Vector2(3, 4)
 scale = Vector2(1.04738, 1.04738)
 
-[node name="Menu" type="Sprite2D" parent="."]
-position = Vector2(617, 377)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_5pyt7")
-
-[node name="Jouer" type="Sprite2D" parent="."]
-position = Vector2(350, 352)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_qaisq")
-
-[connection signal="pressed" from="ReferenceRect/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ReferenceRect/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="finished" from="VrmNulDax3" to="." method="_on_vrm_nul_dax_3_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

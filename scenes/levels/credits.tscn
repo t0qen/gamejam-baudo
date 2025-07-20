@@ -1,6 +1,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=12 format=3 uid="uid://cw74otuouhnsl"]
+=======
+[gd_scene load_steps=16 format=3 uid="uid://cw74otuouhnsl"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=16 format=3 uid="uid://cw74otuouhnsl"]
 >>>>>>> Stashed changes
@@ -62,8 +66,11 @@ _data = {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mpx5v"]
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpx5v"]
@@ -85,6 +92,9 @@ modulate_color = Color(0.340339, 0.340339, 0.340339, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlra1"]
 texture = ExtResource("5_mpx5v")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -183,6 +193,7 @@ bus = &"Musique"
 layout_mode = 0
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 offset_right = 157.0
 offset_bottom = 56.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mpx5v")
@@ -195,6 +206,8 @@ texture = ExtResource("5_mpx5v")
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 offset_left = 27.0
 offset_top = 19.0
 offset_right = 220.0
@@ -205,6 +218,9 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_x5bms")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_uvrsu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_tlra1")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

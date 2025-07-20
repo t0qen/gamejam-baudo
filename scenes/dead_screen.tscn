@@ -1,9 +1,12 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=9 format=3 uid="uid://ct8q4cef6kwp1"]
 
 [ext_resource type="Script" uid="uid://dnabl30rrk204" path="res://scripts/dead_screen.gd" id="1_b3wyb"]
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 [gd_scene load_steps=16 format=3 uid="uid://ct8q4cef6kwp1"]
@@ -12,6 +15,9 @@
 [ext_resource type="FontFile" uid="uid://bcb0j2k510lh2" path="res://assets/fonts/Lexend-SemiBold.ttf" id="2_id3ew"]
 [ext_resource type="Texture2D" uid="uid://cdbxov2weuh5r" path="res://assets/menus/menu.png" id="3_585ho"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -24,6 +30,21 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8b16"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pyt7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v8b16"]
+texture = ExtResource("3_585ho")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pyt7"]
+texture = ExtResource("3_585ho")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qaisq"]
+texture = ExtResource("3_585ho")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mws2h"]
+texture = ExtResource("3_585ho")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bdp4"]
+texture = ExtResource("3_585ho")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v8b16"]
 texture = ExtResource("3_585ho")
@@ -88,6 +109,18 @@ offset_bottom = 398.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5pyt7")
 flat = true
 =======
+layout_mode = 0
+offset_left = 377.0
+offset_top = 346.0
+offset_right = 826.0
+offset_bottom = 511.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_v8b16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_5pyt7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qaisq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mws2h")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3bdp4")
+
+[node name="Button2" type="Button" parent="ReferenceRect"]
 layout_mode = 0
 offset_left = 377.0
 offset_top = 346.0

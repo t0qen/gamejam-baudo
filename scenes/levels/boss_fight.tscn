@@ -647,8 +647,10 @@ offset_left = -96.0
 offset_top = 312.0
 offset_right = 89.0
 offset_bottom = 354.0
-text = "Gamer Boy"
+text = "???"
 label_settings = SubResource("LabelSettings_lu7xo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Martin" type="Sprite2D" parent="dialogue/dialogue 2"]
 position = Vector2(-394.25, 391.449)

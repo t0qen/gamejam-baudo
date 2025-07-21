@@ -20,7 +20,7 @@ config/version="1.0.0"
 run/main_scene="uid://dls31nm63dvlr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://d28yab73wa6dn"
 
 [autoload]
 
